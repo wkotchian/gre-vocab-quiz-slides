@@ -14,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 W, H = 1080, 1920
-SAFE_L, SAFE_R = 60, 900          # keep text left of the Shorts like/comment column
+SAFE_L, SAFE_R = 120, 960          # centered on the 1080 frame; right edge stays clear of the Shorts buttons
 PURPLE, PURPLE_DARK = (89, 0, 204), (52, 0, 125)
 YELLOW, WHITE = (255, 194, 14), (255, 255, 255)
 FONT = os.path.join(HERE, "fonts", "Inter-{w}.otf")  # bundled (SIL Open Font License)
