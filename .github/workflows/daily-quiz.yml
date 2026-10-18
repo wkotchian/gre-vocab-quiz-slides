@@ -68,5 +68,6 @@ jobs:
           echo "$line" >> posted.log
           git config user.name "gre-quiz-bot"
           git config user.email "actions@users.noreply.github.com"
+          git pull -q --rebase origin main || true
           git add posted.log
           git commit -m "log: $line" && git push || echo "nothing to commit"
