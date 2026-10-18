@@ -2,3 +2,4 @@
 *.token
 .env
 short-*.mp4
+__pycache__/
