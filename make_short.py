@@ -93,20 +93,11 @@ def question_frame(q, count):
 
 
 def answer_frame(q):
+    """Reveal = just the flashcard, as big as the screen allows (full width, 1080x1350).
+    Placed high so the card's own text block sits above YouTube's button column."""
     im = Image.new("RGB", (W, H), PURPLE)
-    d = ImageDraw.Draw(im)
-    y = 140
-    center_x(d, f"ANSWER: {q['answer']}", font("Black", 120), y, YELLOW); y += 150
-    df = font("Bold", 58)
-    for ln in wrap_px(d, q["definition"], df, SAFE_R - SAFE_L)[:3]:
-        center_x(d, ln, df, y, WHITE); y += 74
-    y += 30
-    a = Image.open(os.path.join(HERE, q["slides"][1])).convert("RGB")
-    # cartoon scaled to the safe width so its own caption text stays clear of the buttons
-    cw = SAFE_R - SAFE_L + 120
-    ch = int(1350 * cw / W)
-    a = a.resize((cw, ch), Image.LANCZOS)
-    im.paste(a, (0, y))  # left-aligned: right edge stays left of the Shorts button column
+    a = Image.open(os.path.join(HERE, q["slides"][1])).convert("RGB").resize((W, 1350), Image.LANCZOS)
+    im.paste(a, (0, 170))
     return im
 
 
