@@ -54,6 +54,7 @@ jobs:
           echo "$line" >> shorts.log
           git config user.name "gre-quiz-bot"
           git config user.email "actions@users.noreply.github.com"
-          git pull -q --rebase origin main || true
           git add shorts.log
-          git commit -m "log: $line" && git push || echo "nothing to commit"
+          git commit -q -m "log: $line" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+          echo "could not push log (harmless)"
