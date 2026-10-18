@@ -5,7 +5,7 @@ Usage:  IG_TOKEN=... python3 post_next.py [--dry-run] [--num N]
 
 Safety rules built in:
   * official Instagram API only (graph.instagram.com) — no browser automation
-  * at most ONE quiz post per 20 hours; skips if a quiz was posted more recently
+  * at most ONE quiz post per 16 hours; skips if a quiz was posted more recently
   * never reposts a quiz number that already appears in recent captions
   * stops on any API error instead of retrying in a loop
 """
@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 API = "https://graph.instagram.com/v23.0"
 RAW = "https://raw.githubusercontent.com/wkotchian/gre-vocab-quiz-slides/main/"
 HERE = os.path.dirname(os.path.abspath(__file__))
-MIN_GAP_HOURS = 20
+MIN_GAP_HOURS = 16
 
 
 def call(method, path, token, **params):
