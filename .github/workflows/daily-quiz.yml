@@ -1,0 +1,72 @@
+name: Daily GRE vocab quiz
+
+# Posts ONE quiz carousel per day to @gre_vocab_cartoons via the official Instagram API.
+# 15:53 UTC = 8:53 am Pacific during daylight time (7:53 am after clocks fall back).
+on:
+  schedule:
+    - cron: "53 15 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # only to append to posted.log (keeps the repo active so GitHub doesn't pause the schedule)
+
+concurrency:
+  group: daily-quiz
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check token is configured
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          if [ -z "$IG_TOKEN" ]; then
+            echo "::error::IG_TOKEN secret is missing (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - name: Post next quiz (one post max; script skips if posted < 16h ago)
+        id: post
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          set -o pipefail
+          python3 -I post_next.py | tee run.txt
+
+      - name: Weekly token refresh (Sundays)
+        if: github.event_name == 'schedule'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          if [ "$(TZ=America/Los_Angeles date +%u)" != "7" ]; then echo "Not Sunday; skipping refresh"; exit 0; fi
+          python3 -I - <<'EOF'
+          import json, os, sys, urllib.request, urllib.parse
+          tok = os.environ["IG_TOKEN"]
+          url = "https://graph.instagram.com/refresh_access_token?" + urllib.parse.urlencode(
+              {"grant_type": "ig_refresh_token", "access_token": tok})
+          try:
+              r = json.load(urllib.request.urlopen(url, timeout=60))
+          except urllib.error.HTTPError as e:
+              print("::warning::Token refresh failed:", e.read().decode(errors="replace").replace(tok, "<token>"))
+              sys.exit(0)
+          days = int(r.get("expires_in", 0)) // 86400
+          print(f"Token valid for another {days} days")
+          if r.get("access_token") and r["access_token"] != tok:
+              print("::error::Instagram issued a NEW token. Generate a fresh token in the Meta app and update the IG_TOKEN secret.")
+              sys.exit(1)
+          EOF
+
+      - name: Log the run
+        if: always() && steps.post.outcome == 'success'
+        run: |
+          line="$(date -u +%Y-%m-%dT%H:%MZ) $(grep -E '^(POSTED|SKIP|QUEUE EMPTY)' run.txt | head -1)"
+          echo "$line" >> posted.log
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add posted.log
+          git commit -m "log: $line" && git push || echo "nothing to commit"
