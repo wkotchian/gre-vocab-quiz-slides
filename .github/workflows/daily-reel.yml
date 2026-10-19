@@ -68,7 +68,7 @@ jobs:
           args=""
           if [ "$TEST" = "true" ]; then args="$args --test-container"; fi
           if [ -n "$NUM" ]; then args="$args --num $NUM"; fi
-          python3 -I post_reel.py $args | tee run.txt
+          python3 post_reel.py $args | tee run.txt
 
       - name: Log the run
         if: always() && steps.reel.outcome == 'success'
