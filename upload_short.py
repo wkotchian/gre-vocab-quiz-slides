@@ -10,7 +10,7 @@ Safety rules built in:
   * at most ONE quiz Short per 16 hours; never re-uploads a quiz number already on the channel
   * stops on any API error instead of retrying in a loop
 """
-import json, os, sys, time, urllib.parse, urllib.request
+import json, os, re, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -66,11 +66,9 @@ def main():
     done, last_time = set(), None
     for it in items:
         t = it["snippet"]["title"]
-        if t.startswith("GRE Vocab Quiz #"):
-            try:
-                n = int(t.split("#", 1)[1].split(":", 1)[0])
-            except ValueError:
-                continue
+        m = re.search(r"GRE vocab quiz #(\d+)", t, re.IGNORECASE)
+        if m:
+            n = int(m.group(1))
             if n in nums:
                 done.add(n)
                 ts = datetime.strptime(it["snippet"]["publishedAt"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -96,7 +94,8 @@ def main():
         sys.exit(f"Quiz #{item['num']} is already on the channel; refusing to re-upload")
 
     word = item["word"].upper()
-    title = f"GRE Vocab Quiz #{item['num']}: what does {word} mean? #Shorts"[:100]
+    # Word first: people search "<word> meaning". The parser above matches "GRE vocab quiz #N" in old and new titles.
+    title = f"{word} meaning: GRE vocab quiz #{item['num']} #Shorts"[:100]
     desc = (f"What does {word} mean? Pick A, B, C, or D before the countdown ends, then see the cartoon "
             "that makes it stick.\n\nGot it right? Comment ✅ or ❌.\n\n"
             "Learn 1,200+ GRE words with funny cartoons in the GRE Vocab Cartoons app: "
