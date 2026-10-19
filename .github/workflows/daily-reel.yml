@@ -1,0 +1,83 @@
+name: Daily GRE vocab Reel
+
+# Posts ONE quiz Reel per day to @gre_vocab_cartoons via the official Instagram API.
+# Reels work through queue.json from the END (#1675, #1674, ...); carousels and Shorts count up from #471.
+# 00:47 UTC = 5:47 pm Pacific during daylight time (4:47 pm after clocks fall back).
+on:
+  schedule:
+    - cron: "47 0 * * *"
+  workflow_dispatch:
+    inputs:
+      test_container:
+        description: "true = build the Instagram container but do NOT publish"
+        default: "false"
+      num:
+        description: "Quiz number to post (blank = next in reverse order)"
+        default: ""
+      check:
+        description: "true = read-only check only: list recent Reels + run the carousel script with --dry-run"
+        default: "false"
+
+permissions:
+  contents: write   # reels.log, and the orphan reel-files branch that hosts the video
+
+concurrency:
+  group: daily-reel
+  cancel-in-progress: false
+
+jobs:
+  reel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check token is configured
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          if [ -z "$IG_TOKEN" ]; then
+            echo "::error::IG_TOKEN secret is missing (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - name: Read-only check (manual runs only)
+        if: github.event.inputs.check == 'true'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          python3 -I post_reel.py --verify
+          python3 -I post_next.py --dry-run
+
+      - name: Install tools
+        if: github.event.inputs.check != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q pillow
+
+      - name: Render and post next Reel (one max; skips if posted < 16h ago)
+        id: reel
+        if: github.event.inputs.check != 'true'
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEST: ${{ github.event.inputs.test_container }}
+          NUM: ${{ github.event.inputs.num }}
+        run: |
+          set -o pipefail
+          args=""
+          if [ "$TEST" = "true" ]; then args="$args --test-container"; fi
+          if [ -n "$NUM" ]; then args="$args --num $NUM"; fi
+          python3 -I post_reel.py $args | tee run.txt
+
+      - name: Log the run
+        if: always() && steps.reel.outcome == 'success'
+        run: |
+          line="$(date -u +%Y-%m-%dT%H:%MZ) $(grep -E '^(POSTED REEL|SKIP|QUEUE EMPTY|TEST OK)' run.txt | head -1)"
+          echo "$line" >> reels.log
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add reels.log
+          git commit -q -m "log: $line" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+          echo "could not push log (harmless)"
