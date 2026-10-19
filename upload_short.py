@@ -20,6 +20,7 @@ import make_short  # noqa: E402
 EXPECTED_CHANNEL = "Vince Kotchian Test Prep"
 MIN_GAP_HOURS = 16
 API = "https://www.googleapis.com/youtube/v3"
+QUIZ_PLAYLIST = "PLWEAzawLBpKE"  # public playlist "GRE Vocab Quiz Shorts" (created 2026-10-19)
 
 
 def arg(name, default=None):
@@ -119,6 +120,23 @@ def main():
     with open(out, "rb") as f:
         v = http("PUT", loc, tok, data=f.read(), headers={"Content-Type": "video/mp4", "Content-Length": str(size)})
     print(f"UPLOADED #{item['num']} {item['word']} ({privacy}): https://youtube.com/shorts/{v['id']}")
+    if privacy == "public":
+        add_to_playlist(tok, v["id"])
+
+
+def add_to_playlist(tok, video_id):
+    """Adds the new Short to the quiz playlist. Never fails the run: the upload already succeeded."""
+    body = json.dumps({"snippet": {"playlistId": QUIZ_PLAYLIST, "position": 0,
+                                   "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).encode()
+    req = urllib.request.Request(f"{API}/playlistItems?part=snippet", data=body, method="POST",
+                                 headers={"Authorization": f"Bearer {tok}",
+                                          "Content-Type": "application/json; charset=UTF-8"})
+    try:
+        with urllib.request.urlopen(req, timeout=60):
+            print(f"PLAYLIST added {video_id} to {QUIZ_PLAYLIST}")
+    except Exception as e:  # noqa: BLE001
+        detail = e.read().decode(errors="replace")[:300] if hasattr(e, "read") else str(e)
+        print(f"PLAYLIST not added ({getattr(e, 'code', '')}): {detail}")
 
 
 if __name__ == "__main__":
