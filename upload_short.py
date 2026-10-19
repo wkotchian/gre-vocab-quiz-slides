@@ -98,8 +98,9 @@ def main():
     title = f"{word} meaning: GRE vocab quiz #{item['num']} #Shorts"[:100]
     desc = (f"What does {word} mean? Pick A, B, C, or D before the countdown ends, then see the cartoon "
             "that makes it stick.\n\nGot it right? Comment ✅ or ❌.\n\n"
-            "Learn 1,200+ GRE words with funny cartoons in the GRE Vocab Cartoons app: "
-            "https://linktr.ee/vincekotchian\n\n#GRE #GREvocabulary #GREprep #vocabulary #Shorts")
+            "Learn 1,200+ GRE words with funny cartoons in the GRE Vocab Cartoons app. "
+            "Search \"GRE Vocabulary Cartoons\" in the App Store or \"GRE Vocab Cartoons Flashcards\" on Google Play.\n\n"
+            "More free GRE help: https://vincekotchian.com/gre/free-gre-resources/\n\n#GRE #GREvocabulary #GREprep #vocabulary #Shorts")
     print(f"next: #{item['num']} {item['word']} (privacy: {privacy})")
     if dry:
         print("DRY RUN: nothing uploaded"); print("title:", title); return
