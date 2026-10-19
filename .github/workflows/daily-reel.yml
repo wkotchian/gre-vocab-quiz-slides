@@ -3,6 +3,7 @@ name: Daily GRE vocab Reel
 # Posts ONE quiz Reel per day to @gre_vocab_cartoons via the official Instagram API.
 # Reels work through queue.json from the END (#1675, #1674, ...); carousels and Shorts count up from #471.
 # 00:47 UTC = 5:47 pm Pacific during daylight time (4:47 pm after clocks fall back).
+# 2026-10-19: re-saved so GitHub registers the schedule (no scheduled run had fired yet).
 on:
   schedule:
     - cron: "47 0 * * *"

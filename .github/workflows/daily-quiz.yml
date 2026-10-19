@@ -2,6 +2,7 @@ name: Daily GRE vocab quiz
 
 # Posts ONE quiz carousel per day to @gre_vocab_cartoons via the official Instagram API.
 # 15:53 UTC = 8:53 am Pacific during daylight time (7:53 am after clocks fall back).
+# 2026-10-19: re-saved so GitHub registers the schedule (no scheduled run had fired yet).
 on:
   schedule:
     - cron: "53 15 * * *"

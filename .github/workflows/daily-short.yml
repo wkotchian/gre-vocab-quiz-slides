@@ -2,6 +2,7 @@ name: Daily GRE vocab Short
 
 # Uploads ONE quiz Short per day to the "Vince Kotchian Test Prep" YouTube channel via the official API.
 # 19:41 UTC = 12:41 pm Pacific during daylight time (11:41 am after clocks fall back).
+# 2026-10-19: re-saved so GitHub registers the schedule (no scheduled run had fired yet).
 on:
   schedule:
     - cron: "41 19 * * *"
