@@ -53,6 +53,9 @@ jobs:
         run: |
           line="$(date -u +%Y-%m-%dT%H:%MZ) $(grep -E '^(UPLOADED|SKIP|QUEUE EMPTY)' run.txt | head -1)"
           echo "$line" >> shorts.log
+          # 2026-10-20: also keep the playlist result, since run logs can't be read from outside GitHub
+          pl="$(grep -E '^PLAYLIST' run.txt | head -1 | cut -c1-300)"
+          if [ -n "$pl" ]; then echo "$(date -u +%Y-%m-%dT%H:%MZ) $pl" >> shorts.log; fi
           git config user.name "gre-quiz-bot"
           git config user.email "actions@users.noreply.github.com"
           git add shorts.log
