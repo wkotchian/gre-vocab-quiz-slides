@@ -135,7 +135,8 @@ def add_to_playlist(tok, video_id):
         with urllib.request.urlopen(req, timeout=60):
             print(f"PLAYLIST added {video_id} to {QUIZ_PLAYLIST}")
     except Exception as e:  # noqa: BLE001
-        detail = e.read().decode(errors="replace")[:300] if hasattr(e, "read") else str(e)
+        detail = e.read().decode(errors="replace") if hasattr(e, "read") else str(e)
+        detail = " ".join(detail.split())[:400]  # one line, so the workflow can log it
         print(f"PLAYLIST not added ({getattr(e, 'code', '')}): {detail}")
 
 

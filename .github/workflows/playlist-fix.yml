@@ -1,0 +1,35 @@
+name: Playlist fix (manual)
+
+# One-off helper, 2026-10-21: logs the YouTube token's scopes and adds listed Shorts to the quiz playlist.
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "Space-separated YouTube video ids to add"
+        default: "Ik6R_Dm5Ed4 ffMQzJvBfMI"
+
+permissions:
+  contents: write   # only to append to playlist.log
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check scopes and add to playlist
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          IDS: ${{ github.event.inputs.ids }}
+        run: python3 playlist_fix.py $IDS | tee out.txt
+      - name: Log
+        if: always()
+        run: |
+          sed "s/^/$(date -u +%Y-%m-%dT%H:%MZ) /" out.txt >> playlist.log
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add playlist.log
+          git commit -q -m "log: playlist fix" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
