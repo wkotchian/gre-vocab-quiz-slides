@@ -4,3 +4,5 @@
 2026-10-20T22:37Z PLAYLIST not added (403): {
 2026-10-21T22:42Z UPLOADED #473 bumptious (public): https://youtube.com/shorts/UyXg_VH6ZZ4
 2026-10-21T22:42Z PLAYLIST not added (400): { "error": { "code": 400, "message": "Playlist should use manual sorting to support position.", "errors": [ { "message": "Playlist should use manual sorting to support position.", "domain": "youtube.playlistItem", "reason": "manualSortRequired" } ] } }
+2026-10-24T19:21Z UPLOADED #474 badger (public): https://youtube.com/shorts/d_LYkeelh2Y
+2026-10-24T19:21Z PLAYLIST added d_LYkeelh2Y to PLWEAzawLBpKE
