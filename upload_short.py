@@ -20,6 +20,7 @@ import make_short  # noqa: E402
 EXPECTED_CHANNEL = "Vince Kotchian Test Prep"
 MIN_GAP_HOURS = 16
 API = "https://www.googleapis.com/youtube/v3"
+PUZZLE_LIVE = datetime(2026, 11, 16, 12, 0, tzinfo=timezone.utc)  # add the puzzle link to descriptions from here on
 QUIZ_PLAYLIST = "PLWEAzawLBpKE"  # public playlist "GRE Vocab Quiz Shorts" (created 2026-10-19)
 
 
@@ -97,8 +98,11 @@ def main():
     word = item["word"].upper()
     # Word first: people search "<word> meaning". The parser above matches "GRE vocab quiz #N" in old and new titles.
     title = f"{word} meaning: GRE vocab quiz #{item['num']} #Shorts"[:100]
+    # Daily GRE Word Puzzle on the site goes live 2026-11-16 (visitor's local date); 12:00 UTC is Nov 16 across the US.
+    puzzle = ("Play today's free GRE word puzzle: https://vincekotchian.com/blog/gre/gre-words-of-the-day/#puzzle\n\n"
+              if datetime.now(timezone.utc) >= PUZZLE_LIVE else "")
     desc = (f"What does {word} mean? Pick A, B, C, or D before the countdown ends, then see the cartoon "
-            "that makes it stick.\n\nGot it right? Comment ✅ or ❌.\n\n"
+            "that makes it stick.\n\nGot it right? Comment ✅ or ❌.\n\n" + puzzle +
             "Learn 1,200+ GRE words with funny cartoons in the GRE Vocab Cartoons app. "
             "Search \"GRE Vocabulary Cartoons\" in the App Store or \"GRE Vocab Cartoons Flashcards\" on Google Play.\n\n"
             "More free GRE help: https://vincekotchian.com/gre/free-gre-resources/\n\n#GRE #GREvocabulary #GREprep #vocabulary #Shorts")
