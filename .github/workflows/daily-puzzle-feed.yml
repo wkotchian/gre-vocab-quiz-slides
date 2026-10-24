@@ -1,0 +1,44 @@
+name: Daily GRE word puzzle feed
+
+# Rebuilds docs/puzzle/feed.xml (served by GitHub Pages) for Mailchimp's daily puzzle email.
+# 11:07 UTC = 4:07 am Pacific during daylight time (3:07 am after clocks fall back), well before the email goes out.
+on:
+  schedule:
+    - cron: "7 11 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Build for this date, YYYY-MM-DD (blank = today, Pacific)"
+        default: ""
+
+permissions:
+  contents: write   # to commit the feed and teaser images
+
+concurrency:
+  group: daily-puzzle-feed
+  cancel-in-progress: false
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pillow
+        run: pip install -q pillow
+
+      - name: Build the feed
+        env:
+          D: ${{ github.event.inputs.date }}
+        run: |
+          if [ -n "$D" ]; then python3 puzzle_feed.py --date "$D"; else python3 puzzle_feed.py; fi | tee run.txt
+
+      - name: Commit the feed
+        run: |
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A docs/puzzle
+          git commit -q -m "puzzle feed: $(head -1 run.txt)" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+          echo "could not push the feed" && exit 1
