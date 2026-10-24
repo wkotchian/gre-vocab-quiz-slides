@@ -130,7 +130,8 @@ def main():
 
 def add_to_playlist(tok, video_id):
     """Adds the new Short to the quiz playlist. Never fails the run: the upload already succeeded."""
-    body = json.dumps({"snippet": {"playlistId": QUIZ_PLAYLIST, "position": 0,
+    # no "position": the playlist sorts automatically, and a position gets 400 manualSortRequired (2026-10-21)
+    body = json.dumps({"snippet": {"playlistId": QUIZ_PLAYLIST,
                                    "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).encode()
     req = urllib.request.Request(f"{API}/playlistItems?part=snippet", data=body, method="POST",
                                  headers={"Authorization": f"Bearer {tok}",

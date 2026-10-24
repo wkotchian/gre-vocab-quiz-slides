@@ -52,13 +52,22 @@ jobs:
 
       - name: Install tools
         if: github.event.inputs.check != 'true'
+        timeout-minutes: 6
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
-          pip install -q pillow
+          # 2026-10-24: no apt-get. It hung for 15 min on 2026-10-22 and 10-23 and the Short
+          # was silently skipped (a job timeout counts as "cancelled", which sends no email).
+          # imageio-ffmpeg ships a static ffmpeg (libx264 + aac) inside the pip wheel.
+          pip install -q pillow imageio-ffmpeg
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+            sudo ln -sf "$FF" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
 
       - name: Render and post next Reel (one max; skips if posted < 16h ago)
         id: reel
         if: github.event.inputs.check != 'true'
+        timeout-minutes: 12
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

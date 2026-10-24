@@ -25,17 +25,26 @@ concurrency:
 jobs:
   upload:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
       - name: Install tools
+        timeout-minutes: 6
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
-          pip install -q pillow
+          # 2026-10-24: no apt-get. It hung for 15 min on 2026-10-22 and 10-23 and the Short
+          # was silently skipped (a job timeout counts as "cancelled", which sends no email).
+          # imageio-ffmpeg ships a static ffmpeg (libx264 + aac) inside the pip wheel.
+          pip install -q pillow imageio-ffmpeg
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+            sudo ln -sf "$FF" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
 
       - name: Render and upload next Short (one max; skips if uploaded < 16h ago)
         id: up
+        timeout-minutes: 12
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
