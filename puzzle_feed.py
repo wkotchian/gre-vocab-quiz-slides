@@ -5,9 +5,11 @@ visitor's local date). Mailchimp's daily RSS campaign (sent to the GRE audience'
 docs/puzzle/feed.xml, served by GitHub Pages at
 https://wkotchian.github.io/gre-vocab-quiz-slides/puzzle/feed.xml
 
-Each item = one day's puzzle: the picture half of the cartoon (word hidden), part of speech, definition,
-the starter letters exactly as the puzzle shows them, a Play button, yesterday's answer with its full
-cartoon, and the app line. The feed keeps the last KEEP days; older teaser images are removed.
+Each item = one day's puzzle as a game board: the picture half of the cartoon (word hidden), part of speech,
+definition, the memory-trick strip (m<N>.jpg), the answer boxes with the starter letters in place, and the
+scrambled tiles in the site's exact order (puzzle/board.json, dumped from the site's puzzle script by
+board_dump.js in the VKTP project and checked against the live page), a Play button, yesterday's answer with
+its full cartoon, and the app line. The feed keeps the last KEEP days; older teaser images are removed.
 
 Run daily (GitHub Actions, daily-puzzle-feed.yml) before Mailchimp's send time.
   python3 puzzle_feed.py                 # today (Pacific date)
@@ -45,44 +47,91 @@ def given_spots(L):  # same as givenSpots() in the site's puzzle script
     return out
 
 
-def puzzle(P, n):
+def puzzle(P, n, B=None):
     e = P[(n - 1) % len(P)]
-    return dict(n=n, w=e["w"].upper(), pos=e["pos"], d=e["d"], u=e["u"])
+    pz = dict(n=n, w=e["w"].upper(), pos=e["pos"], d=e["d"], u=e["u"])
+    if B:  # board.json: the scrambled tiles in the site's exact order, and the memory-trick crop band (per mille)
+        b = B[(n - 1) % len(B)]
+        pz["pool"], pz["band"] = b["pool"], b["b"]
+    return pz
 
 
-def teaser(pz, folder):
-    """Bottom 45% of the cartoon (the picture, no text), 600 px wide JPEG."""
-    path = os.path.join(folder, f"t{pz['n']}.jpg")
-    if os.path.exists(path):
-        return
+def _cartoon(pz):
     from PIL import Image
     url = MEDIA + pz["u"] + "?width=1200&format=jpg&quality=90"
     with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "vktp-puzzle-feed"}), timeout=60) as r:
-        im = Image.open(io.BytesIO(r.read())).convert("RGB")
+        return Image.open(io.BytesIO(r.read())).convert("RGB")
+
+
+def teaser(pz, folder):
+    """t<N>.jpg: bottom 45% of the cartoon (the picture, no text), 600 px wide.
+    m<N>.jpg: the cartoon's memory-trick line ("THINK: ..."), the same crop the site shows."""
+    from PIL import Image
+    tp, mp = os.path.join(folder, f"t{pz['n']}.jpg"), os.path.join(folder, f"m{pz['n']}.jpg")
+    band = pz.get("band")
+    want_m = bool(band and band[1] > band[0])
+    if os.path.exists(tp) and (os.path.exists(mp) or not want_m):
+        return
+    im = _cartoon(pz)
     w, h = im.size
-    im = im.crop((0, round(h * 0.55), w, h)).resize((600, round(600 * (h * 0.45) / w)), Image.LANCZOS)
-    im.save(path, "JPEG", quality=78, optimize=True, progressive=True)
+    if not os.path.exists(tp):
+        im.crop((0, round(h * 0.55), w, h)).resize((600, round(600 * (h * 0.45) / w)), Image.LANCZOS) \
+          .save(tp, "JPEG", quality=78, optimize=True, progressive=True)
+    if want_m and not os.path.exists(mp):
+        b0, b1, x0, x1 = band
+        c = im.crop((round(x0 / 1000 * w), round(b0 / 1000 * h), round(x1 / 1000 * w), round(b1 / 1000 * h)))
+        c.resize((600, max(1, round(600 * c.size[1] / c.size[0]))), Image.LANCZOS) \
+         .save(mp, "JPEG", quality=82, optimize=True, progressive=True)
+
+
+def _tile_row(cells, size):
+    """One row of letter boxes as an email-safe table. cells: (letter or "", bg, border, color, shadow)."""
+    e = html.escape
+    tds = []
+    for k, (ch, bg, border, color, shadow) in enumerate(cells):
+        if k:
+            tds.append('<td style="width:5px;font-size:0;line-height:0">&nbsp;</td>')
+        tds.append(f'<td width="{size}" height="{size + 4}" align="center" valign="middle" style="width:{size}px;height:{size + 4}px;'
+                   f'background:{bg};border:2px solid {border};border-radius:7px;{shadow}'
+                   f'font:bold {round(size * 0.55)}px Arial,Helvetica,sans-serif;color:{color};text-align:center">'
+                   f'{e(ch) if ch else "&nbsp;"}</td>')
+    return f'<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto"><tr>{"".join(tds)}</tr></table>'
+
+
+def board_html(pz, play, intro=True):
+    """The puzzle as the site shows it at the start: cartoon clue, definition, memory trick, the answer slots
+    (starter letters filled in), and the scrambled letter tiles. Everything links to the puzzle."""
+    e = html.escape
+    w, L = pz["w"], len(pz["w"])
+    spots = given_spots(L)
+    size = 34 if L <= 8 else 30
+    slots = [(c if i in spots else "", "#ede7f2" if i in spots else "#ffffff", PURPLE if i in spots else "#cfcfcf",
+              PURPLE, "") for i, c in enumerate(w)]
+    pool = [(c, PURPLE, PURPLE, "#ffffff", "box-shadow:0 2px 0 #4a126b;") for c in pz.get("pool", "")]
+    band = pz.get("band")
+    h = '<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;color:#222;text-align:center">'
+    if intro:
+        h += '<p style="font-size:15px;color:#444;margin:0 0 10px">Unscramble today\'s GRE word. Some letters are already in place.</p>'
+    h += (f'<a href="{e(play)}"><img src="{PAGES}/t{pz["n"]}.jpg" width="560" alt="Cartoon clue for puzzle #{pz["n"]} (the word is hidden)" '
+          f'style="width:100%;max-width:560px;height:auto;border-radius:10px;display:block;border:0"></a>'
+          f'<p style="font-size:18px;line-height:1.4;margin:14px 0 12px">({e(pz["pos"])}) '
+          f'<strong style="color:{PURPLE}">{e(pz["d"])}</strong></p>')
+    if band and band[1] > band[0]:
+        h += (f'<p style="font-size:13px;color:#666;margin:0 0 4px">Memory trick from the cartoon:</p>'
+              f'<a href="{e(play)}"><img src="{PAGES}/m{pz["n"]}.jpg" width="560" alt="Memory trick for puzzle #{pz["n"]}" '
+              f'style="width:100%;max-width:560px;height:auto;border-radius:8px;display:block;border:0;margin:0 0 14px"></a>')
+    h += f'<a href="{e(play)}" style="text-decoration:none;display:block">{_tile_row(slots, size)}</a>'
+    if pool:
+        h += f'<div style="height:14px;line-height:14px;font-size:0">&nbsp;</div><a href="{e(play)}" style="text-decoration:none;display:block">{_tile_row(pool, size + 4)}</a>'
+    h += (f'<p style="font-size:13px;color:#666;margin:10px 0 18px">{L} letters. Put the purple tiles in the empty boxes.</p>'
+          f'<a href="{e(play)}" style="display:inline-block;background:{PURPLE};color:#ffffff;text-decoration:none;'
+          f'font-weight:bold;font-size:17px;padding:13px 28px;border-radius:24px">Play puzzle #{pz["n"]}</a></div>')
+    return h
 
 
 def item_html(pz, prev):
     e = html.escape
-    spots = given_spots(len(pz["w"]))
-    tiles = "".join(
-        f'<td style="width:34px;height:40px;border:2px solid {PURPLE if i in spots else "#cfcfcf"};'
-        f'background:{"#ede7f2" if i in spots else "#ffffff"};color:{PURPLE};font:bold 20px Arial,sans-serif;'
-        f'text-align:center;border-radius:6px">{e(c) if i in spots else "&nbsp;"}</td>'
-        f'<td style="width:4px"></td>'
-        for i, c in enumerate(pz["w"]))
-    h = (f'<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;color:#222;text-align:center">'
-         f'<p style="font-size:14px;color:#555;margin:0 0 10px">Unscramble today\'s GRE word. Some letters are already in place.</p>'
-         f'<a href="{e(PLAY)}"><img src="{PAGES}/t{pz["n"]}.jpg" width="560" alt="Cartoon clue for puzzle #{pz["n"]} (the word is hidden)" '
-         f'style="width:100%;max-width:560px;height:auto;border-radius:10px;display:block;border:0"></a>'
-         f'<p style="font-size:18px;line-height:1.4;margin:14px 0 12px">({e(pz["pos"])}) '
-         f'<strong style="color:{PURPLE}">{e(pz["d"])}</strong></p>'
-         f'<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto"><tr>{tiles}</tr></table>'
-         f'<p style="font-size:13px;color:#666;margin:8px 0 18px">{len(pz["w"])} letters</p>'
-         f'<a href="{e(PLAY)}" style="display:inline-block;background:{PURPLE};color:#ffffff;text-decoration:none;'
-         f'font-weight:bold;font-size:17px;padding:13px 28px;border-radius:24px">Play puzzle #{pz["n"]}</a>')
+    h = '<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;color:#222;text-align:center">' + board_html(pz, PLAY)
     if prev:
         h += (f'<hr style="border:0;border-top:1px solid #e3e3e3;margin:28px 0 18px">'
               f'<p style="font-size:16px;margin:0 0 10px">Yesterday\'s word: <strong>{e(prev["w"].lower())}</strong> '
@@ -98,6 +147,8 @@ def item_html(pz, prev):
 
 def build(today, out):
     P = json.load(open(os.path.join(HERE, "puzzle", "schedule.json"), encoding="utf-8"))
+    B = json.load(open(os.path.join(HERE, "puzzle", "board.json"), encoding="utf-8"))
+    assert len(B) == len(P), "puzzle/board.json is out of step with schedule.json"
     os.makedirs(out, exist_ok=True)
     n_today = (today - LAUNCH).days + 1
     first = max(1, n_today - KEEP + 1)
@@ -109,10 +160,10 @@ def build(today, out):
         # build the campaign. Mailchimp only sends items published after its last send, so this is never mailed.
         days = [1]
     for n in days:
-        pz = puzzle(P, n)
+        pz = puzzle(P, n, B)
         prev = puzzle(P, n - 1) if n > 1 else None
         teaser(pz, out)
-        keep.add(f"t{n}.jpg")
+        keep.update({f"t{n}.jpg", f"m{n}.jpg"})
         d = LAUNCH + timedelta(days=n - 1)
         pub = datetime(d.year, d.month, d.day, 10, 0, tzinfo=timezone.utc)   # 3 am Pacific, before the morning send
         if preview:
@@ -126,7 +177,7 @@ def build(today, out):
             f"<guid isPermaLink=\"false\">vktp-gre-word-puzzle-{'preview' if preview else n}</guid><pubDate>{format_datetime(pub)}</pubDate>"
             f"<description><![CDATA[{body}]]></description><content:encoded><![CDATA[{body}]]></content:encoded></item>")
     for f in os.listdir(out):                          # drop teasers that left the feed
-        if f.startswith("t") and f.endswith(".jpg") and f not in keep:
+        if f[:1] in ("t", "m") and f.endswith(".jpg") and f not in keep:
             os.remove(os.path.join(out, f))
     now = format_datetime(datetime.now(timezone.utc))
     rss = ('<?xml version="1.0" encoding="UTF-8"?>\n'
