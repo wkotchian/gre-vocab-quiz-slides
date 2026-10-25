@@ -25,8 +25,6 @@ jobs:
             sudo ln -sf "$FF" /usr/local/bin/ffmpeg
           fi
           ffmpeg -hide_banner -version | head -1
-      - name: Slides
-        run: python3 make_ps_video.py dpt --slides-only
       - name: Cut demos
         run: |
           mkdir -p demos
@@ -35,8 +33,7 @@ jobs:
           for d in json.load(open("demos.json")):
               clip = f"/tmp/{d['name']}.mp4"
               subprocess.run(["curl", "-sSL", "-o", clip, d["url"]], check=True)
-              subprocess.run(["python3", "make_demo.py", d["name"], clip, "out/frames/s01.png", "out/frames/s03.png",
-                              f"demos/demo-{d['name']}.mp4"], check=True)
+              subprocess.run(["python3", "make_demo.py", d["name"], clip, f"demos/demo-{d['name']}.mp4"], check=True)
           EOF
           ls -la demos
       - name: Commit demos
