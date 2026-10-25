@@ -1,8 +1,12 @@
 name: Personal statement examples video
 
 # Renders ps_videos/<slug>.json into an annotated examples video (Kokoro narration) and uploads it.
-# Manual only. Default privacy is unlisted so Vince can review before it goes public.
+# Runs by hand, or when ps_videos/run.json changes (keys: slug, privacy, again), so Claude can start it with a push.
+# Default privacy is unlisted; review copies go up as private.
 on:
+  push:
+    branches: [main]
+    paths: ["ps_videos/run.json"]
   workflow_dispatch:
     inputs:
       slug:
@@ -29,6 +33,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Pick slug and privacy (inputs on a manual run, ps_videos/run.json on a push)
+        env:
+          IN_SLUG: ${{ github.event.inputs.slug }}
+          IN_PRIVACY: ${{ github.event.inputs.privacy }}
+          IN_AGAIN: ${{ github.event.inputs.again }}
+        run: |
+          python3 - >> "$GITHUB_ENV" <<'EOF'
+          import json, os
+          d = {} if os.environ.get("IN_SLUG") else json.load(open("ps_videos/run.json"))
+          print("SLUG=" + (os.environ.get("IN_SLUG") or d["slug"]))
+          print("PRIVACY=" + (os.environ.get("IN_PRIVACY") or d.get("privacy", "unlisted")))
+          print("AGAIN=" + (os.environ.get("IN_AGAIN") or d.get("again", "no")))
+          EOF
+          cat "$GITHUB_ENV"
+
       - name: Install tools
         timeout-minutes: 12
         run: |
@@ -42,16 +61,16 @@ jobs:
 
       - name: Render
         timeout-minutes: 15
-        run: python3 make_ps_video.py "${{ github.event.inputs.slug }}"
+        run: python3 make_ps_video.py "${{ env.SLUG }}"
 
       - name: Keep the render as a downloadable artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ps-video-${{ github.event.inputs.slug }}
+          name: ps-video-${{ env.SLUG }}
           path: |
-            out/${{ github.event.inputs.slug }}.mp4
-            out/${{ github.event.inputs.slug }}-thumb.jpg
-            out/${{ github.event.inputs.slug }}-chapters.json
+            out/${{ env.SLUG }}.mp4
+            out/${{ env.SLUG }}-thumb.jpg
+            out/${{ env.SLUG }}-chapters.json
           retention-days: 30
 
       - name: Upload to YouTube
@@ -63,13 +82,13 @@ jobs:
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
           set -o pipefail
-          extra=""; if [ "${{ github.event.inputs.again }}" = "yes" ]; then extra="--again"; fi
-          python3 upload_ps_video.py "${{ github.event.inputs.slug }}" --privacy "${{ github.event.inputs.privacy }}" $extra | tee run.txt
+          extra=""; if [ "${{ env.AGAIN }}" = "yes" ]; then extra="--again"; fi
+          python3 upload_ps_video.py "${{ env.SLUG }}" --privacy "${{ env.PRIVACY }}" $extra | tee run.txt
 
       - name: Log the upload
         if: always() && steps.up.outcome == 'success'
         run: |
-          line="$(date -u +%Y-%m-%dT%H:%MZ) ${{ github.event.inputs.slug }} $(grep -E '^UPLOADED' run.txt | head -1) $(grep -E '^THUMBNAIL' run.txt | head -1)"
+          line="$(date -u +%Y-%m-%dT%H:%MZ) ${{ env.SLUG }} $(grep -E '^UPLOADED' run.txt | head -1) $(grep -E '^THUMBNAIL' run.txt | head -1)"
           echo "$line" >> ps_videos.log
           git config user.name "gre-quiz-bot"
           git config user.email "actions@users.noreply.github.com"
