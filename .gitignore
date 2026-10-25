@@ -1,5 +1,6 @@
-.igtoken
 *.token
 .env
-short-*.mp4
+.igtoken
 __pycache__/
+out/
+short-*.mp4
