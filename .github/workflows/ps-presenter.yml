@@ -1,0 +1,67 @@
+name: Presenter video (HeyGen clip + slides)
+
+# Cuts a HeyGen presenter clip into a slides-first video (presenter in short bursts) and uploads it to YouTube.
+# Starts when ps_videos/presenter-run.json changes: {"slug": "dpt", "clip": "<HeyGen mp4 url>", "privacy": "private"}.
+on:
+  push:
+    branches: [main]
+    paths: ["ps_videos/presenter-run.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ps-presenter
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install tools
+        timeout-minutes: 10
+        run: |
+          pip install -q faster-whisper pillow imageio-ffmpeg
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+            sudo ln -sf "$FF" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
+      - name: Read run settings
+        run: |
+          python3 - >> "$GITHUB_ENV" <<'PY'
+          import json
+          d = json.load(open("ps_videos/presenter-run.json"))
+          print("SLUG=" + d["slug"]); print("PRIVACY=" + d.get("privacy", "private")); print("CLIP=" + d["clip"])
+          PY
+      - name: Download clip
+        run: curl -sSL -o /tmp/clip.mp4 "$CLIP" && ls -la /tmp/clip.mp4
+      - name: Build video
+        timeout-minutes: 25
+        run: python make_presenter_video.py "$SLUG" /tmp/clip.mp4
+      - name: Upload to YouTube
+        id: up
+        timeout-minutes: 10
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          python upload_ps_video.py "$SLUG" --privacy "$PRIVACY" --again | tee run.txt
+      - name: Log the upload
+        if: always() && steps.up.outcome == 'success'
+        run: |
+          line="$(date -u +%Y-%m-%dT%H:%MZ) $SLUG presenter $(grep -E '^UPLOADED' run.txt | head -1) $(grep -E '^THUMBNAIL' run.txt | head -1)"
+          echo "$line" >> ps_videos.log
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add ps_videos.log
+          git commit -q -m "log: $line" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+          echo "could not push log (harmless)"

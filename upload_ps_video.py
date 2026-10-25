@@ -26,14 +26,16 @@ def main():
     desc = (cfg["intro"] + "\n\nAll the examples, with notes on each one: " + cfg["page"] + "\n\n"
             + "\n".join(f"{ts(t)} {name}" for t, name in chapters) + "\n\n"
             "We wrote these examples as teaching models. The applicants are invented, and nothing here is a real client's statement. "
-            "The narration is AI-generated.\n\n" + cfg["lead"] + "\n\n"
+            + ("The presenter and her voice are AI-generated." if cfg.get("presenter") else "The narration is AI-generated.")
+            + "\n\n" + cfg["lead"] + "\n\n"
             "Check your draft's length, opening line, and stock phrases with our free personal statement checker: " + CHECKER)
     tok = access_token()
     ch = http("GET", f"{API}/channels?part=snippet&mine=true", tok)["items"]
     if not ch or ch[0]["snippet"]["title"] != EXPECTED_CHANNEL:
         sys.exit(f"Wrong channel authorized: {[c['snippet']['title'] for c in ch]}")
     meta = {"snippet": {"title": cfg["title"][:100], "description": desc[:4900], "categoryId": "27", "tags": cfg["tags"]},
-            "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False}}
+            "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False,
+                       "containsSyntheticMedia": bool(cfg.get("presenter"))}}
     path = os.path.join(HERE, "out", slug + ".mp4"); size = os.path.getsize(path)
     r = http("POST", "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status", tok,
              data=json.dumps(meta).encode(), raw=True,
