@@ -48,11 +48,18 @@ jobs:
           EOF
           cat "$GITHUB_ENV"
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Install tools
         timeout-minutes: 12
         run: |
           pip install -q torch --index-url https://download.pytorch.org/whl/cpu
           pip install -q "kokoro>=0.9.4" soundfile pillow imageio-ffmpeg
+          # load the spaCy English model up front; installing it mid-render crashed the first run (2026-10-25)
+          python -m spacy download en_core_web_sm
+          python -c "import spacy; spacy.load('en_core_web_sm'); print('spacy ok')"
           if ! command -v ffmpeg >/dev/null 2>&1; then
             FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
             sudo ln -sf "$FF" /usr/local/bin/ffmpeg
@@ -61,7 +68,7 @@ jobs:
 
       - name: Render
         timeout-minutes: 15
-        run: python3 make_ps_video.py "${{ env.SLUG }}"
+        run: python make_ps_video.py "${{ env.SLUG }}"
 
       - name: Keep the render as a downloadable artifact
         uses: actions/upload-artifact@v4
@@ -83,7 +90,7 @@ jobs:
         run: |
           set -o pipefail
           extra=""; if [ "${{ env.AGAIN }}" = "yes" ]; then extra="--again"; fi
-          python3 upload_ps_video.py "${{ env.SLUG }}" --privacy "${{ env.PRIVACY }}" $extra | tee run.txt
+          python upload_ps_video.py "${{ env.SLUG }}" --privacy "${{ env.PRIVACY }}" $extra | tee run.txt
 
       - name: Log the upload
         if: always() && steps.up.outcome == 'success'
