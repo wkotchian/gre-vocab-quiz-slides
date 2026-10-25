@@ -55,11 +55,13 @@ jobs:
       - name: Install tools
         timeout-minutes: 12
         run: |
-          pip install -q torch --index-url https://download.pytorch.org/whl/cpu
-          pip install -q "kokoro>=0.9.4" soundfile pillow imageio-ffmpeg
-          # load the spaCy English model up front; installing it mid-render crashed the first run (2026-10-25)
-          python -m spacy download en_core_web_sm
-          python -c "import spacy; spacy.load('en_core_web_sm'); print('spacy ok')"
+          # kokoro-onnx: same Kokoro-82M voice, no torch or spaCy (the spaCy path crashed on load, 2026-10-25)
+          pip install -q kokoro-onnx soundfile pillow imageio-ffmpeg
+          base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
+          curl -sSL -o kokoro-v1.0.onnx "$base/kokoro-v1.0.onnx"
+          curl -sSL -o voices-v1.0.bin "$base/voices-v1.0.bin"
+          ls -la kokoro-v1.0.onnx voices-v1.0.bin
+          python -c "from kokoro_onnx import Kokoro; k=Kokoro('kokoro-v1.0.onnx','voices-v1.0.bin'); a,sr=k.create('Test.', voice='af_heart', lang='en-us'); print('tts ok', sr, len(a))"
           if ! command -v ffmpeg >/dev/null 2>&1; then
             FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
             sudo ln -sf "$FF" /usr/local/bin/ffmpeg

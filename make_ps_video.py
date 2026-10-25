@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a 16:9 annotated personal statement examples video from ps_videos/<slug>.json.
 
-Slides: Pillow (bundled Inter fonts). Narration: Kokoro TTS (Apache-2.0, runs locally on the runner).
+Slides: Pillow (bundled Inter fonts). Narration: Kokoro-82M (Apache-2.0) through kokoro-onnx, run on the GitHub runner.
 Usage: python3 make_ps_video.py SLUG [--slides-only]
 Writes out/<slug>.mp4, out/<slug>-thumb.jpg, out/<slug>-chapters.json, out/frames/*.png
 """
@@ -168,14 +168,15 @@ def say_text(cfg, s):
 
 
 def tts(texts, outdir):
-    from kokoro import KPipeline
+    """Kokoro-82M via kokoro-onnx (espeak-ng phonemes, no spaCy). Model files are fetched by the workflow."""
+    from kokoro_onnx import Kokoro
     import numpy as np, soundfile as sf
-    pipe = KPipeline(lang_code="a")
+    k = Kokoro(os.path.join(HERE, "kokoro-v1.0.onnx"), os.path.join(HERE, "voices-v1.0.bin"))
     paths = []
     for i, t in enumerate(texts):
-        chunks = [a for _, _, a in pipe(t, voice=VOICE, speed=0.95)]
-        audio = np.concatenate([np.asarray(c, dtype="float32") for c in chunks] + [np.zeros(int(SR * PAD), dtype="float32")])
-        p = os.path.join(outdir, f"a{i:02d}.wav"); sf.write(p, audio, SR); paths.append(p)
+        audio, sr = k.create(t, voice=VOICE, speed=0.95, lang="en-us")
+        audio = np.concatenate([np.asarray(audio, dtype="float32"), np.zeros(int(sr * PAD), dtype="float32")])
+        p = os.path.join(outdir, f"a{i:02d}.wav"); sf.write(p, audio, sr, subtype="PCM_16"); paths.append(p)
     return paths
 
 
