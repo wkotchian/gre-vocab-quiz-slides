@@ -42,10 +42,15 @@ jobs:
             exit 1
           fi
 
+      - name: Load live token (ig_token.enc if present, else the IG_TOKEN secret)
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python3 -I ig_token.py export
+
       - name: Read-only check (manual runs only)
         if: github.event.inputs.check == 'true'
         env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_TOKEN: ${{ env.IG_LIVE }}
         run: |
           python3 -I post_reel.py --verify
           python3 -I post_next.py --dry-run
@@ -69,7 +74,7 @@ jobs:
         if: github.event.inputs.check != 'true'
         timeout-minutes: 12
         env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_TOKEN: ${{ env.IG_LIVE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TEST: ${{ github.event.inputs.test_container }}
           NUM: ${{ github.event.inputs.num }}

@@ -7,9 +7,13 @@ on:
   schedule:
     - cron: "53 15 * * *"
   workflow_dispatch:
+    inputs:
+      refresh_token:
+        description: "true = also run the Instagram token refresh now (normally Sundays only)"
+        default: "false"
 
 permissions:
-  contents: write   # only to append to posted.log (keeps the repo active so GitHub doesn't pause the schedule)
+  contents: write   # posted.log (keeps the repo active so GitHub doesn't pause the schedule) and ig_token.enc
 
 concurrency:
   group: daily-quiz
@@ -31,36 +35,59 @@ jobs:
             exit 1
           fi
 
+      - name: Load live token (ig_token.enc if present, else the IG_TOKEN secret)
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python3 -I ig_token.py export
+
       - name: Post next quiz (one post max; script skips if posted < 16h ago)
         id: post
         env:
-          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_TOKEN: ${{ env.IG_LIVE }}
         run: |
           set -o pipefail
           python3 -I post_next.py | tee run.txt
 
-      - name: Weekly token refresh (Sundays)
-        if: github.event_name == 'schedule'
+      - name: Weekly token refresh (Sundays, or on request)
+        if: github.event_name == 'schedule' || github.event.inputs.refresh_token == 'true'
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          LIVE: ${{ env.IG_LIVE }}
+          FORCE: ${{ github.event.inputs.refresh_token }}
         run: |
-          if [ "$(TZ=America/Los_Angeles date +%u)" != "7" ]; then echo "Not Sunday; skipping refresh"; exit 0; fi
+          if [ "$FORCE" != "true" ] && [ "$(TZ=America/Los_Angeles date +%u)" != "7" ]; then echo "Not Sunday; skipping refresh"; exit 0; fi
+          # Instagram may return a NEW token. Workflows can't write secrets, so a new token is
+          # stored encrypted in ig_token.enc (key = the IG_TOKEN secret) and used from then on.
           python3 -I - <<'EOF'
-          import json, os, sys, urllib.request, urllib.parse
-          tok = os.environ["IG_TOKEN"]
+          import json, os, sys, subprocess, urllib.request, urllib.parse
+          tok = os.environ["LIVE"]
           url = "https://graph.instagram.com/refresh_access_token?" + urllib.parse.urlencode(
               {"grant_type": "ig_refresh_token", "access_token": tok})
           try:
               r = json.load(urllib.request.urlopen(url, timeout=60))
           except urllib.error.HTTPError as e:
-              print("::warning::Token refresh failed:", e.read().decode(errors="replace").replace(tok, "<token>"))
-              sys.exit(0)
-          days = int(r.get("expires_in", 0)) // 86400
-          print(f"Token valid for another {days} days")
-          if r.get("access_token") and r["access_token"] != tok:
-              print("::error::Instagram issued a NEW token. Generate a fresh token in the Meta app and update the IG_TOKEN secret.")
+              print("::error::Token refresh failed:", e.read().decode(errors="replace").replace(tok, "<token>"))
               sys.exit(1)
+          days = int(r.get("expires_in", 0)) // 86400
+          new = r.get("access_token") or ""
+          if new:
+              print("::add-mask::" + new)
+          print(f"Token valid for another {days} days")
+          if new and new != tok:
+              subprocess.run([sys.executable, "-I", "ig_token.py", "save"], check=True,
+                             env={**os.environ, "NEW_TOKEN": new})
+          else:
+              print("Instagram kept the same token; nothing to save")
           EOF
+          if [ -n "$(git status --porcelain ig_token.enc)" ]; then
+            git config user.name "gre-quiz-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add ig_token.enc
+            git commit -q -m "Refresh the stored Instagram token (encrypted)"
+            for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+            echo "::error::Could not push ig_token.enc; the new token was not saved."
+            exit 1
+          fi
 
       - name: Log the run
         if: always() && steps.post.outcome == 'success'
