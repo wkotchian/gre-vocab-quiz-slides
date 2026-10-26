@@ -1,10 +1,13 @@
 name: Daily GRE word puzzle feed
 
 # Rebuilds docs/puzzle/feed.xml (served by GitHub Pages) for Mailchimp's daily puzzle email.
-# 11:07 UTC = 4:07 am Pacific during daylight time (3:07 am after clocks fall back), well before the email goes out.
+# Runs the evening before: 04:07 UTC = 9:07 pm Pacific (daylight time) or 8:07 pm (standard time).
+# Scheduled runs build the Pacific date six hours from now, so a run between 6 pm and midnight Pacific
+# builds tomorrow's puzzle and a run delayed past midnight still builds today's. GitHub has started
+# scheduled runs 4-6 hours late; this leaves about 10 hours before the 6 am Pacific email.
 on:
   schedule:
-    - cron: "7 11 * * *"
+    - cron: "7 4 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -31,7 +34,9 @@ jobs:
       - name: Build the feed
         env:
           D: ${{ github.event.inputs.date }}
+          EVENT: ${{ github.event_name }}
         run: |
+          if [ -z "$D" ] && [ "$EVENT" = "schedule" ]; then D=$(TZ=America/Los_Angeles date -d '+6 hours' +%F); fi
           if [ -n "$D" ]; then python3 puzzle_feed.py --date "$D"; else python3 puzzle_feed.py; fi | tee run.txt
 
       - name: Commit the feed
