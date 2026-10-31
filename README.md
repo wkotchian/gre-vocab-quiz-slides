@@ -19,3 +19,7 @@ Daily quiz carousels for [@gre_vocab_cartoons](https://www.instagram.com/gre_voc
 - **Hosting:** each run force-pushes an orphan branch, `reel-files`, holding only that day's `NNNN.mp4` (one commit, replaced every run, so the repo never grows). Instagram fetches the video from `raw.githubusercontent.com/wkotchian/gre-vocab-quiz-slides/reel-files/NNNN.mp4`.
 - **Log:** each run appends its POSTED REEL / SKIP / QUEUE EMPTY / TEST OK line to `reels.log`.
 - **Test flag:** run the workflow by hand with `test_container=true` (or `post_reel.py --test-container`) to render, host and build the Instagram container up to FINISHED without publishing anything. `num` overrides the quiz number; `check=true` is a read-only check (lists recent Reels and the publishing limit, and runs `post_next.py --dry-run`).
+
+## Weekly stats (read-only)
+
+`.github/workflows/weekly-stats.yml` runs `stats.py` every Sunday at 14:17 UTC (and on demand from the Actions tab). It never posts or edits anything. It reads Instagram followers plus each post's views, reach, likes, comments, saves, shares and (Reels) average watch time, and YouTube subscribers plus each upload's views, likes and comments, for everything published since 2026-10-15. Results go to `stats/YYYY-MM-DD.json`, `stats/posts.csv` (one row per post per run) and `stats/accounts.csv`. Posts are labeled with their quiz number and word from the posting logs. A Claude scheduled task reads `stats/` on Monday mornings and reports to Vince.
