@@ -57,44 +57,11 @@ jobs:
           if [ -n "$NUM" ]; then args="$args --num $NUM"; fi
           python3 upload_short.py $args | tee run.txt
 
-      - name: Post the same Short to TikTok (via Upload-Post)
-        # 2026-11-11: TikTok's own posting API won't approve apps that only post to your own
-        # account, so this goes through Upload-Post (an approved TikTok partner, paid plan).
-        # Does nothing until the UPLOAD_POST_API_KEY secret exists. Only for public YouTube uploads.
-        id: tt
-        if: steps.up.outcome == 'success'
-        continue-on-error: true
-        timeout-minutes: 5
-        env:
-          UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
-          UPLOAD_POST_USER: ${{ vars.UPLOAD_POST_USER || 'vince' }}
-          PRIVACY: ${{ github.event.inputs.privacy || 'public' }}
-        run: |
-          if [ -z "$UPLOAD_POST_API_KEY" ]; then echo "TikTok: no UPLOAD_POST_API_KEY secret yet, skipped"; exit 0; fi
-          if [ "$PRIVACY" != "public" ]; then echo "TikTok: YouTube upload was $PRIVACY, skipped"; exit 0; fi
-          up="$(grep -E '^UPLOADED #' run.txt | head -1)"
-          if [ -z "$up" ]; then echo "TikTok: no new Short this run, skipped"; exit 0; fi
-          num="$(echo "$up" | sed -E 's/^UPLOADED #([0-9]+) .*/\1/')"
-          word="$(echo "$up" | sed -E 's/^UPLOADED #[0-9]+ ([^ ]+) .*/\1/')"
-          f="short-${num}.mp4"
-          if [ ! -f "$f" ]; then echo "TikTok: $f not found, skipped"; exit 0; fi
-          cap="What does ${word} mean? GRE vocab quiz #${num}. Answer at the end. #GRE #GREprep #GREvocab #vocabulary #gradschool"
-          resp="$(curl -sS --max-time 240 -X POST https://api.upload-post.com/api/upload \
-            -H "Authorization: Apikey ${UPLOAD_POST_API_KEY}" \
-            -F "video=@${f}" -F "user=${UPLOAD_POST_USER}" -F "platform[]=tiktok" \
-            -F "title=${cap}" -F "tiktok_title=${cap}" -F "privacy_level=PUBLIC_TO_EVERYONE" \
-            -F "async_upload=true")"
-          echo "$resp" | head -c 1500; echo
-          rid="$(echo "$resp" | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d.get("request_id") or d.get("success"))' 2>/dev/null)"
-          echo "TIKTOK #${num} ${word}: ${rid:-no response}" >> run.txt
-
       - name: Log the run
         if: always() && steps.up.outcome == 'success'
         run: |
           line="$(date -u +%Y-%m-%dT%H:%MZ) $(grep -E '^(UPLOADED|SKIP|QUEUE EMPTY)' run.txt | head -1)"
           echo "$line" >> shorts.log
-          tt="$(grep -E '^TIKTOK' run.txt | head -1 | cut -c1-200)"
-          if [ -n "$tt" ]; then echo "$(date -u +%Y-%m-%dT%H:%MZ) $tt" >> shorts.log; fi
           # 2026-10-20: also keep the playlist result, since run logs can't be read from outside GitHub
           pl="$(grep -E '^PLAYLIST' run.txt | head -1 | cut -c1-300)"
           if [ -n "$pl" ]; then echo "$(date -u +%Y-%m-%dT%H:%MZ) $pl" >> shorts.log; fi
