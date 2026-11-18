@@ -36,3 +36,7 @@ Daily quiz carousels for [@gre_vocab_cartoons](https://www.instagram.com/gre_voc
 ## Daily SAT Math Short (YouTube only)
 
 `.github/workflows/daily-sat-short.yml` does the same for SAT Math Swordsman (`upload_math_short.py --app sat`, `sat_queue.json` from `build_sat_queue.py`, titles "SAT Math #N", log `sat_shorts.log`) at 23:17 UTC. Gated by `math/sat_start_date.txt` (set the day SAT Math Swordsman is live). `check_fit.py gre|sat` drops items that won't fit on screen; run it after rebuilding a queue.
+
+## Daily ACT Math Short (YouTube only)
+
+`.github/workflows/daily-act-short.yml`: same setup for ACT Math Adventurer (`--app act`, `act_queue.json` built with `build_sat_queue.py act ...`, titles "ACT Math #N", log `act_shorts.log`) at 16:37 UTC. Gated by `math/act_start_date.txt`.

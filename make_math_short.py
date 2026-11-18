@@ -32,6 +32,9 @@ APPS = {
     "sat": {"queue": "sat_queue.json", "label": "SAT MATH", "name": "SAT Math Swordsman",
             "icon": "math/sat_icon.png", "bg": (84, 36, 160), "dark": (52, 18, 110), "end": (34, 10, 74),
             "tag1": "More SAT math questions like this,"},
+    "act": {"queue": "act_queue.json", "label": "ACT MATH", "name": "ACT Math Adventurer",
+            "icon": "math/act_icon.png", "bg": (122, 46, 16), "dark": (78, 26, 8), "end": (52, 18, 6),
+            "tag1": "More ACT math questions like this,"},
 }
 APP = APPS["gre"]
 SR = 44100
@@ -59,13 +62,16 @@ def to_mathtext(s):
     return s
 
 
-def math_img(tex, px, color):
+def math_img(tex, px, color, display=False):
     """Render one LaTeX line to a transparent RGBA image (px is roughly the cap-line size)."""
     import io
     fig = Figure(figsize=(0.01, 0.01), dpi=100, facecolor="none")
     FigureCanvasAgg(fig)
     rgb = tuple(c / 255 for c in color)
-    fig.text(0, 0, "$" + to_mathtext(tex) + "$", fontsize=px * 0.72, color=rgb)
+    mt = to_mathtext(tex)
+    if display:  # outermost fraction at full size (answer choices)
+        mt = re.sub(r"\\frac(?=\{)", r"\\dfrac", mt, count=1)
+    fig.text(0, 0, "$" + mt + "$", fontsize=px * 0.72, color=rgb)
     b = io.BytesIO()
     fig.savefig(b, dpi=100, transparent=True, bbox_inches="tight", pad_inches=0.06, format="png")
     b.seek(0)
@@ -280,18 +286,18 @@ def stem(c, q, y, k=1.0):
     return y + 10
 
 
-def choice_img(ch, px, color=WHITE):
+def choice_img(ch, px, color=WHITE, display=False):
     if "$" in ch:
         t = ch.strip()
         if t.startswith("$") and t.endswith("$") and t.count("$") == 2:
-            return math_img(t[1:-1], px, color)
+            return math_img(t[1:-1], px, color, display)
         return rich_line_img(ch, int(px * 0.8), color)
-    return math_img(ch, px, color)
+    return math_img(ch, px, color, display)
 
 
-def choices(c, q, y, reveal=False):
+def choices(c, q, y, reveal=False, k=1.0):
     letters = "ABCDE"
-    f = font("SemiBold", 50 if q["kind"] == "mc" else 42)
+    f = font("SemiBold", int((50 if q["kind"] == "mc" else 42) * k))
     lf = font("Black", 48)
     for i, ch in enumerate(q["choices"]):
         is_ans, is_trap = i == q["answer"], i == q["trap"]
@@ -301,8 +307,8 @@ def choices(c, q, y, reveal=False):
         elif reveal and is_trap:
             fill, outline = RED, WHITE
         if "$" in ch or q.get("choice_math", [False] * 5)[i]:
-            m = choice_img(ch, 66)
-            bh = max(100, m.height + 28)
+            m = choice_img(ch, int((58 if "frac" in ch else 66) * k), display=True)
+            bh = max(int(100 * k), m.height + 28)
             c.d.rounded_rectangle((SAFE_L, y, SAFE_R, y + bh), radius=22, fill=fill, outline=outline, width=3)
             c.d.text((SAFE_L + 26, y + (bh - 58) // 2), letters[i], font=lf, fill=GOLD)
             c.im.paste(m, (SAFE_L + 100, y + (bh - m.height) // 2), m)
@@ -325,7 +331,7 @@ def question_frame(q, count, top=None, k=1.0):
     header(c, q)
     y = top if top is not None else 300
     y = stem(c, q, y, k)
-    y = choices(c, q, y + 10)
+    y = choices(c, q, y + 10, k=k)
     y += 26
     label = f"Solve it…  {count}" if count else "Solve it…"
     pf = font("Black", 62)
@@ -387,6 +393,9 @@ def answer_frame(q, top=None, k=1.0):
         note_imgs = []
         note_lines = wrap_px(c.d, q["trap_note"], tf, SAFE_R - SAFE_L - 60)
         bh = 100 + int(tf.size * 1.3) * len(note_lines) + 20
+    trap_m = choice_img(q["choices"][t], 60) if is_m(t) else None
+    head_extra = max(0, trap_m.height - 70) if trap_m is not None else 0
+    bh += head_extra
     c.d.rounded_rectangle((SAFE_L, y, SAFE_R, y + bh), radius=26, fill=RED)
     trap_txt = q["choices"][t]
     head = f"Trap: ({letters[t]}) "
@@ -394,15 +403,15 @@ def answer_frame(q, top=None, k=1.0):
     c.d.text((SAFE_L + 30, y + 22), head, font=hf, fill=WHITE)
     hx = SAFE_L + 30 + c.d.textlength(head, font=hf)
     if is_m(t):
-        m = choice_img(trap_txt, 60)
-        c.im.paste(m, (int(hx), y + 22 + max(0, (56 - m.height) // 2)), m)
+        m = trap_m
+        c.im.paste(m, (int(hx), y + 18), m)
     else:
         if len(trap_txt) < 30:
             sz = 52
             while sz > 30 and hx + c.d.textlength(trap_txt, font=font("Black", sz)) > SAFE_R - 20:
                 sz -= 2
             c.d.text((hx, y + 22 + (52 - sz) // 2), trap_txt, font=font("Black", sz), fill=WHITE)
-    yy = y + 100
+    yy = y + 100 + head_extra
     for ln in note_lines:
         c.d.text((SAFE_L + 30, yy), ln, font=tf, fill=WHITE); yy += int(tf.size * 1.3)
     for im in note_imgs:
