@@ -25,7 +25,15 @@ BLUE, BLUE_DARK, NAVY = (0, 87, 222), (0, 52, 150), (0, 30, 92)
 GOLD, WHITE, RED, GREEN = (255, 196, 30), (255, 255, 255), (214, 40, 40), (32, 170, 90)
 FONT = os.path.join(HERE, "fonts", "Inter-{w}.otf")
 FALLBACK = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-ICON = os.path.join(HERE, "math", "knight_icon.png")
+APPS = {
+    "gre": {"queue": "math_queue.json", "label": "GRE QUANT", "name": "GRE Math Knight",
+            "icon": "math/knight_icon.png", "bg": (0, 87, 222), "dark": (0, 52, 150), "end": (0, 30, 92),
+            "tag1": "More GRE Quant questions like this,"},
+    "sat": {"queue": "sat_queue.json", "label": "SAT MATH", "name": "SAT Math Swordsman",
+            "icon": "math/sat_icon.png", "bg": (84, 36, 160), "dark": (52, 18, 110), "end": (34, 10, 74),
+            "tag1": "More SAT math questions like this,"},
+}
+APP = APPS["gre"]
 SR = 44100
 THINK_SECS, ANSWER_SECS, END_SECS = 30, 10, 3
 matplotlib.rcParams["mathtext.fontset"] = "dejavusans"
@@ -75,8 +83,117 @@ def wrap_px(d, text, f, maxw):
     return lines
 
 
+def rich_spans(s):
+    """Split app rich text into ("text"|"math", str) spans; \\$ is a literal dollar sign, not a delimiter."""
+    spans, buf, in_math, k = [], "", False, 0
+    while k < len(s):
+        ch = s[k]
+        if ch == "\\" and k + 1 < len(s) and s[k + 1] == "$":
+            buf += "\\$"; k += 2; continue
+        if ch == "$":
+            if buf:
+                spans.append(("math" if in_math else "text", buf))
+            buf, in_math = "", not in_math
+            k += 1; continue
+        buf += ch; k += 1
+    if buf:
+        spans.append(("math" if in_math else "text", buf))
+    return spans
+
+
+def rich_tokens(s):
+    """Words, with each $...$ math span kept whole (never broken across lines); punctuation stays glued."""
+    out, glue = [], False
+    for kind, part in rich_spans(s):
+        if kind == "math":
+            tok = "$" + part + "$"
+            if out and glue:
+                out[-1] += tok
+            else:
+                out.append(tok)
+            glue = True
+        else:
+            pieces = re.split(r"(\s+)", part)
+            for w in pieces:
+                if not w:
+                    continue
+                if w.isspace():
+                    glue = False
+                    continue
+                if out and glue:
+                    out[-1] += w
+                else:
+                    out.append(w)
+                glue = True
+    return out
+
+
+def rich_to_mathtext(s):
+    """Rich text -> matplotlib string. \\text{...} inside math becomes plain text (keeps hyphens as hyphens)."""
+    out = ""
+    for kind, part in rich_spans(s):
+        if kind == "text":
+            out += part
+            continue
+        bits = re.split(r"\\text\{([^}]*)\}", part)
+        for n, b in enumerate(bits):
+            if n % 2:
+                out += b.replace("$", "\\$")
+            elif b.strip():
+                out += "$" + to_mathtext(b) + "$"
+            else:
+                out += b
+    return out
+
+
+TEXT_FP = None
+
+
+def text_fp():
+    global TEXT_FP
+    if TEXT_FP is None:
+        from matplotlib.font_manager import FontProperties
+        p = FONT.format(w="SemiBold")
+        TEXT_FP = FontProperties(fname=p) if os.path.exists(p) else FontProperties(family="DejaVu Sans")
+    return TEXT_FP
+
+
+def rich_line_img(s, px, color):
+    import io
+    fig = Figure(figsize=(0.01, 0.01), dpi=100, facecolor="none")
+    FigureCanvasAgg(fig)
+    fp = text_fp().copy()
+    fp.set_size(px * 0.72)
+    fig.text(0, 0, rich_to_mathtext(s), color=tuple(c / 255 for c in color), fontproperties=fp)
+    b = io.BytesIO()
+    fig.savefig(b, dpi=100, transparent=True, bbox_inches="tight", pad_inches=0.06, format="png")
+    b.seek(0)
+    return Image.open(b).convert("RGBA")
+
+
+def rich_imgs(s, px, color, maxw):
+    """Wrap a rich line (words plus $math$) to maxw; returns one image per line."""
+    toks, lines, cur = rich_tokens(s), [], ""
+    for t in toks:
+        cand = (cur + " " + t).strip()
+        if cur and rich_line_img(cand, px, color).width > maxw:
+            lines.append(cur); cur = t
+        else:
+            cur = cand
+    if cur:
+        lines.append(cur)
+    out = []
+    for ln in lines:
+        im = rich_line_img(ln, px, color)
+        if im.width > maxw:
+            im = im.resize((maxw, int(im.height * maxw / im.width)), Image.LANCZOS)
+        out.append(im)
+    return out
+
+
 class Canvas:
-    def __init__(self, bg=BLUE):
+    def __init__(self, bg=None):
+        bg = bg or APP["bg"]
         self.im = Image.new("RGB", (W, H), bg)
         self.d = ImageDraw.Draw(self.im)
 
@@ -102,29 +219,44 @@ class Canvas:
         self.im.paste(m, (x, y), m)
         return y + m.height
 
+    def rich(self, s, px, y, color, left=SAFE_L, right=SAFE_R, center=False, gap=6):
+        for im in rich_imgs(s, px, color, right - left):
+            x = left + (right - left - im.width) // 2 if center else left
+            self.im.paste(im, (x, y), im)
+            y += im.height + gap
+        return y
+
     def line(self, s, f, px, y, fill, left=SAFE_L, right=SAFE_R, center=False):
-        """A stem/solution line: LaTeX lines render as math, plain lines as wrapped text."""
+        """A stem/solution line: rich lines ($math$ inside words), pure LaTeX lines, or plain text."""
+        if "$" in s:
+            only_math = s.strip().startswith("$") and s.strip().endswith("$") and s.count("$") == 2
+            if only_math:
+                return self.math(s.strip()[1:-1], px, y, fill, left, right, center=True) + 14
+            return self.rich(s, int(px * 0.8), y, fill, left, right, center=center) + 8
         if is_math(s):
             return self.math(s, px, y, fill, left, right, center=center or True) + 14
         return self.para(s, f, y, fill, left, right, center=center) + 6
 
 
 def header(c, q):
-    c.center(f"GRE QUANT #{q['num']}", font("Black", 54), 120, GOLD)
-    c.center(q.get("skill", ""), font("SemiBold", 34), 190, WHITE)
+    c.center(f"{APP['label']} #{q['num']}", font("Black", 54), 120, GOLD)
+    sk, sf = q.get("skill", ""), font("SemiBold", 34)
+    while c.d.textlength(sk, font=sf) > SAFE_R - SAFE_L and sf.size > 22:
+        sf = font("SemiBold", sf.size - 2)
+    c.center(sk, sf, 190, WHITE)
     return 270
 
 
-def stem(c, q, y):
-    f = font("SemiBold", 54)
+def stem(c, q, y, k=1.0):
+    f = font("SemiBold", int(54 * k))
     if q["kind"] == "qc":
         for g in q["given"]:
-            y = c.line(g, f, 70, y, WHITE, center=True)
+            y = c.line(g, f, int(70 * k), y, WHITE, center=True)
         y += 10
         colw = (SAFE_R - SAFE_L - 30) // 2
         for i, (lab, val) in enumerate((("Quantity A", q["A"]), ("Quantity B", q["B"]))):
             x0 = SAFE_L + i * (colw + 30)
-            c.d.rounded_rectangle((x0, y, x0 + colw, y + 190), radius=22, fill=BLUE_DARK, outline=WHITE, width=3)
+            c.d.rounded_rectangle((x0, y, x0 + colw, y + 190), radius=22, fill=APP["dark"], outline=WHITE, width=3)
             c.center(lab, font("Bold", 38), y + 18, GOLD, x0, x0 + colw)
             if is_math(val) or len(val) < 12:
                 c.math(val, 80, y + 78, WHITE, x0 + 10, x0 + colw - 10)
@@ -133,8 +265,17 @@ def stem(c, q, y):
         y += 220
         return y
     for s in q["lines"]:
-        y = c.line(s, f, 84, y, WHITE, center=is_math(s))
+        y = c.line(s, f, int(84 * k), y, WHITE, center=is_math(s) and "$" not in s)
     return y + 10
+
+
+def choice_img(ch, px, color=WHITE):
+    if "$" in ch:
+        t = ch.strip()
+        if t.startswith("$") and t.endswith("$") and t.count("$") == 2:
+            return math_img(t[1:-1], px, color)
+        return rich_line_img(ch, int(px * 0.8), color)
+    return math_img(ch, px, color)
 
 
 def choices(c, q, y, reveal=False):
@@ -143,13 +284,13 @@ def choices(c, q, y, reveal=False):
     lf = font("Black", 48)
     for i, ch in enumerate(q["choices"]):
         is_ans, is_trap = i == q["answer"], i == q["trap"]
-        fill, outline = BLUE_DARK, WHITE
+        fill, outline = APP["dark"], WHITE
         if reveal and is_ans:
             fill, outline = GREEN, WHITE
         elif reveal and is_trap:
             fill, outline = RED, WHITE
-        if q["choice_math"][i]:
-            m = math_img(ch, 66, WHITE)
+        if "$" in ch or q.get("choice_math", [False] * 5)[i]:
+            m = choice_img(ch, 66)
             bh = max(100, m.height + 28)
             c.d.rounded_rectangle((SAFE_L, y, SAFE_R, y + bh), radius=22, fill=fill, outline=outline, width=3)
             c.d.text((SAFE_L + 26, y + (bh - 58) // 2), letters[i], font=lf, fill=GOLD)
@@ -168,11 +309,11 @@ def choices(c, q, y, reveal=False):
 BOTTOM = 1580  # keep everything above the Shorts/Reels caption overlay
 
 
-def question_frame(q, count, top=None):
+def question_frame(q, count, top=None, k=1.0):
     c = Canvas()
     header(c, q)
     y = top if top is not None else 300
-    y = stem(c, q, y)
+    y = stem(c, q, y, k)
     y = choices(c, q, y + 10)
     y += 26
     label = f"Solve it…  {count}" if count else "Solve it…"
@@ -180,17 +321,19 @@ def question_frame(q, count, top=None):
     pw = c.d.textlength(label, font=pf)
     px = SAFE_L + (SAFE_R - SAFE_L - pw) / 2 - 40
     c.d.rounded_rectangle((px, y, px + pw + 80, y + 100), radius=50, fill=GOLD)
-    c.d.text((px + 40, y + 14), label, font=pf, fill=NAVY)
+    c.d.text((px + 40, y + 14), label, font=pf, fill=APP["end"])
     y += 118
     c.center("Need more time? Pause the video.", font("SemiBold", 40), y, WHITE)
     y += 50
     if top is None:
         used = y + 100 - 300
-        return question_frame(q, count, top=max(300, 300 + (BOTTOM - 300 - used) // 2))
+        if 300 + used > BOTTOM and k > 0.65:
+            return question_frame(q, count, None, round(k - 0.08, 2))
+        return question_frame(q, count, top=max(300, 300 + (BOTTOM - 300 - used) // 2), k=k)
     return c.im
 
 
-def answer_frame(q, top=None):
+def answer_frame(q, top=None, k=1.0):
     c = Canvas()
     header(c, q)
     y = top if top is not None else 300
@@ -198,8 +341,9 @@ def answer_frame(q, top=None):
     a, t = q["answer"], q["trap"]
     ans_txt = q["choices"][a]
     c.center("ANSWER", font("Black", 58), y, GOLD); y += 80
-    if q["choice_math"][a]:
-        m = math_img(ans_txt, 96, WHITE)
+    is_m = lambda i: "$" in q["choices"][i] or q.get("choice_math", [False] * 5)[i]
+    if is_m(a):
+        m = choice_img(ans_txt, 96)
         lab = font("Black", 96)
         lw = c.d.textlength(f"({letters[a]})  ", font=lab)
         x = SAFE_L + (SAFE_R - SAFE_L - lw - m.width) // 2
@@ -210,25 +354,33 @@ def answer_frame(q, top=None):
         y = c.para(f"({letters[a]}) {ans_txt}", font("Black", 62), y, WHITE, center=True)
     y += 30
     c.d.text((SAFE_L, y), "How:", font=font("Bold", 50), fill=GOLD); y += 70
-    f = font("SemiBold", 48)
+    f = font("SemiBold", int(48 * k))
     for kind, s in q["sol"]:
-        if kind == "latex" or is_math(s):
-            y = c.math(s, 70, y, WHITE) + 18
+        if "$" in s:
+            y = c.line(s, f, int(70 * k), y, WHITE) + 4
+        elif kind == "latex" or is_math(s):
+            y = c.math(s, int(70 * k), y, WHITE) + 18
         else:
             y = c.para(s, f, y, WHITE) + 8
     y += 24
     # trap box
     tf = font("SemiBold", 46)
-    note_lines = wrap_px(c.d, q["trap_note"], tf, SAFE_R - SAFE_L - 60)
-    bh = 100 + int(tf.size * 1.3) * len(note_lines) + 20
+    if "$" in q["trap_note"]:
+        note_imgs = rich_imgs(q["trap_note"], 44, WHITE, SAFE_R - SAFE_L - 60)
+        note_lines = []
+        bh = 100 + sum(im.height + 4 for im in note_imgs) + 20
+    else:
+        note_imgs = []
+        note_lines = wrap_px(c.d, q["trap_note"], tf, SAFE_R - SAFE_L - 60)
+        bh = 100 + int(tf.size * 1.3) * len(note_lines) + 20
     c.d.rounded_rectangle((SAFE_L, y, SAFE_R, y + bh), radius=26, fill=RED)
     trap_txt = q["choices"][t]
     head = f"Trap: ({letters[t]}) "
     hf = font("Black", 52)
     c.d.text((SAFE_L + 30, y + 22), head, font=hf, fill=WHITE)
     hx = SAFE_L + 30 + c.d.textlength(head, font=hf)
-    if q["choice_math"][t]:
-        m = math_img(trap_txt, 60, WHITE)
+    if is_m(t):
+        m = choice_img(trap_txt, 60)
         c.im.paste(m, (int(hx), y + 22 + max(0, (56 - m.height) // 2)), m)
     else:
         if len(trap_txt) < 30:
@@ -239,21 +391,29 @@ def answer_frame(q, top=None):
     yy = y + 100
     for ln in note_lines:
         c.d.text((SAFE_L + 30, yy), ln, font=tf, fill=WHITE); yy += int(tf.size * 1.3)
+    for im in note_imgs:
+        c.im.paste(im, (SAFE_L + 24, yy), im); yy += im.height + 4
     if top is None:
         used = y + bh - 300
-        return answer_frame(q, top=max(300, 300 + (BOTTOM - 300 - used) // 2))
+        if 300 + used > BOTTOM and k > 0.65:
+            return answer_frame(q, None, round(k - 0.08, 2))
+        return answer_frame(q, top=max(300, 300 + (BOTTOM - 300 - used) // 2), k=k)
     return c.im
 
 
 def end_frame():
-    c = Canvas(NAVY)
-    if os.path.exists(ICON):
-        ic = Image.open(ICON).convert("RGB").resize((420, 420), Image.LANCZOS)
+    c = Canvas(APP["end"])
+    icon = os.path.join(HERE, APP["icon"])
+    if os.path.exists(icon):
+        ic = Image.open(icon).convert("RGB").resize((420, 420), Image.LANCZOS)
         mask = Image.new("L", ic.size, 0)
         ImageDraw.Draw(mask).rounded_rectangle((0, 0, 420, 420), radius=90, fill=255)
         c.im.paste(ic, ((W - 420) // 2, 360), mask)
-    c.center("GRE Math Knight", font("Black", 88), 840, WHITE)
-    c.center("More GRE Quant questions like this,", font("SemiBold", 46), 980, GOLD)
+    nf = font("Black", 88)
+    while c.d.textlength(APP["name"], font=nf) > SAFE_R - SAFE_L:
+        nf = font("Black", nf.size - 4)
+    c.center(APP["name"], nf, 840, WHITE)
+    c.center(APP["tag1"], font("SemiBold", 46), 980, GOLD)
     c.center("with the mistake behind each wrong answer.", font("SemiBold", 46), 1045, GOLD)
     c.center("On the App Store", font("Bold", 52), 1180, WHITE)
     return c.im
@@ -279,11 +439,17 @@ def audio(path, q_secs, total):
         w.writeframes(b"".join(struct.pack("<h", int(max(-1, min(1, v)) * 32000)) for v in buf))
 
 
+def use_app(app):
+    global APP
+    APP = APPS[app]
+
+
 def get(num):
-    return next(x for x in json.load(open(os.path.join(HERE, "math_queue.json"))) if x["num"] == num)
+    return next(x for x in json.load(open(os.path.join(HERE, APP["queue"]))) if x["num"] == num)
 
 
-def make(num, out, stills=None):
+def make(num, out, stills=None, app="gre"):
+    use_app(app)
     q = get(num)
     tmp = tempfile.mkdtemp()
     frames = [(question_frame(q, 0), 1)]
@@ -311,5 +477,6 @@ def make(num, out, stills=None):
 if __name__ == "__main__":
     num = int(sys.argv[1])
     out = sys.argv[2] if len(sys.argv) > 2 else f"math-short-{num}.mp4"
-    q = make(num, out, stills=os.environ.get("STILLS"))
-    print(f"rendered GRE Quant #{num} {q['id']} -> {out}")
+    app = os.environ.get("APP", "gre")
+    q = make(num, out, stills=os.environ.get("STILLS"), app=app)
+    print(f"rendered {APPS[app]['label']} #{num} {q['id']} -> {out}")
