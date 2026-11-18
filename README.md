@@ -23,3 +23,12 @@ Daily quiz carousels for [@gre_vocab_cartoons](https://www.instagram.com/gre_voc
 ## Weekly stats (read-only)
 
 `.github/workflows/weekly-stats.yml` runs `stats.py` every Sunday at 14:17 UTC (and on demand from the Actions tab). It never posts or edits anything. It reads Instagram followers plus each post's views, reach, likes, comments, saves, shares and (Reels) average watch time, and YouTube subscribers plus each upload's views, likes and comments, for everything published since 2026-10-15. Results go to `stats/YYYY-MM-DD.json`, `stats/posts.csv` (one row per post per run) and `stats/accounts.csv`. Posts are labeled with their quiz number and word from the posting logs. A Claude scheduled task reads `stats/` on Monday mornings and reports to Vince.
+
+## Daily GRE Quant Short (YouTube only)
+
+`.github/workflows/daily-math-short.yml` uploads one GRE Quant Short per day at 02:23 UTC to the same YouTube channel, using the `YT_*` secrets. Questions come from GRE Math Knight 2.0: `build_math_queue.py` builds `math_queue.json` (775 phone-legible items: 388 questions, then 387 fresh versions), and `make_math_short.py` renders a 44-second video (question, 30-second countdown with a pause hint, answer, short solution, one trap answer with its mistake, end card).
+
+- **Start gate:** nothing uploads until `math/start_date.txt` holds a date (YYYY-MM-DD). Set it the day GRE Math Knight 2.0 is live, since the end card describes 2.0.
+- **Safety:** at most one per 16 hours; never re-uploads a number already on the channel (titles "GRE Quant #N") or in `math_shorts.log`.
+- **Test:** run the workflow by hand with `render_only=true` to render one video and upload nothing.
+- No Instagram Reels for these (Vince, 2026-11-18: pausing a Reel is too awkward).
