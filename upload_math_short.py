@@ -28,6 +28,10 @@ CFG = {
             "start": "sat_start_date.txt", "log": "sat_shorts.log",
             "tags": ["SAT", "SAT math", "digital SAT", "SAT prep"], "hashtags": "#SAT #SATmath #DigitalSAT #SATprep #Shorts",
             "help": None},
+    "act": {"title": "ACT Math", "game": "ACT Math Adventurer", "url": "https://apps.apple.com/app/id6835253855",
+            "start": "act_start_date.txt", "log": "act_shorts.log",
+            "tags": ["ACT", "ACT math", "ACT prep", "ACT test"], "hashtags": "#ACT #ACTmath #ACTprep #Shorts",
+            "help": None},
 }
 APP = arg("--app", "gre")
 C = CFG[APP]
