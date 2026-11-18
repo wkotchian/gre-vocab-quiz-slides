@@ -2,9 +2,9 @@
 """Render a vertical GRE Quant Short/Reel (1080x1920) for one question from math_queue.json.
 
   0-1s   : question card (question + answer choices)
-  1-16s  : same card with a 15..1 "solve it" countdown (soft tick each second)
-  16-26s : answer, the short solution, and one trap answer with the mistake behind it (chime)
-  26-29s : end card: GRE Math Knight
+  1-31s  : same card with a 30..1 "solve it" countdown (soft tick each second) and a pause hint
+  31-41s : answer, the short solution, and one trap answer with the mistake behind it (chime)
+  41-44s : end card: GRE Math Knight
 
 Questions come from GRE Math Knight 2.0. Key text stays inside the Shorts/Reels safe area
 (clear of the right-side buttons and the bottom caption overlay).
@@ -27,7 +27,7 @@ FONT = os.path.join(HERE, "fonts", "Inter-{w}.otf")
 FALLBACK = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 ICON = os.path.join(HERE, "math", "knight_icon.png")
 SR = 44100
-THINK_SECS, ANSWER_SECS, END_SECS = 15, 10, 3
+THINK_SECS, ANSWER_SECS, END_SECS = 30, 10, 3
 matplotlib.rcParams["mathtext.fontset"] = "dejavusans"
 
 
@@ -181,6 +181,9 @@ def question_frame(q, count, top=None):
     px = SAFE_L + (SAFE_R - SAFE_L - pw) / 2 - 40
     c.d.rounded_rectangle((px, y, px + pw + 80, y + 100), radius=50, fill=GOLD)
     c.d.text((px + 40, y + 14), label, font=pf, fill=NAVY)
+    y += 118
+    c.center("Need more time? Pause the video.", font("SemiBold", 40), y, WHITE)
+    y += 50
     if top is None:
         used = y + 100 - 300
         return question_frame(q, count, top=max(300, 300 + (BOTTOM - 300 - used) // 2))
