@@ -25,11 +25,11 @@ CFG = {
             "tags": ["GRE", "GRE quant", "GRE math", "GRE prep"], "hashtags": "#GRE #GREquant #GREmath #GREprep #Shorts",
             "help": "https://vincekotchian.com/gre/free-gre-resources/"},
     "sat": {"title": "SAT Math", "game": "SAT Math Swordsman", "url": "https://apps.apple.com/app/id6835253506",
-            "start": "sat_start_date.txt", "log": "sat_shorts.log",
+            "start": "sat_start_date.txt", "log": "sat_shorts.log", "auto_live": True,
             "tags": ["SAT", "SAT math", "digital SAT", "SAT prep"], "hashtags": "#SAT #SATmath #DigitalSAT #SATprep #Shorts",
             "help": None},
     "act": {"title": "ACT Math", "game": "ACT Math Adventurer", "url": "https://apps.apple.com/app/id6835253855",
-            "start": "act_start_date.txt", "log": "act_shorts.log",
+            "start": "act_start_date.txt", "log": "act_shorts.log", "auto_live": True,
             "tags": ["ACT", "ACT math", "ACT prep", "ACT test"], "hashtags": "#ACT #ACTmath #ACTprep #Shorts",
             "help": None},
 }
@@ -38,12 +38,29 @@ C = CFG[APP]
 TITLE_RE = re.compile(re.escape(C["title"]) + r" #(\d+)\b")
 
 
+def app_is_live():
+    """True once the app shows up in Apple's public lookup (it only does after release)."""
+    import urllib.request
+    app_id = C["url"].rsplit("id", 1)[1]
+    try:
+        with urllib.request.urlopen(f"https://itunes.apple.com/lookup?id={app_id}&country=us", timeout=30) as r:
+            return json.load(r).get("resultCount", 0) > 0
+    except Exception as e:  # noqa: BLE001
+        print(f"lookup failed: {e}")
+        return False
+
+
 def start_date():
     raw = open(os.path.join(HERE, "math", C["start"])).read().strip()
     try:
         return date.fromisoformat(raw)
     except ValueError:
-        return None  # e.g. "when 2.0 is live": not started
+        pass
+    # SAT and ACT start by themselves the day Apple lists the app; GRE waits for a date (2.0 is an update, not a new app)
+    if C.get("auto_live") and app_is_live():
+        print("app is live on the App Store: starting today")
+        return datetime.now(timezone.utc).date()
+    return None
 
 
 def logged_nums():
