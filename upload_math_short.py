@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render and upload the next GRE Quant Short (from GRE Math Knight 2.0) via the official YouTube Data API.
+"""Render and upload the next GRE Quant or SAT Math Short (questions from the apps) via the official YouTube Data API.
 
 Env: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN   (same GitHub secrets as the vocab Shorts)
 Args: [--privacy public|private|unlisted] [--num N] [--dry-run]
@@ -19,12 +19,23 @@ import make_math_short  # noqa: E402
 from upload_short import http, access_token, arg, API, EXPECTED_CHANNEL  # noqa: E402
 
 MIN_GAP_HOURS = 16
-TITLE_RE = re.compile(r"GRE Quant #(\d+)\b")
-APP_URL = "https://apps.apple.com/app/id1535485326"
+CFG = {
+    "gre": {"title": "GRE Quant", "game": "GRE Math Knight", "url": "https://apps.apple.com/app/id1535485326",
+            "start": "start_date.txt", "log": "math_shorts.log",
+            "tags": ["GRE", "GRE quant", "GRE math", "GRE prep"], "hashtags": "#GRE #GREquant #GREmath #GREprep #Shorts",
+            "help": "https://vincekotchian.com/gre/free-gre-resources/"},
+    "sat": {"title": "SAT Math", "game": "SAT Math Swordsman", "url": "https://apps.apple.com/app/id6835253506",
+            "start": "sat_start_date.txt", "log": "sat_shorts.log",
+            "tags": ["SAT", "SAT math", "digital SAT", "SAT prep"], "hashtags": "#SAT #SATmath #DigitalSAT #SATprep #Shorts",
+            "help": None},
+}
+APP = arg("--app", "gre")
+C = CFG[APP]
+TITLE_RE = re.compile(re.escape(C["title"]) + r" #(\d+)\b")
 
 
 def start_date():
-    raw = open(os.path.join(HERE, "math", "start_date.txt")).read().strip()
+    raw = open(os.path.join(HERE, "math", C["start"])).read().strip()
     try:
         return date.fromisoformat(raw)
     except ValueError:
@@ -32,7 +43,7 @@ def start_date():
 
 
 def logged_nums():
-    p = os.path.join(HERE, "math_shorts.log")
+    p = os.path.join(HERE, C["log"])
     if not os.path.exists(p):
         return set()
     return {int(m.group(1)) for m in re.finditer(r"UPLOADED #(\d+)", open(p).read())}
@@ -45,7 +56,7 @@ def main():
     start = start_date()
     today = datetime.now(timezone.utc).date()
     if not forced and (start is None or today < start):
-        print(f"NOT STARTED: start date is {start or 'not set'} (set math/start_date.txt when 2.0 is live)")
+        print(f"NOT STARTED: start date is {start or 'not set'} (set math/{C['start']})")
         return
 
     tok = access_token()
@@ -55,7 +66,8 @@ def main():
     uploads = ch[0]["contentDetails"]["relatedPlaylists"]["uploads"]
     items = http("GET", f"{API}/playlistItems?part=snippet&maxResults=50&playlistId={uploads}", tok).get("items", [])
 
-    queue = json.load(open(os.path.join(HERE, "math_queue.json")))
+    make_math_short.use_app(APP)
+    queue = json.load(open(os.path.join(HERE, make_math_short.APP["queue"])))
     done, last_time = logged_nums(), None
     for it in items:
         m = TITLE_RE.search(it["snippet"]["title"])
@@ -65,9 +77,9 @@ def main():
             last_time = max(last_time or ts, ts)
     if last_time and not forced:
         hours = (datetime.now(timezone.utc) - last_time).total_seconds() / 3600
-        print(f"last GRE Quant Short uploaded {hours:.1f}h ago")
+        print(f"last {C['title']} Short uploaded {hours:.1f}h ago")
         if hours < MIN_GAP_HOURS and not dry:
-            print("SKIP: too soon since last GRE Quant Short")
+            print(f"SKIP: too soon since last {C['title']} Short")
             return
 
     if forced:
@@ -75,29 +87,29 @@ def main():
     else:
         nxt = [x for x in queue if x["num"] not in done and x["num"] > max(done or {0})]
         if not nxt:
-            print("QUEUE EMPTY: all GRE Quant Shorts uploaded")
+            print(f"QUEUE EMPTY: all {C['title']} Shorts uploaded")
             return
         q = nxt[0]
     if q["num"] in done:
-        sys.exit(f"GRE Quant #{q['num']} is already on the channel; refusing to re-upload")
+        sys.exit(f"{C['title']} #{q['num']} is already on the channel; refusing to re-upload")
 
-    skill = q.get("skill") or "GRE math"
-    title = f"GRE Quant #{q['num']}: {skill} #Shorts"[:100]
+    skill = q.get("skill") or C["title"]
+    title = f"{C['title']} #{q['num']}: {skill} #Shorts"[:100]
     desc = ("Solve it before the countdown ends, or pause the video if you need more time. "
             "Then see the answer and the trap answer people pick.\n\n"
             "Got it right? Comment ✅ or ❌.\n\n"
-            "This question is from my game, GRE Math Knight. It has hundreds more like it, and it shows the "
-            f"mistake behind every wrong answer. Search \"GRE Math Knight\" in the App Store: {APP_URL}\n\n"
-            "More free GRE help: https://vincekotchian.com/gre/free-gre-resources/\n\n"
-            "#GRE #GREquant #GREmath #GREprep #Shorts")
-    print(f"next: GRE Quant #{q['num']} {q['id']} (privacy: {privacy})")
+            f"This question is from my game, {C['game']}. It has hundreds more like it, and it shows the "
+            f"mistake behind every wrong answer. Search \"{C['game']}\" in the App Store: {C['url']}\n\n"
+            + (f"More free GRE help: {C['help']}\n\n" if C["help"] else "")
+            + C["hashtags"])
+    print(f"next: {C['title']} #{q['num']} {q['id']} (privacy: {privacy})")
     if dry:
         print("DRY RUN: nothing uploaded"); print("title:", title); return
 
-    out = os.path.join(HERE, f"math-short-{q['num']}.mp4")
-    make_math_short.make(q["num"], out)
+    out = os.path.join(HERE, f"{APP}-math-short-{q['num']}.mp4")
+    make_math_short.make(q["num"], out, app=APP)
     meta = {"snippet": {"title": title, "description": desc, "categoryId": "27",
-                        "tags": ["GRE", "GRE quant", "GRE math", "GRE prep", skill.lower()]},
+                        "tags": C["tags"] + [skill.lower()]},
             "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False}}
     size = os.path.getsize(out)
     r = http("POST", "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",

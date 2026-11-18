@@ -295,38 +295,6 @@
   "num": 9
  },
  {
-  "id": "sat-L2-solve-003",
-  "kind": "mc",
-  "lines": [
-   "A plumber charged a customer $\\$195$ for one job. The equation $60h + 0.75m = 195$ represents this situation, where $h$ is the number of hours the plumber worked on the job and $m$ is the number of miles the plumber drove for the job. If the plumber worked on the job for 2 hours and 45 minutes, how many miles did the plumber drive for the job?"
-  ],
-  "choices": [
-   "$30$",
-   "$40$",
-   "$64$",
-   "$100$"
-  ],
-  "answer": 1,
-  "trap": 0,
-  "trap_note": "Found the mileage charge, 30 dollars, and stopped.",
-  "sol": [
-   [
-    "rich",
-    "2 hours and 45 minutes is 2.75 hours."
-   ],
-   [
-    "rich",
-    "$60(2.75) + 0.75m = 195$, so $165 + 0.75m = 195$ and $0.75m = 30$."
-   ],
-   [
-    "rich",
-    "$m = \\frac{30}{0.75} = 40$."
-   ]
-  ],
-  "skill": "Linear equations in two variables",
-  "num": 10
- },
- {
   "id": "sat-L2-model-007",
   "kind": "mc",
   "lines": [
@@ -356,71 +324,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 11
- },
- {
-  "id": "sat-L2-model-008",
-  "kind": "mc",
-  "lines": [
-   "A caterer charges $\\$45$ for each adult meal and $\\$28$ for each child meal. A service charge of 18 percent of the cost of the meals is added to every bill, and a delivery fee of $\\$75$, which is not subject to the service charge, is also added. A client’s total bill was $\\$5{,}975$ for $x$ adult meals and $y$ child meals. Which equation represents this situation?"
-  ],
-  "choices": [
-   "$0.18(45x + 28y) + 75 = 5{,}975$",
-   "$45x + 28y + 93 = 5{,}975$",
-   "$1.18(45x + 28y) + 75 = 5{,}975$",
-   "$1.18(45x + 28y + 75) = 5{,}975$"
-  ],
-  "answer": 2,
-  "trap": 0,
-  "trap_note": "Multiplied the cost of the meals by the service charge rate alone instead of by 1 plus the rate.",
-  "sol": [
-   [
-    "rich",
-    "The meals cost $45x + 28y$ dollars; adding 18 percent of that cost multiplies it by 1.18."
-   ],
-   [
-    "rich",
-    "The delivery fee is added after the service charge, without being multiplied."
-   ],
-   [
-    "rich",
-    "So $1.18(45x + 28y) + 75 = 5{,}975$."
-   ]
-  ],
-  "skill": "Linear equations in two variables",
-  "num": 12
- },
- {
-  "id": "sat-L2-model-009",
-  "kind": "mc",
-  "lines": [
-   "A rectangular garden is $x$ feet long and $y$ feet wide. It will be fenced on all four sides. Decorative fencing that costs $\\$12$ per foot will be used along one of the two sides of length $x$, and plain fencing that costs $\\$8$ per foot will be used for the other three sides. The total cost of the fencing is $\\$1{,}040$. Which equation represents this situation?"
-  ],
-  "choices": [
-   "$12x + 8y = 1{,}040$",
-   "$24x + 16y = 1{,}040$",
-   "$20x + 8y = 1{,}040$",
-   "$20x + 16y = 1{,}040$"
-  ],
-  "answer": 3,
-  "trap": 0,
-  "trap_note": "Priced only one side of each length instead of all four sides.",
-  "sol": [
-   [
-    "rich",
-    "One side of length $x$ costs $12x$ dollars; the other side of length $x$ costs $8x$ dollars."
-   ],
-   [
-    "rich",
-    "The two sides of width $y$ cost $8(2y) = 16y$ dollars."
-   ],
-   [
-    "rich",
-    "Total: $12x + 8x + 16y = 1{,}040$, or $20x + 16y = 1{,}040$."
-   ]
-  ],
-  "skill": "Linear equations in two variables",
-  "num": 13
+  "num": 10
  },
  {
   "id": "sat-L2-slope-005",
@@ -453,7 +357,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 14
+  "num": 11
  },
  {
   "id": "sat-LF-fromdata-011",
@@ -485,7 +389,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 15
+  "num": 12
  },
  {
   "id": "sat-LF-fromdata-016",
@@ -517,7 +421,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 16
+  "num": 13
  },
  {
   "id": "sat-LF-type-002",
@@ -545,7 +449,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 17
+  "num": 14
  },
  {
   "id": "sat-LF-fromdata-009",
@@ -577,7 +481,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 18
+  "num": 15
  },
  {
   "id": "sat-LF-fromdata-010",
@@ -609,7 +513,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 19
+  "num": 16
  },
  {
   "id": "sat-LF-fromdata-019",
@@ -641,7 +545,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 20
+  "num": 17
  },
  {
   "id": "sat-LF-fromdata-020",
@@ -673,7 +577,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 21
+  "num": 18
  },
  {
   "id": "sat-LF-intercept-007",
@@ -705,7 +609,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 22
+  "num": 19
  },
  {
   "id": "sat-LF-intercept-011",
@@ -741,7 +645,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 23
+  "num": 20
  },
  {
   "id": "sat-LF-interp-004",
@@ -773,7 +677,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 24
+  "num": 21
  },
  {
   "id": "sat-LF-model-002",
@@ -805,7 +709,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 25
+  "num": 22
  },
  {
   "id": "sat-LF-model-003",
@@ -837,7 +741,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 26
+  "num": 23
  },
  {
   "id": "sat-LF-model-004",
@@ -869,7 +773,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 27
+  "num": 24
  },
  {
   "id": "sat-LF-model-005",
@@ -901,7 +805,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 28
+  "num": 25
  },
  {
   "id": "sat-SYS-solve-011",
@@ -935,7 +839,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 29
+  "num": 26
  },
  {
   "id": "sat-SYS-count-004",
@@ -967,7 +871,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 30
+  "num": 27
  },
  {
   "id": "sat-SYS-count-007",
@@ -1001,7 +905,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 31
+  "num": 28
  },
  {
   "id": "sat-SYS-count-008",
@@ -1038,35 +942,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 32
- },
- {
-  "id": "sat-INEQ-model-005",
-  "kind": "mc",
-  "lines": [
-   "A club is selling T-shirts for $\\$12$ each and hats for $\\$8$ each. The club wants to sell at least twice as many T-shirts as hats and to earn at least $\\$600$ from these sales. Which system of inequalities represents this situation, where $t$ is the number of T-shirts sold and $h$ is the number of hats sold?"
-  ],
-  "choices": [
-   "$h \\ge 2t$\n$12t + 8h \\ge 600$",
-   "$h \\ge 2t$\n$8t + 12h \\ge 600$",
-   "$t \\ge 2h$\n$8t + 12h \\ge 600$",
-   "$t \\ge 2h$\n$12t + 8h \\ge 600$"
-  ],
-  "answer": 3,
-  "trap": 0,
-  "trap_note": "Reversed the comparison of the numbers of T-shirts and hats.",
-  "sol": [
-   [
-    "rich",
-    "At least twice as many T-shirts as hats: $t \\ge 2h$. Check with numbers: 10 hats require at least 20 T-shirts."
-   ],
-   [
-    "rich",
-    "The revenue is $12t + 8h$ dollars, which must be at least 600: $12t + 8h \\ge 600$."
-   ]
-  ],
-  "skill": "Linear inequalities in one or two variables",
-  "num": 33
+  "num": 29
  },
  {
   "id": "sat-INEQ-check-007",
@@ -1100,7 +976,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 34
+  "num": 30
  },
  {
   "id": "sat-INEQ-check-008",
@@ -1134,7 +1010,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 35
+  "num": 31
  },
  {
   "id": "sat-INEQ-model-006",
@@ -1166,7 +1042,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 36
+  "num": 32
  },
  {
   "id": "sat-INEQ-solve-004",
@@ -1198,7 +1074,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 37
+  "num": 33
  },
  {
   "id": "sat-L2-model-005",
@@ -1230,7 +1106,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 38
+  "num": 34
  },
  {
   "id": "sat-SYS-count-002",
@@ -1264,7 +1140,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 39
+  "num": 35
  },
  {
   "id": "sat-INEQ-check-004",
@@ -1294,7 +1170,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 40
+  "num": 36
  },
  {
   "id": "sat-EQX-factor-006",
@@ -1326,7 +1202,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 41
+  "num": 37
  },
  {
   "id": "sat-EQX-exp-005",
@@ -1358,40 +1234,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 42
- },
- {
-  "id": "sat-EQX-literal-005",
-  "kind": "mc",
-  "lines": [
-   "$A = \\pi(R^{2} - r^{2})$",
-   "The given formula gives the area $A$ of the region between two circles that have the same center, where $R$ is the radius of the larger circle and $r$ is the radius of the smaller circle. Which equation correctly expresses $r$ in terms of $A$ and $R$?"
-  ],
-  "choices": [
-   "$r = R - \\sqrt{\\frac{A}{\\pi}}$",
-   "$r = \\sqrt{R^{2} - \\pi A}$",
-   "$r = \\sqrt{R^{2} - \\frac{A}{\\pi}}$",
-   "$r = \\sqrt{\\frac{A}{\\pi} - R^{2}}$"
-  ],
-  "answer": 2,
-  "trap": 0,
-  "trap_note": "Took the square root of each term separately instead of the square root of the whole difference.",
-  "sol": [
-   [
-    "rich",
-    "Divide both sides by $\\pi$: $\\frac{A}{\\pi} = R^{2} - r^{2}$."
-   ],
-   [
-    "rich",
-    "Add $r^{2}$ and subtract $\\frac{A}{\\pi}$: $r^{2} = R^{2} - \\frac{A}{\\pi}$."
-   ],
-   [
-    "rich",
-    "Take the positive square root, since $r > 0$: $r = \\sqrt{R^{2} - \\frac{A}{\\pi}}$."
-   ]
-  ],
-  "skill": "Equivalent expressions",
-  "num": 43
+  "num": 38
  },
  {
   "id": "sat-EQX-rational-004",
@@ -1423,7 +1266,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 44
+  "num": 39
  },
  {
   "id": "sat-EQX-factor-008",
@@ -1455,7 +1298,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 45
+  "num": 40
  },
  {
   "id": "sat-EQX-poly-007",
@@ -1488,7 +1331,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 46
+  "num": 41
  },
  {
   "id": "sat-EQX-exp-003",
@@ -1520,7 +1363,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 47
+  "num": 42
  },
  {
   "id": "sat-EQX-exp-006",
@@ -1553,7 +1396,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 48
+  "num": 43
  },
  {
   "id": "sat-EQX-exp-007",
@@ -1585,7 +1428,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 49
+  "num": 44
  },
  {
   "id": "sat-EQX-literal-003",
@@ -1618,7 +1461,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 50
+  "num": 45
  },
  {
   "id": "sat-EQX-literal-004",
@@ -1651,39 +1494,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 51
- },
- {
-  "id": "sat-EQX-literal-006",
-  "kind": "mc",
-  "lines": [
-   "The speed $v$ of a ball at the bottom of a ramp, after the ball rolls from rest down a vertical height $h$, can be modeled by the equation $v = \\sqrt{\\frac{2gh}{1 + k}}$, where $g$ is the acceleration due to gravity and $k$ is a positive constant that depends on the shape of the ball. Which equation correctly expresses $k$ in terms of $v$, $g$, and $h$?"
-  ],
-  "choices": [
-   "$k = \\frac{2gh}{v^{2}} + 1$",
-   "$k = \\frac{2gh - 1}{v^{2}}$",
-   "$k = \\frac{2gh}{v^{2}} - 1$",
-   "$k = \\frac{\\sqrt{2gh}}{v} - 1$"
-  ],
-  "answer": 2,
-  "trap": 0,
-  "trap_note": "Made a sign error when moving 1 to the other side of the equation.",
-  "sol": [
-   [
-    "rich",
-    "Square both sides: $v^{2} = \\frac{2gh}{1 + k}$."
-   ],
-   [
-    "rich",
-    "Multiply both sides by $1 + k$ and divide by $v^{2}$: $1 + k = \\frac{2gh}{v^{2}}$."
-   ],
-   [
-    "rich",
-    "Subtract 1: $k = \\frac{2gh}{v^{2}} - 1$."
-   ]
-  ],
-  "skill": "Equivalent expressions",
-  "num": 52
+  "num": 46
  },
  {
   "id": "sat-EQX-rational-003",
@@ -1715,7 +1526,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 53
+  "num": 47
  },
  {
   "id": "sat-EQX-rational-002",
@@ -1747,7 +1558,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 54
+  "num": 48
  },
  {
   "id": "sat-NLE-quad-009",
@@ -1784,7 +1595,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 55
+  "num": 49
  },
  {
   "id": "sat-NLE-count-006",
@@ -1817,7 +1628,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 56
+  "num": 50
  },
  {
   "id": "sat-NLE-quad-012",
@@ -1850,7 +1661,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 57
+  "num": 51
  },
  {
   "id": "sat-NLE-other-006",
@@ -1883,7 +1694,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 58
+  "num": 52
  },
  {
   "id": "sat-NLE-sys-005",
@@ -1921,7 +1732,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 59
+  "num": 53
  },
  {
   "id": "sat-NLE-quad-008",
@@ -1954,7 +1765,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 60
+  "num": 54
  },
  {
   "id": "sat-NLE-quad-010",
@@ -1987,7 +1798,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 61
+  "num": 55
  },
  {
   "id": "sat-NLE-count-004",
@@ -2024,7 +1835,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 62
+  "num": 56
  },
  {
   "id": "sat-NLE-count-005",
@@ -2060,7 +1871,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 63
+  "num": 57
  },
  {
   "id": "sat-NLE-other-005",
@@ -2093,7 +1904,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 64
+  "num": 58
  },
  {
   "id": "sat-NLE-other-007",
@@ -2130,7 +1941,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 65
+  "num": 59
  },
  {
   "id": "sat-NLE-sys-007",
@@ -2164,7 +1975,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 66
+  "num": 60
  },
  {
   "id": "sat-NLF-build-010",
@@ -2196,7 +2007,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 67
+  "num": 61
  },
  {
   "id": "sat-NLF-eval-007",
@@ -2228,7 +2039,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 68
+  "num": 62
  },
  {
   "id": "sat-NLF-eval-008",
@@ -2260,7 +2071,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 69
+  "num": 63
  },
  {
   "id": "sat-NLF-transform-006",
@@ -2292,7 +2103,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 70
+  "num": 64
  },
  {
   "id": "sat-NLF-transform-007",
@@ -2320,7 +2131,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 71
+  "num": 65
  },
  {
   "id": "sat-NLF-polyfactor-003",
@@ -2352,7 +2163,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 72
+  "num": 66
  },
  {
   "id": "sat-NLF-feat-005",
@@ -2380,7 +2191,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 73
+  "num": 67
  },
  {
   "id": "sat-NLF-interp-015",
@@ -2412,7 +2223,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 74
+  "num": 68
  },
  {
   "id": "sat-NLF-build-002",
@@ -2444,7 +2255,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 75
+  "num": 69
  },
  {
   "id": "sat-NLF-build-009",
@@ -2476,7 +2287,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 76
+  "num": 70
  },
  {
   "id": "sat-NLF-feat-009",
@@ -2508,7 +2319,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 77
+  "num": 71
  },
  {
   "id": "sat-NLF-transform-004",
@@ -2540,7 +2351,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 78
+  "num": 72
  },
  {
   "id": "sat-NLF-forms-002",
@@ -2572,7 +2383,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 79
+  "num": 73
  },
  {
   "id": "sat-NLF-forms-003",
@@ -2606,7 +2417,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 80
+  "num": 74
  },
  {
   "id": "sat-NLF-forms-005",
@@ -2638,7 +2449,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 81
+  "num": 75
  },
  {
   "id": "sat-EQX-factor-005",
@@ -2671,7 +2482,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 82
+  "num": 76
  },
  {
   "id": "sat-EQX-factor-007",
@@ -2703,7 +2514,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 83
+  "num": 77
  },
  {
   "id": "sat-NLF-interp-007",
@@ -2731,7 +2542,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 84
+  "num": 78
  },
  {
   "id": "sat-RAT-prop-004",
@@ -2759,7 +2570,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 85
+  "num": 79
  },
  {
   "id": "sat-RAT-prop-005",
@@ -2787,7 +2598,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 86
+  "num": 80
  },
  {
   "id": "sat-RAT-unit-006",
@@ -2819,7 +2630,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 87
+  "num": 81
  },
  {
   "id": "sat-PCT-change-006",
@@ -2851,7 +2662,7 @@
    ]
   ],
   "skill": "Percentages",
-  "num": 88
+  "num": 82
  },
  {
   "id": "sat-PCT-change-007",
@@ -2883,7 +2694,7 @@
    ]
   ],
   "skill": "Percentages",
-  "num": 89
+  "num": 83
  },
  {
   "id": "sat-PROB-simple-004",
@@ -2915,7 +2726,7 @@
    ]
   ],
   "skill": "Probability and conditional probability",
-  "num": 90
+  "num": 84
  },
  {
   "id": "sat-RAT-unit-005",
@@ -2947,7 +2758,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 91
+  "num": 85
  },
  {
   "id": "sat-AV-volume-004",
@@ -2979,7 +2790,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 92
+  "num": 86
  },
  {
   "id": "sat-AV-area-005",
@@ -3011,7 +2822,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 93
+  "num": 87
  },
  {
   "id": "sat-AV-scale-002",
@@ -3043,7 +2854,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 94
+  "num": 88
  },
  {
   "id": "sat-LAT-triangle-008",
@@ -3077,7 +2888,7 @@
    ]
   ],
   "skill": "Lines, angles, and triangles",
-  "num": 95
+  "num": 89
  },
  {
   "id": "sat-RTT-unit-002",
@@ -3109,7 +2920,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 96
+  "num": 90
  },
  {
   "id": "sat-RTT-trig-005",
@@ -3141,7 +2952,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 97
+  "num": 91
  },
  {
   "id": "sat-RTT-unit-001",
@@ -3173,7 +2984,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 98
+  "num": 92
  },
  {
   "id": "sat-CIR-arc-002",
@@ -3205,7 +3016,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 99
+  "num": 93
  },
  {
   "id": "sat-CIR-arc-003",
@@ -3237,7 +3048,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 100
+  "num": 94
  },
  {
   "id": "sat-CIR-geom-001",
@@ -3269,7 +3080,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 101
+  "num": 95
  },
  {
   "id": "sat-AV-volume-002",
@@ -3301,7 +3112,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 102
+  "num": 96
  },
  {
   "id": "sat-LAT-triangle-006",
@@ -3333,7 +3144,7 @@
    ]
   ],
   "skill": "Lines, angles, and triangles",
-  "num": 103
+  "num": 97
  },
  {
   "id": "sat-AV-volume-003",
@@ -3365,7 +3176,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 104
+  "num": 98
  },
  {
   "id": "sat-RTT-trig-003",
@@ -3397,7 +3208,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 105
+  "num": 99
  },
  {
   "id": "sat-CIR-eqn-002",
@@ -3434,7 +3245,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 106
+  "num": 100
  },
  {
   "id": "sat-HW-002",
@@ -3468,7 +3279,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 107
+  "num": 101
  },
  {
   "id": "sat-HW-016",
@@ -3502,7 +3313,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 108
+  "num": 102
  },
  {
   "id": "sat-HW-017",
@@ -3534,7 +3345,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 109
+  "num": 103
  },
  {
   "id": "sat-HW-021",
@@ -3568,7 +3379,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 110
+  "num": 104
  },
  {
   "id": "sat-HW-022",
@@ -3601,7 +3412,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 111
+  "num": 105
  },
  {
   "id": "sat-HW-024",
@@ -3634,7 +3445,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 112
+  "num": 106
  },
  {
   "id": "sat-HW-025",
@@ -3666,7 +3477,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 113
+  "num": 107
  },
  {
   "id": "sat-HW-032",
@@ -3698,7 +3509,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 114
+  "num": 108
  },
  {
   "id": "sat-HW-033",
@@ -3731,7 +3542,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 115
+  "num": 109
  },
  {
   "id": "sat-HW-034",
@@ -3768,7 +3579,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 116
+  "num": 110
  },
  {
   "id": "sat-HW-007",
@@ -3800,7 +3611,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 117
+  "num": 111
  },
  {
   "id": "sat-HW-036",
@@ -3832,7 +3643,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 118
+  "num": 112
  },
  {
   "id": "sat-HW-038",
@@ -3864,7 +3675,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 119
+  "num": 113
  },
  {
   "id": "sat-HW-039",
@@ -3896,7 +3707,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 120
+  "num": 114
  },
  {
   "id": "sat-HW-004",
@@ -3930,7 +3741,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 121
+  "num": 115
  },
  {
   "id": "sat-HW-005",
@@ -3962,7 +3773,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 122
+  "num": 116
  },
  {
   "id": "sat-AV-area-005-v1",
@@ -3994,7 +3805,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 123
+  "num": 117
  },
  {
   "id": "sat-AV-volume-002-v1",
@@ -4026,7 +3837,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 124
+  "num": 118
  },
  {
   "id": "sat-AV-volume-003-v1",
@@ -4058,7 +3869,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 125
+  "num": 119
  },
  {
   "id": "sat-AV-scale-002-v1",
@@ -4090,7 +3901,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 126
+  "num": 120
  },
  {
   "id": "sat-LAT-triangle-006-v1",
@@ -4122,7 +3933,7 @@
    ]
   ],
   "skill": "Lines, angles, and triangles",
-  "num": 127
+  "num": 121
  },
  {
   "id": "sat-RTT-trig-003-v1",
@@ -4154,7 +3965,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 128
+  "num": 122
  },
  {
   "id": "sat-RTT-trig-005-v1",
@@ -4186,7 +3997,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 129
+  "num": 123
  },
  {
   "id": "sat-RTT-unit-001-v1",
@@ -4218,7 +4029,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 130
+  "num": 124
  },
  {
   "id": "sat-CIR-eqn-002-v1",
@@ -4255,7 +4066,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 131
+  "num": 125
  },
  {
   "id": "sat-CIR-geom-001-v1",
@@ -4287,7 +4098,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 132
+  "num": 126
  },
  {
   "id": "sat-AV-volume-004-v1",
@@ -4319,7 +4130,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 133
+  "num": 127
  },
  {
   "id": "sat-LAT-triangle-008-v1",
@@ -4353,7 +4164,7 @@
    ]
   ],
   "skill": "Lines, angles, and triangles",
-  "num": 134
+  "num": 128
  },
  {
   "id": "sat-RTT-unit-002-v1",
@@ -4385,7 +4196,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 135
+  "num": 129
  },
  {
   "id": "sat-CIR-arc-002-v1",
@@ -4417,7 +4228,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 136
+  "num": 130
  },
  {
   "id": "sat-HW-002-v1",
@@ -4451,7 +4262,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 137
+  "num": 131
  },
  {
   "id": "sat-HW-004-v1",
@@ -4485,7 +4296,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 138
+  "num": 132
  },
  {
   "id": "sat-HW-005-v1",
@@ -4517,7 +4328,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 139
+  "num": 133
  },
  {
   "id": "sat-HW-007-v1",
@@ -4549,7 +4360,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 140
+  "num": 134
  },
  {
   "id": "sat-HW-016-v1",
@@ -4583,7 +4394,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 141
+  "num": 135
  },
  {
   "id": "sat-HW-017-v1",
@@ -4615,7 +4426,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 142
+  "num": 136
  },
  {
   "id": "sat-HW-021-v1",
@@ -4649,7 +4460,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 143
+  "num": 137
  },
  {
   "id": "sat-HW-022-v1",
@@ -4682,7 +4493,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 144
+  "num": 138
  },
  {
   "id": "sat-HW-024-v1",
@@ -4715,7 +4526,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 145
+  "num": 139
  },
  {
   "id": "sat-HW-025-v1",
@@ -4747,7 +4558,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 146
+  "num": 140
  },
  {
   "id": "sat-HW-028-v1",
@@ -4779,7 +4590,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 147
+  "num": 141
  },
  {
   "id": "sat-HW-032-v1",
@@ -4811,7 +4622,7 @@
    ]
   ],
   "skill": "Right triangles and trigonometry",
-  "num": 148
+  "num": 142
  },
  {
   "id": "sat-HW-033-v1",
@@ -4844,7 +4655,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 149
+  "num": 143
  },
  {
   "id": "sat-HW-034-v1",
@@ -4881,7 +4692,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 150
+  "num": 144
  },
  {
   "id": "sat-HW-036-v1",
@@ -4913,7 +4724,7 @@
    ]
   ],
   "skill": "Circles",
-  "num": 151
+  "num": 145
  },
  {
   "id": "sat-HW-038-v1",
@@ -4945,7 +4756,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 152
+  "num": 146
  },
  {
   "id": "sat-HW-039-v1",
@@ -4977,7 +4788,7 @@
    ]
   ],
   "skill": "Area and volume",
-  "num": 153
+  "num": 147
  },
  {
   "id": "sat-L1-solcount-001-v1",
@@ -5010,7 +4821,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 154
+  "num": 148
  },
  {
   "id": "sat-L2-model-005-v1",
@@ -5042,7 +4853,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 155
+  "num": 149
  },
  {
   "id": "sat-LF-fromdata-009-v1",
@@ -5074,7 +4885,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 156
+  "num": 150
  },
  {
   "id": "sat-LF-fromdata-010-v1",
@@ -5106,7 +4917,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 157
+  "num": 151
  },
  {
   "id": "sat-LF-interp-004-v1",
@@ -5138,7 +4949,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 158
+  "num": 152
  },
  {
   "id": "sat-LF-model-002-v1",
@@ -5170,7 +4981,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 159
+  "num": 153
  },
  {
   "id": "sat-LF-type-002-v1",
@@ -5198,7 +5009,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 160
+  "num": 154
  },
  {
   "id": "sat-L1-expr-006-v1",
@@ -5231,7 +5042,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 161
+  "num": 155
  },
  {
   "id": "sat-L1-word-006-v1",
@@ -5263,7 +5074,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 162
+  "num": 156
  },
  {
   "id": "sat-L1-equiv-003-v1",
@@ -5296,7 +5107,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 163
+  "num": 157
  },
  {
   "id": "sat-L1-equiv-004-v1",
@@ -5329,7 +5140,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 164
+  "num": 158
  },
  {
   "id": "sat-L1-solcount-003-v1",
@@ -5362,7 +5173,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 165
+  "num": 159
  },
  {
   "id": "sat-L1-solcount-004-v1",
@@ -5395,7 +5206,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 166
+  "num": 160
  },
  {
   "id": "sat-L1-solcount-005-v1",
@@ -5428,7 +5239,7 @@
    ]
   ],
   "skill": "Linear equations in one variable",
-  "num": 167
+  "num": 161
  },
  {
   "id": "sat-L2-model-006-v1",
@@ -5460,7 +5271,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 168
+  "num": 162
  },
  {
   "id": "sat-L2-model-007-v1",
@@ -5492,39 +5303,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 169
- },
- {
-  "id": "sat-L2-model-008-v1",
-  "kind": "mc",
-  "lines": [
-   "A hardware store sells boxes of nails for $\\$6$ each and boxes of screws for $\\$8$ each. A sales tax of 8 percent of the price of the items is added to each order, and a delivery fee of $\\$25$, which is not taxed, is also added. A contractor paid a total of $\\$457$ for one delivered order of $n$ boxes of nails and $w$ boxes of screws. Which equation represents this situation?"
-  ],
-  "choices": [
-   "$0.08(6n + 8w) + 25 = 457$",
-   "$6n + 8w + 33 = 457$",
-   "$1.08(6n + 8w) + 25 = 457$",
-   "$1.08(6n + 8w + 25) = 457$"
-  ],
-  "answer": 2,
-  "trap": 0,
-  "trap_note": "Multiplied the price of the items by the tax rate alone instead of by 1 plus the rate.",
-  "sol": [
-   [
-    "rich",
-    "The items cost $6n + 8w$ dollars; adding 8 percent tax multiplies that cost by 1.08."
-   ],
-   [
-    "rich",
-    "The delivery fee is added after the tax, without being multiplied."
-   ],
-   [
-    "rich",
-    "So $1.08(6n + 8w) + 25 = 457$."
-   ]
-  ],
-  "skill": "Linear equations in two variables",
-  "num": 170
+  "num": 163
  },
  {
   "id": "sat-L2-model-009-v1",
@@ -5556,7 +5335,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 171
+  "num": 164
  },
  {
   "id": "sat-L2-slope-005-v1",
@@ -5589,39 +5368,7 @@
    ]
   ],
   "skill": "Linear equations in two variables",
-  "num": 172
- },
- {
-  "id": "sat-L2-solve-003-v1",
-  "kind": "mc",
-  "lines": [
-   "A landscaper charged a client $\\$145$ for one visit. The equation $80h + 0.5m = 145$ represents this situation, where $h$ is the number of hours the landscaper worked during the visit and $m$ is the number of miles the landscaper drove for the visit. If the landscaper worked for 1 hour and 30 minutes, how many miles did the landscaper drive for the visit?"
-  ],
-  "choices": [
-   "$25$",
-   "$50$",
-   "$82$",
-   "$130$"
-  ],
-  "answer": 1,
-  "trap": 0,
-  "trap_note": "Found the mileage charge, 25 dollars, and stopped.",
-  "sol": [
-   [
-    "rich",
-    "1 hour and 30 minutes is 1.5 hours."
-   ],
-   [
-    "rich",
-    "$80(1.5) + 0.5m = 145$, so $120 + 0.5m = 145$ and $0.5m = 25$."
-   ],
-   [
-    "rich",
-    "$m = \\frac{25}{0.5} = 50$."
-   ]
-  ],
-  "skill": "Linear equations in two variables",
-  "num": 173
+  "num": 165
  },
  {
   "id": "sat-LF-fromdata-011-v1",
@@ -5653,7 +5400,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 174
+  "num": 166
  },
  {
   "id": "sat-LF-fromdata-016-v1",
@@ -5685,7 +5432,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 175
+  "num": 167
  },
  {
   "id": "sat-LF-fromdata-019-v1",
@@ -5717,7 +5464,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 176
+  "num": 168
  },
  {
   "id": "sat-LF-fromdata-020-v1",
@@ -5749,7 +5496,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 177
+  "num": 169
  },
  {
   "id": "sat-LF-intercept-007-v1",
@@ -5781,7 +5528,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 178
+  "num": 170
  },
  {
   "id": "sat-LF-intercept-011-v1",
@@ -5817,7 +5564,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 179
+  "num": 171
  },
  {
   "id": "sat-LF-interp-006-v1",
@@ -5845,7 +5592,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 180
+  "num": 172
  },
  {
   "id": "sat-LF-model-003-v1",
@@ -5877,7 +5624,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 181
+  "num": 173
  },
  {
   "id": "sat-LF-model-004-v1",
@@ -5909,7 +5656,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 182
+  "num": 174
  },
  {
   "id": "sat-LF-model-005-v1",
@@ -5941,7 +5688,7 @@
    ]
   ],
   "skill": "Linear functions",
-  "num": 183
+  "num": 175
  },
  {
   "id": "sat-NLE-quad-008-v1",
@@ -5974,7 +5721,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 184
+  "num": 176
  },
  {
   "id": "sat-NLE-count-004-v1",
@@ -6011,7 +5758,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 185
+  "num": 177
  },
  {
   "id": "sat-NLE-count-005-v1",
@@ -6047,7 +5794,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 186
+  "num": 178
  },
  {
   "id": "sat-NLE-other-005-v1",
@@ -6080,7 +5827,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 187
+  "num": 179
  },
  {
   "id": "sat-NLF-interp-007-v1",
@@ -6108,7 +5855,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 188
+  "num": 180
  },
  {
   "id": "sat-NLF-build-002-v1",
@@ -6140,7 +5887,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 189
+  "num": 181
  },
  {
   "id": "sat-NLF-feat-005-v1",
@@ -6168,7 +5915,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 190
+  "num": 182
  },
  {
   "id": "sat-NLF-transform-004-v1",
@@ -6200,7 +5947,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 191
+  "num": 183
  },
  {
   "id": "sat-NLF-forms-002-v1",
@@ -6232,7 +5979,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 192
+  "num": 184
  },
  {
   "id": "sat-NLF-forms-003-v1",
@@ -6266,7 +6013,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 193
+  "num": 185
  },
  {
   "id": "sat-NLE-quad-009-v1",
@@ -6303,7 +6050,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 194
+  "num": 186
  },
  {
   "id": "sat-NLE-quad-010-v1",
@@ -6336,7 +6083,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 195
+  "num": 187
  },
  {
   "id": "sat-NLE-quad-012-v1",
@@ -6369,7 +6116,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 196
+  "num": 188
  },
  {
   "id": "sat-NLE-count-006-v1",
@@ -6402,7 +6149,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 197
+  "num": 189
  },
  {
   "id": "sat-NLE-other-006-v1",
@@ -6435,7 +6182,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 198
+  "num": 190
  },
  {
   "id": "sat-NLE-other-007-v1",
@@ -6472,7 +6219,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 199
+  "num": 191
  },
  {
   "id": "sat-NLE-sys-005-v1",
@@ -6510,7 +6257,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 200
+  "num": 192
  },
  {
   "id": "sat-NLE-sys-007-v1",
@@ -6544,7 +6291,7 @@
    ]
   ],
   "skill": "Nonlinear equations in one variable and systems of equations in two variables",
-  "num": 201
+  "num": 193
  },
  {
   "id": "sat-NLF-build-009-v1",
@@ -6576,7 +6323,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 202
+  "num": 194
  },
  {
   "id": "sat-NLF-eval-007-v1",
@@ -6608,7 +6355,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 203
+  "num": 195
  },
  {
   "id": "sat-NLF-eval-008-v1",
@@ -6640,7 +6387,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 204
+  "num": 196
  },
  {
   "id": "sat-NLF-feat-009-v1",
@@ -6672,7 +6419,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 205
+  "num": 197
  },
  {
   "id": "sat-NLF-transform-006-v1",
@@ -6704,7 +6451,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 206
+  "num": 198
  },
  {
   "id": "sat-NLF-transform-007-v1",
@@ -6732,7 +6479,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 207
+  "num": 199
  },
  {
   "id": "sat-NLF-forms-005-v1",
@@ -6764,7 +6511,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 208
+  "num": 200
  },
  {
   "id": "sat-NLF-polyfactor-003-v1",
@@ -6796,7 +6543,7 @@
    ]
   ],
   "skill": "Nonlinear functions",
-  "num": 209
+  "num": 201
  },
  {
   "id": "sat-RAT-unit-005-v1",
@@ -6828,7 +6575,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 210
+  "num": 202
  },
  {
   "id": "sat-RAT-prop-004-v1",
@@ -6856,7 +6603,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 211
+  "num": 203
  },
  {
   "id": "sat-RAT-prop-005-v1",
@@ -6884,7 +6631,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 212
+  "num": 204
  },
  {
   "id": "sat-PCT-change-006-v1",
@@ -6916,7 +6663,7 @@
    ]
   ],
   "skill": "Percentages",
-  "num": 213
+  "num": 205
  },
  {
   "id": "sat-PCT-change-007-v1",
@@ -6948,7 +6695,7 @@
    ]
   ],
   "skill": "Percentages",
-  "num": 214
+  "num": 206
  },
  {
   "id": "sat-RAT-unit-006-v1",
@@ -6980,7 +6727,7 @@
    ]
   ],
   "skill": "Ratios, rates, proportional relationships, and units",
-  "num": 215
+  "num": 207
  },
  {
   "id": "sat-PROB-simple-004-v1",
@@ -7012,7 +6759,7 @@
    ]
   ],
   "skill": "Probability and conditional probability",
-  "num": 216
+  "num": 208
  },
  {
   "id": "sat-SYS-count-002-v1",
@@ -7046,7 +6793,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 217
+  "num": 209
  },
  {
   "id": "sat-SYS-count-004-v1",
@@ -7078,7 +6825,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 218
+  "num": 210
  },
  {
   "id": "sat-INEQ-check-004-v1",
@@ -7108,7 +6855,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 219
+  "num": 211
  },
  {
   "id": "sat-EQX-factor-005-v1",
@@ -7141,7 +6888,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 220
+  "num": 212
  },
  {
   "id": "sat-EQX-exp-003-v1",
@@ -7173,7 +6920,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 221
+  "num": 213
  },
  {
   "id": "sat-EQX-literal-003-v1",
@@ -7206,7 +6953,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 222
+  "num": 214
  },
  {
   "id": "sat-EQX-rational-002-v1",
@@ -7238,7 +6985,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 223
+  "num": 215
  },
  {
   "id": "sat-SYS-solve-011-v1",
@@ -7272,7 +7019,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 224
+  "num": 216
  },
  {
   "id": "sat-SYS-count-007-v1",
@@ -7306,7 +7053,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 225
+  "num": 217
  },
  {
   "id": "sat-SYS-count-008-v1",
@@ -7343,7 +7090,7 @@
    ]
   ],
   "skill": "Systems of two linear equations in two variables",
-  "num": 226
+  "num": 218
  },
  {
   "id": "sat-INEQ-check-007-v1",
@@ -7377,7 +7124,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 227
+  "num": 219
  },
  {
   "id": "sat-INEQ-check-008-v1",
@@ -7411,67 +7158,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 228
- },
- {
-  "id": "sat-INEQ-model-005-v1",
-  "kind": "mc",
-  "lines": [
-   "A bakery sells loaves of bread for $\\$6$ each and pies for $\\$15$ each. The bakery wants to sell at least 3 times as many loaves of bread as pies and to earn at least $\\$900$ from these sales. Which system of inequalities represents this situation, where $b$ is the number of loaves of bread sold and $p$ is the number of pies sold?"
-  ],
-  "choices": [
-   "$b \\ge 3p$\n$15b + 6p \\ge 900$",
-   "$b \\ge 3p$\n$6b + 15p \\ge 900$",
-   "$p \\ge 3b$\n$6b + 15p \\ge 900$",
-   "$p \\ge 3b$\n$15b + 6p \\ge 900$"
-  ],
-  "answer": 1,
-  "trap": 0,
-  "trap_note": "Swapped the prices of a loaf of bread and a pie.",
-  "sol": [
-   [
-    "rich",
-    "At least 3 times as many loaves as pies: $b \\ge 3p$. Check with numbers: 10 pies require at least 30 loaves."
-   ],
-   [
-    "rich",
-    "The revenue is $6b + 15p$ dollars, which must be at least 900: $6b + 15p \\ge 900$."
-   ]
-  ],
-  "skill": "Linear inequalities in one or two variables",
-  "num": 229
- },
- {
-  "id": "sat-INEQ-model-006-v1",
-  "kind": "mc",
-  "lines": [
-   "A photographer charges a booking fee of $\\$180$ plus $\\$95$ for each hour of photography and $\\$12$ for each printed photo. A client has a coupon for 15 percent off the total charge and can spend at most $\\$1{,}200$ after the discount. Which inequality represents the possible numbers of hours of photography, $h$, and printed photos, $p$, the client can pay for?"
-  ],
-  "choices": [
-   "$0.85(180 + 95h + 12p) \\le 1{,}200$",
-   "$180 + 95h + 12p \\le 0.85(1{,}200)$",
-   "$0.15(180 + 95h + 12p) \\le 1{,}200$",
-   "$180 + 0.85(95h + 12p) \\le 1{,}200$"
-  ],
-  "answer": 0,
-  "trap": 1,
-  "trap_note": "Applied the discount to the spending limit instead of to the charge.",
-  "sol": [
-   [
-    "rich",
-    "The full charge is $180 + 95h + 12p$ dollars."
-   ],
-   [
-    "rich",
-    "With 15 percent off, the client pays 85 percent of the full charge: $0.85(180 + 95h + 12p)$."
-   ],
-   [
-    "rich",
-    "This can be at most 1,200: $0.85(180 + 95h + 12p) \\le 1{,}200$."
-   ]
-  ],
-  "skill": "Linear inequalities in one or two variables",
-  "num": 230
+  "num": 220
  },
  {
   "id": "sat-INEQ-solve-004-v1",
@@ -7503,7 +7190,7 @@
    ]
   ],
   "skill": "Linear inequalities in one or two variables",
-  "num": 231
+  "num": 221
  },
  {
   "id": "sat-EQX-factor-006-v1",
@@ -7535,7 +7222,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 232
+  "num": 222
  },
  {
   "id": "sat-EQX-factor-007-v1",
@@ -7567,7 +7254,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 233
+  "num": 223
  },
  {
   "id": "sat-EQX-factor-008-v1",
@@ -7599,7 +7286,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 234
+  "num": 224
  },
  {
   "id": "sat-EQX-poly-007-v1",
@@ -7632,7 +7319,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 235
+  "num": 225
  },
  {
   "id": "sat-EQX-exp-005-v1",
@@ -7664,7 +7351,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 236
+  "num": 226
  },
  {
   "id": "sat-EQX-exp-006-v1",
@@ -7697,7 +7384,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 237
+  "num": 227
  },
  {
   "id": "sat-EQX-exp-007-v1",
@@ -7729,7 +7416,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 238
+  "num": 228
  },
  {
   "id": "sat-EQX-literal-005-v1",
@@ -7762,7 +7449,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 239
+  "num": 229
  },
  {
   "id": "sat-EQX-literal-004-v1",
@@ -7795,39 +7482,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 240
- },
- {
-  "id": "sat-EQX-literal-006-v1",
-  "kind": "mc",
-  "lines": [
-   "The time $t$ it takes a wheel to roll from rest down a ramp of length $d$ can be modeled by the equation $t = \\sqrt{\\frac{2d(1 + k)}{a}}$, where $a$ is a positive constant that depends on the steepness of the ramp and $k$ is a positive constant that depends on the shape of the wheel. Which equation correctly expresses $k$ in terms of $t$, $d$, and $a$?"
-  ],
-  "choices": [
-   "$k = \\frac{at^{2}}{2d} - 1$",
-   "$k = t\\sqrt{\\frac{a}{2d}} - 1$",
-   "$k = \\frac{at^{2}}{2d} + 1$",
-   "$k = \\frac{at^{2} - 1}{2d}$"
-  ],
-  "answer": 0,
-  "trap": 1,
-  "trap_note": "Treated $\\sqrt{1 + k}$ as $1 + k$ instead of squaring both sides.",
-  "sol": [
-   [
-    "rich",
-    "Square both sides: $t^{2} = \\frac{2d(1 + k)}{a}$."
-   ],
-   [
-    "rich",
-    "Multiply both sides by $a$ and divide by $2d$: $1 + k = \\frac{at^{2}}{2d}$."
-   ],
-   [
-    "rich",
-    "Subtract 1: $k = \\frac{at^{2}}{2d} - 1$."
-   ]
-  ],
-  "skill": "Equivalent expressions",
-  "num": 241
+  "num": 230
  },
  {
   "id": "sat-EQX-rational-004-v1",
@@ -7859,7 +7514,7 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 242
+  "num": 231
  },
  {
   "id": "sat-EQX-rational-003-v1",
@@ -7891,6 +7546,6 @@
    ]
   ],
   "skill": "Equivalent expressions",
-  "num": 243
+  "num": 232
  }
 ]

@@ -51,7 +51,9 @@ def is_math(s):
 def to_mathtext(s):
     """App LaTeX -> matplotlib mathtext."""
     s = re.sub(r"\\text\{([^}]*)\}", lambda m: r"\mathrm{" + m.group(1).replace(" ", r"\ ") + "}", s)
-    s = s.replace(r"\Rightarrow", r"\Rightarrow ").replace(r"\le ", r"\leq ").replace(r"\ge ", r"\geq ")
+    s = s.replace(r"\Rightarrow", r"\Rightarrow ")
+    s = re.sub(r"\\le(?![a-zA-Z])", r"\\leq ", s)
+    s = re.sub(r"\\ge(?![a-zA-Z])", r"\\geq ", s)
     s = s.replace(r"\dfrac", r"\frac").replace(r"\left", "").replace(r"\right", "")
     s = s.replace(r"\%", r"\%")
     return s
@@ -135,9 +137,18 @@ def rich_to_mathtext(s):
         if kind == "text":
             out += part
             continue
-        bits = re.split(r"\\text\{([^}]*)\}", part)
-        for n, b in enumerate(bits):
-            if n % 2:
+        # split top-level \\text{...} out as plain text; nested ones (e.g. inside \\frac) stay as math
+        segs, depth, k, cur = [], 0, 0, ""
+        while k < len(part):
+            if part.startswith("\\text{", k) and depth == 0:
+                e = part.index("}", k)
+                segs.append(("m", cur)); segs.append(("t", part[k + 6:e])); cur = ""; k = e + 1; continue
+            depth += part[k] == "{"
+            depth -= part[k] == "}"
+            cur += part[k]; k += 1
+        segs.append(("m", cur))
+        for kind2, b in segs:
+            if kind2 == "t":
                 out += b.replace("$", "\\$")
             elif b.strip():
                 out += "$" + to_mathtext(b) + "$"
@@ -346,6 +357,9 @@ def answer_frame(q, top=None, k=1.0):
         m = choice_img(ans_txt, 96)
         lab = font("Black", 96)
         lw = c.d.textlength(f"({letters[a]})  ", font=lab)
+        room = SAFE_R - SAFE_L - lw
+        if m.width > room:
+            m = m.resize((int(room), int(m.height * room / m.width)), Image.LANCZOS)
         x = SAFE_L + (SAFE_R - SAFE_L - lw - m.width) // 2
         c.d.text((x, y), f"({letters[a]})", font=lab, fill=WHITE)
         c.im.paste(m, (int(x + lw), y + max(0, (110 - m.height) // 2)), m)
