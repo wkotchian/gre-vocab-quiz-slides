@@ -40,3 +40,4 @@ Daily quiz carousels for [@gre_vocab_cartoons](https://www.instagram.com/gre_voc
 ## Daily ACT Math Short (YouTube only)
 
 `.github/workflows/daily-act-short.yml`: same setup for ACT Math Adventurer (`--app act`, `act_queue.json` built with `build_sat_queue.py act ...`, titles "ACT Math #N", log `act_shorts.log`) at 16:37 UTC. Gated by `math/act_start_date.txt`.
+- SAT and ACT Shorts also start by themselves: while the start-date file holds no date, each run checks Apple's public lookup (itunes.apple.com/lookup) and starts the day the app is listed. GRE Quant waits for a date in `math/start_date.txt`, since 2.0 is an update to an app that's already listed.
