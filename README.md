@@ -32,3 +32,7 @@ Daily quiz carousels for [@gre_vocab_cartoons](https://www.instagram.com/gre_voc
 - **Safety:** at most one per 16 hours; never re-uploads a number already on the channel (titles "GRE Quant #N") or in `math_shorts.log`.
 - **Test:** run the workflow by hand with `render_only=true` to render one video and upload nothing.
 - No Instagram Reels for these (Vince, 2026-11-18: pausing a Reel is too awkward).
+
+## Daily SAT Math Short (YouTube only)
+
+`.github/workflows/daily-sat-short.yml` does the same for SAT Math Swordsman (`upload_math_short.py --app sat`, `sat_queue.json` from `build_sat_queue.py`, titles "SAT Math #N", log `sat_shorts.log`) at 23:17 UTC. Gated by `math/sat_start_date.txt` (set the day SAT Math Swordsman is live). `check_fit.py gre|sat` drops items that won't fit on screen; run it after rebuilding a queue.

@@ -1,0 +1,79 @@
+name: Daily SAT Math Short
+
+# Uploads ONE SAT Math Short per day (questions from SAT Math Swordsman) to the
+# "Vince Kotchian Test Prep" YouTube channel via the official API.
+# Does nothing until math/sat_start_date.txt holds a date (set the day SAT Math Swordsman is live).
+# 23:17 UTC = 3:17 pm Pacific in standard time, away from the vocab (19:41) and GRE Quant (02:23) Shorts.
+on:
+  schedule:
+    - cron: "17 23 * * *"
+  workflow_dispatch:
+    inputs:
+      privacy:
+        description: "public, private, or unlisted"
+        default: "private"
+      num:
+        description: "Question number to upload (blank = next in order; a number skips the start-date check)"
+        default: ""
+      render_only:
+        description: "true = render one video as a test and upload nothing"
+        default: "false"
+
+permissions:
+  contents: write   # only to append to sat_shorts.log
+
+concurrency:
+  group: daily-sat-short
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        timeout-minutes: 6
+        run: |
+          pip install -q pillow matplotlib imageio-ffmpeg
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            FF="$(python3 -c 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())')"
+            sudo ln -sf "$FF" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -hide_banner -version | head -1
+
+      - name: Render-only test (uploads nothing)
+        if: github.event.inputs.render_only == 'true'
+        run: |
+          APP=sat python3 make_math_short.py ${{ github.event.inputs.num || '22' }} test.mp4
+          ls -la test.mp4
+
+      - name: Render and upload next SAT Math Short (one max; skips if uploaded < 16h ago)
+        if: github.event.inputs.render_only != 'true'
+        id: up
+        timeout-minutes: 12
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          PRIVACY: ${{ github.event.inputs.privacy || 'public' }}
+          NUM: ${{ github.event.inputs.num }}
+        run: |
+          set -o pipefail
+          args="--app sat --privacy $PRIVACY"
+          if [ -n "$NUM" ]; then args="$args --num $NUM"; fi
+          python3 upload_math_short.py $args | tee run.txt
+
+      - name: Log the run
+        if: always() && steps.up.outcome == 'success'
+        run: |
+          line="$(date -u +%Y-%m-%dT%H:%MZ) $(grep -E '^(UPLOADED|SKIP|QUEUE EMPTY|NOT STARTED)' run.txt | head -1)"
+          case "$line" in *"NOT STARTED"*) echo "$line"; exit 0;; esac
+          echo "$line" >> sat_shorts.log
+          git config user.name "gre-quiz-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add sat_shorts.log
+          git commit -q -m "log: $line" || exit 0
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q && exit 0; sleep 5; done
+          echo "could not push log (harmless)"

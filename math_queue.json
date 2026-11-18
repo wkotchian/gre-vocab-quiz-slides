@@ -2968,50 +2968,6 @@
   "num": 74
  },
  {
-  "id": "word_87",
-  "kind": "mc",
-  "lines": [
-   "x^{2}>x^{3}",
-   "If x satisfies the inequality above, which of the following must be true?",
-   "\\text{I. }x<1",
-   "\\text{II. }x\\text{ is not }0",
-   "\\text{III. }x^{2}>x"
-  ],
-  "choices": [
-   "\\text{I only}",
-   "\\text{I and III only}",
-   "\\text{II and III only}",
-   "\\text{I, II, and III}",
-   "\\text{I and II only}"
-  ],
-  "choice_math": [
-   true,
-   true,
-   true,
-   true,
-   true
-  ],
-  "answer": 4,
-  "trap": 0,
-  "trap_note": "Divided by x^2 to get x < 1 but missed that x = 0 fails.",
-  "sol": [
-   [
-    "latex",
-    "x^{2}-x^{3}=x^{2}(1-x)>0"
-   ],
-   [
-    "text",
-    "So x is not 0 and x < 1. Both I and II must be true."
-   ],
-   [
-    "text",
-    "For x = 1/2, x^2 = 1/4 is less than x, so III need not be true."
-   ]
-  ],
-  "skill": "Powers of fractions and negatives",
-  "num": 75
- },
- {
   "id": "word_88",
   "kind": "mc",
   "lines": [
@@ -3050,7 +3006,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 76
+  "num": 75
  },
  {
   "id": "word_89",
@@ -3092,7 +3048,7 @@
    ]
   ],
   "skill": "Squared-sum identities",
-  "num": 77
+  "num": 76
  },
  {
   "id": "word_90",
@@ -3133,7 +3089,7 @@
    ]
   ],
   "skill": "Powers of ten",
-  "num": 78
+  "num": 77
  },
  {
   "id": "word_91",
@@ -3169,7 +3125,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 79
+  "num": 78
  },
  {
   "id": "word_93",
@@ -3206,7 +3162,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 80
+  "num": 79
  },
  {
   "id": "word_94",
@@ -3242,7 +3198,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 81
+  "num": 80
  },
  {
   "id": "word_95",
@@ -3279,7 +3235,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 82
+  "num": 81
  },
  {
   "id": "word_96",
@@ -3315,7 +3271,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 83
+  "num": 82
  },
  {
   "id": "word_97",
@@ -3353,7 +3309,7 @@
    ]
   ],
   "skill": "Exponential growth and decay",
-  "num": 84
+  "num": 83
  },
  {
   "id": "word_98",
@@ -3394,7 +3350,7 @@
    ]
   ],
   "skill": "Adding fractions with powers",
-  "num": 85
+  "num": 84
  },
  {
   "id": "word_99",
@@ -3432,7 +3388,7 @@
    ]
   ],
   "skill": "Factoring sums of powers",
-  "num": 86
+  "num": 85
  },
  {
   "id": "word_100",
@@ -3469,7 +3425,7 @@
    ]
   ],
   "skill": "Powers of fractions and negatives",
-  "num": 87
+  "num": 86
  },
  {
   "id": "word_78",
@@ -3506,7 +3462,7 @@
    ]
   ],
   "skill": "Exponent substitution",
-  "num": 88
+  "num": 87
  },
  {
   "id": "standard-deviation_10",
@@ -3543,7 +3499,7 @@
    ]
   ],
   "skill": "Order of operations with negatives",
-  "num": 89
+  "num": 88
  },
  {
   "id": "standard-deviation_11",
@@ -3580,7 +3536,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 90
+  "num": 89
  },
  {
   "id": "standard-deviation_12",
@@ -3617,7 +3573,7 @@
    ]
   ],
   "skill": "Expressions from a given equation",
-  "num": 91
+  "num": 90
  },
  {
   "id": "standard-deviation_13",
@@ -3658,7 +3614,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 92
+  "num": 91
  },
  {
   "id": "standard-deviation_14",
@@ -3703,7 +3659,7 @@
    ]
   ],
   "skill": "Squared-sum identities",
-  "num": 93
+  "num": 92
  },
  {
   "id": "standard-deviation_15",
@@ -3744,7 +3700,7 @@
    ]
   ],
   "skill": "Special products",
-  "num": 94
+  "num": 93
  },
  {
   "id": "standard-deviation_16",
@@ -3781,7 +3737,7 @@
    ]
   ],
   "skill": "Matching coefficients",
-  "num": 95
+  "num": 94
  },
  {
   "id": "standard-deviation_17",
@@ -3822,7 +3778,7 @@
    ]
   ],
   "skill": "Solving by factoring",
-  "num": 96
+  "num": 95
  },
  {
   "id": "standard-deviation_18",
@@ -3860,7 +3816,7 @@
    ]
   ],
   "skill": "Sums and products of roots",
-  "num": 97
+  "num": 96
  },
  {
   "id": "standard-deviation_19",
@@ -3901,7 +3857,7 @@
    ]
   ],
   "skill": "Order of operations with negatives",
-  "num": 98
+  "num": 97
  },
  {
   "id": "standard-deviation_20",
@@ -3942,7 +3898,7 @@
    ]
   ],
   "skill": "Equations with fractions",
-  "num": 99
+  "num": 98
  },
  {
   "id": "standard-deviation_21",
@@ -3983,7 +3939,7 @@
    ]
   ],
   "skill": "Difference of squares",
-  "num": 100
+  "num": 99
  },
  {
   "id": "standard-deviation_22",
@@ -4028,7 +3984,7 @@
    ]
   ],
   "skill": "Sum and product identities",
-  "num": 101
+  "num": 100
  },
  {
   "id": "standard-deviation_23",
@@ -4066,7 +4022,7 @@
    ]
   ],
   "skill": "Ratios in expressions",
-  "num": 102
+  "num": 101
  },
  {
   "id": "standard-deviation_24",
@@ -4103,7 +4059,7 @@
    ]
   ],
   "skill": "Simplifying rational expressions",
-  "num": 103
+  "num": 102
  },
  {
   "id": "standard-deviation_25",
@@ -4140,7 +4096,7 @@
    ]
   ],
   "skill": "Adding rational expressions",
-  "num": 104
+  "num": 103
  },
  {
   "id": "standard-deviation_26",
@@ -4177,7 +4133,7 @@
    ]
   ],
   "skill": "Solving for a variable",
-  "num": 105
+  "num": 104
  },
  {
   "id": "standard-deviation_27",
@@ -4214,7 +4170,7 @@
    ]
   ],
   "skill": "Simplifying rational expressions",
-  "num": 106
+  "num": 105
  },
  {
   "id": "standard-deviation_28",
@@ -4255,7 +4211,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 107
+  "num": 106
  },
  {
   "id": "standard-deviation_29",
@@ -4296,51 +4252,7 @@
    ]
   ],
   "skill": "Difference of squares",
-  "num": 108
- },
- {
-  "id": "standard-deviation_31",
-  "kind": "mc",
-  "lines": [
-   "Which of the following are equal to the expression below for all nonzero x and y?",
-   "\\frac{x+y}{2xy}",
-   "\\text{I. }\\frac{1}{2y}+\\frac{1}{2x}",
-   "\\text{II. }\\frac{1+y}{2y}",
-   "\\text{III. }\\frac{x^{-1}+y^{-1}}{2}"
-  ],
-  "choices": [
-   "\\text{I only}",
-   "\\text{III only}",
-   "\\text{I and II only}",
-   "\\text{I and III only}",
-   "\\text{I, II, and III}"
-  ],
-  "choice_math": [
-   true,
-   true,
-   true,
-   true,
-   true
-  ],
-  "answer": 3,
-  "trap": 0,
-  "trap_note": "Missed that III is the same split written with negative exponents.",
-  "sol": [
-   [
-    "latex",
-    "\\frac{x+y}{2xy}=\\frac{x}{2xy}+\\frac{y}{2xy}=\\frac{1}{2y}+\\frac{1}{2x}"
-   ],
-   [
-    "text",
-    "So I is equal. III is the same as half of 1/x + 1/y, so III is equal too."
-   ],
-   [
-    "text",
-    "II cancels x from only one term of the top, so it is not equal (try x = 2, y = 1)."
-   ]
-  ],
-  "skill": "Splitting fractions",
-  "num": 109
+  "num": 107
  },
  {
   "id": "standard-deviation_32",
@@ -4381,7 +4293,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 110
+  "num": 108
  },
  {
   "id": "standard-deviation_34",
@@ -4422,7 +4334,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 111
+  "num": 109
  },
  {
   "id": "standard-deviation_35",
@@ -4463,7 +4375,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 112
+  "num": 110
  },
  {
   "id": "standard-deviation_36",
@@ -4503,7 +4415,7 @@
    ]
   ],
   "skill": "Solving by factoring",
-  "num": 113
+  "num": 111
  },
  {
   "id": "standard-deviation_40",
@@ -4544,7 +4456,7 @@
    ]
   ],
   "skill": "Distinct prime factors",
-  "num": 114
+  "num": 112
  },
  {
   "id": "standard-deviation_41",
@@ -4588,7 +4500,7 @@
    ]
   ],
   "skill": "Perfect powers from primes",
-  "num": 115
+  "num": 113
  },
  {
   "id": "standard-deviation_42",
@@ -4628,7 +4540,7 @@
    ]
   ],
   "skill": "Counting divisors",
-  "num": 116
+  "num": 114
  },
  {
   "id": "standard-deviation_44",
@@ -4669,7 +4581,7 @@
    ]
   ],
   "skill": "Prime powers in factorials",
-  "num": 117
+  "num": 115
  },
  {
   "id": "standard-deviation_45",
@@ -4714,7 +4626,7 @@
    ]
   ],
   "skill": "Must-divide reasoning",
-  "num": 118
+  "num": 116
  },
  {
   "id": "standard-deviation_48",
@@ -4759,7 +4671,7 @@
    ]
   ],
   "skill": "GCF from prime powers",
-  "num": 119
+  "num": 117
  },
  {
   "id": "standard-deviation_49",
@@ -4804,7 +4716,7 @@
    ]
   ],
   "skill": "Counting with GCF conditions",
-  "num": 120
+  "num": 118
  },
  {
   "id": "standard-deviation_51",
@@ -4849,7 +4761,7 @@
    ]
   ],
   "skill": "GCF from prime powers",
-  "num": 121
+  "num": 119
  },
  {
   "id": "standard-deviation_52",
@@ -4890,7 +4802,7 @@
    ]
   ],
   "skill": "GCF times LCM",
-  "num": 122
+  "num": 120
  },
  {
   "id": "standard-deviation_56",
@@ -4935,7 +4847,7 @@
    ]
   ],
   "skill": "LCM of expressions",
-  "num": 123
+  "num": 121
  },
  {
   "id": "standard-deviation_58",
@@ -4976,7 +4888,7 @@
    ]
   ],
   "skill": "Remainders and LCM",
-  "num": 124
+  "num": 122
  },
  {
   "id": "standard-deviation_59",
@@ -5021,7 +4933,7 @@
    ]
   ],
   "skill": "GCF and LCM pairs",
-  "num": 125
+  "num": 123
  },
  {
   "id": "standard-deviation_60",
@@ -5065,7 +4977,7 @@
    ]
   ],
   "skill": "Counting common multiples",
-  "num": 126
+  "num": 124
  },
  {
   "id": "standard-deviation_61",
@@ -5106,7 +5018,7 @@
    ]
   ],
   "skill": "Proportional work rates",
-  "num": 127
+  "num": 125
  },
  {
   "id": "standard-deviation_62",
@@ -5147,7 +5059,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 128
+  "num": 126
  },
  {
   "id": "standard-deviation_64",
@@ -5188,7 +5100,7 @@
    ]
   ],
   "skill": "Fill and drain rates",
-  "num": 129
+  "num": 127
  },
  {
   "id": "standard-deviation_65",
@@ -5233,7 +5145,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 130
+  "num": 128
  },
  {
   "id": "standard-deviation_66",
@@ -5274,7 +5186,7 @@
    ]
   ],
   "skill": "Relative speed",
-  "num": 131
+  "num": 129
  },
  {
   "id": "standard-deviation_67",
@@ -5315,7 +5227,7 @@
    ]
   ],
   "skill": "Relative speed",
-  "num": 132
+  "num": 130
  },
  {
   "id": "standard-deviation_76",
@@ -5351,7 +5263,7 @@
    ]
   ],
   "skill": "Combining equations",
-  "num": 133
+  "num": 131
  },
  {
   "id": "standard-deviation_77",
@@ -5392,7 +5304,7 @@
    ]
   ],
   "skill": "Two-variable word problems",
-  "num": 134
+  "num": 132
  },
  {
   "id": "standard-deviation_80",
@@ -5433,7 +5345,7 @@
    ]
   ],
   "skill": "Age problems",
-  "num": 135
+  "num": 133
  },
  {
   "id": "standard-deviation_83",
@@ -5478,7 +5390,7 @@
    ]
   ],
   "skill": "Solving for a ratio",
-  "num": 136
+  "num": 134
  },
  {
   "id": "q400_500_1",
@@ -5519,7 +5431,7 @@
    ]
   ],
   "skill": "Powers of negative numbers",
-  "num": 137
+  "num": 135
  },
  {
   "id": "q400_500_2",
@@ -5560,7 +5472,7 @@
    ]
   ],
   "skill": "Sign analysis",
-  "num": 138
+  "num": 136
  },
  {
   "id": "q400_500_3",
@@ -5605,7 +5517,7 @@
    ]
   ],
   "skill": "Powers of negative one",
-  "num": 139
+  "num": 137
  },
  {
   "id": "q400_500_4",
@@ -5646,7 +5558,7 @@
    ]
   ],
   "skill": "Testing cases",
-  "num": 140
+  "num": 138
  },
  {
   "id": "q400_500_5",
@@ -5691,7 +5603,7 @@
    ]
   ],
   "skill": "Zero as a solution",
-  "num": 141
+  "num": 139
  },
  {
   "id": "q400_500_6",
@@ -5737,7 +5649,7 @@
    ]
   ],
   "skill": "Absolute value inequalities",
-  "num": 142
+  "num": 140
  },
  {
   "id": "q400_500_7",
@@ -5772,7 +5684,7 @@
    ]
   ],
   "skill": "Factoring powers",
-  "num": 143
+  "num": 141
  },
  {
   "id": "q400_500_8",
@@ -5813,7 +5725,7 @@
    ]
   ],
   "skill": "Comparing by subtraction",
-  "num": 144
+  "num": 142
  },
  {
   "id": "q400_500_9",
@@ -5854,7 +5766,7 @@
    ]
   ],
   "skill": "Combining inequalities",
-  "num": 145
+  "num": 143
  },
  {
   "id": "q400_500_10",
@@ -5895,7 +5807,7 @@
    ]
   ],
   "skill": "Squaring expressions",
-  "num": 146
+  "num": 144
  },
  {
   "id": "q400_500_13",
@@ -5941,7 +5853,7 @@
    ]
   ],
   "skill": "Square factors of an integer",
-  "num": 147
+  "num": 145
  },
  {
   "id": "q400_500_14",
@@ -5982,7 +5894,7 @@
    ]
   ],
   "skill": "Sign analysis",
-  "num": 148
+  "num": 146
  },
  {
   "id": "q400_500_15",
@@ -6028,7 +5940,7 @@
    ]
   ],
   "skill": "Distinct prime factors",
-  "num": 149
+  "num": 147
  },
  {
   "id": "q400_500_16",
@@ -6071,7 +5983,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 150
+  "num": 148
  },
  {
   "id": "q400_500_17",
@@ -6116,7 +6028,7 @@
    ]
   ],
   "skill": "GCF and LCM pairs",
-  "num": 151
+  "num": 149
  },
  {
   "id": "q400_500_18",
@@ -6157,7 +6069,7 @@
    ]
   ],
   "skill": "Powers and roots of fractions",
-  "num": 152
+  "num": 150
  },
  {
   "id": "q400_500_19",
@@ -6202,7 +6114,7 @@
    ]
   ],
   "skill": "Comparing fractions",
-  "num": 153
+  "num": 151
  },
  {
   "id": "q400_500_20",
@@ -6248,7 +6160,7 @@
    ]
   ],
   "skill": "Dependent systems",
-  "num": 154
+  "num": 152
  },
  {
   "id": "q400_500_21",
@@ -6290,7 +6202,7 @@
    ]
   ],
   "skill": "Counting divisors",
-  "num": 155
+  "num": 153
  },
  {
   "id": "q400_500_22",
@@ -6331,7 +6243,7 @@
    ]
   ],
   "skill": "Powers and roots of fractions",
-  "num": 156
+  "num": 154
  },
  {
   "id": "q400_500_23",
@@ -6373,7 +6285,7 @@
    ]
   ],
   "skill": "Remainders of squares",
-  "num": 157
+  "num": 155
  },
  {
   "id": "q400_500_24",
@@ -6418,7 +6330,7 @@
    ]
   ],
   "skill": "Number plus its reciprocal",
-  "num": 158
+  "num": 156
  },
  {
   "id": "q400_500_25",
@@ -6460,7 +6372,7 @@
    ]
   ],
   "skill": "Units digit cycles",
-  "num": 159
+  "num": 157
  },
  {
   "id": "desert_boss_1",
@@ -6505,7 +6417,7 @@
    ]
   ],
   "skill": "Round trips with rest time",
-  "num": 160
+  "num": 158
  },
  {
   "id": "desert_boss_2",
@@ -6552,7 +6464,7 @@
    ]
   ],
   "skill": "Comparing exponential growth",
-  "num": 161
+  "num": 159
  },
  {
   "id": "geometry_87",
@@ -6592,7 +6504,7 @@
    ]
   ],
   "skill": "Two-set overlap with neither",
-  "num": 162
+  "num": 160
  },
  {
   "id": "geometry_88",
@@ -6632,7 +6544,7 @@
    ]
   ],
   "skill": "Two-set overlap equations",
-  "num": 163
+  "num": 161
  },
  {
   "id": "geometry_89",
@@ -6672,7 +6584,7 @@
    ]
   ],
   "skill": "Three-set overlap",
-  "num": 164
+  "num": 162
  },
  {
   "id": "geometry_90",
@@ -6712,7 +6624,7 @@
    ]
   ],
   "skill": "Overlap minimum and maximum",
-  "num": 165
+  "num": 163
  },
  {
   "id": "geometry_199",
@@ -6752,7 +6664,7 @@
    ]
   ],
   "skill": "Probability from overlapping sets",
-  "num": 166
+  "num": 164
  },
  {
   "id": "geometry_93",
@@ -6792,7 +6704,7 @@
    ]
   ],
   "skill": "Probability without replacement",
-  "num": 167
+  "num": 165
  },
  {
   "id": "geometry_96",
@@ -6828,7 +6740,7 @@
    ]
   ],
   "skill": "Range of combined data",
-  "num": 168
+  "num": 166
  },
  {
   "id": "geometry_97",
@@ -6868,7 +6780,7 @@
    ]
   ],
   "skill": "Range with an unknown value",
-  "num": 169
+  "num": 167
  },
  {
   "id": "geometry_99",
@@ -6912,7 +6824,7 @@
    ]
   ],
   "skill": "Median and mean constraints",
-  "num": 170
+  "num": 168
  },
  {
   "id": "geometry_100",
@@ -6958,7 +6870,7 @@
    ]
   ],
   "skill": "Mean versus median",
-  "num": 171
+  "num": 169
  },
  {
   "id": "geometry_101",
@@ -7002,7 +6914,7 @@
    ]
   ],
   "skill": "Maximizing with mean and median",
-  "num": 172
+  "num": 170
  },
  {
   "id": "geometry_103",
@@ -7042,7 +6954,7 @@
    ]
   ],
   "skill": "Counting with restrictions",
-  "num": 173
+  "num": 171
  },
  {
   "id": "geometry_104",
@@ -7082,7 +6994,7 @@
    ]
   ],
   "skill": "Counting with a forbidden pair",
-  "num": 174
+  "num": 172
  },
  {
   "id": "geometry_105",
@@ -7122,7 +7034,7 @@
    ]
   ],
   "skill": "Counting pairings",
-  "num": 175
+  "num": 173
  },
  {
   "id": "geometry_106",
@@ -7162,7 +7074,7 @@
    ]
   ],
   "skill": "Counting with at least one",
-  "num": 176
+  "num": 174
  },
  {
   "id": "geometry_108",
@@ -7207,7 +7119,7 @@
    ]
   ],
   "skill": "Comparing combinations",
-  "num": 177
+  "num": 175
  },
  {
   "id": "geometry_111",
@@ -7247,7 +7159,7 @@
    ]
   ],
   "skill": "Arrangements with repeats",
-  "num": 178
+  "num": 176
  },
  {
   "id": "geometry_112",
@@ -7287,7 +7199,7 @@
    ]
   ],
   "skill": "Arrangements with identical items",
-  "num": 179
+  "num": 177
  },
  {
   "id": "geometry_113",
@@ -7327,7 +7239,7 @@
    ]
   ],
   "skill": "Arrangements with a restriction",
-  "num": 180
+  "num": 178
  },
  {
   "id": "geometry_114",
@@ -7367,7 +7279,7 @@
    ]
   ],
   "skill": "Mixed order and choice",
-  "num": 181
+  "num": 179
  },
  {
   "id": "standard-deviation_2",
@@ -7407,7 +7319,7 @@
    ]
   ],
   "skill": "Transforming data and SD",
-  "num": 182
+  "num": 180
  },
  {
   "id": "standard-deviation_4",
@@ -7453,7 +7365,7 @@
    ]
   ],
   "skill": "Effect of new values on SD",
-  "num": 183
+  "num": 181
  },
  {
   "id": "standard-deviation_7",
@@ -7500,7 +7412,7 @@
    ]
   ],
   "skill": "Transforming data and SD",
-  "num": 184
+  "num": 182
  },
  {
   "id": "standard-deviation_69",
@@ -7536,7 +7448,7 @@
    ]
   ],
   "skill": "At least one via complement",
-  "num": 185
+  "num": 183
  },
  {
   "id": "standard-deviation_70",
@@ -7576,7 +7488,7 @@
    ]
   ],
   "skill": "Conditional probability",
-  "num": 186
+  "num": 184
  },
  {
   "id": "standard-deviation_71",
@@ -7622,7 +7534,7 @@
    ]
   ],
   "skill": "Independent events with a variable",
-  "num": 187
+  "num": 185
  },
  {
   "id": "standard-deviation_73",
@@ -7662,7 +7574,7 @@
    ]
   ],
   "skill": "Probability with combinations",
-  "num": 188
+  "num": 186
  },
  {
   "id": "standard-deviation_74",
@@ -7702,7 +7614,7 @@
    ]
   ],
   "skill": "Sequential independent trials",
-  "num": 189
+  "num": 187
  },
  {
   "id": "standard-deviation_75",
@@ -7742,7 +7654,7 @@
    ]
   ],
   "skill": "Binomial probability",
-  "num": 190
+  "num": 188
  },
  {
   "id": "q400_500_42",
@@ -7782,7 +7694,7 @@
    ]
   ],
   "skill": "Sums from pairwise averages",
-  "num": 191
+  "num": 189
  },
  {
   "id": "q400_500_43",
@@ -7829,7 +7741,7 @@
    ]
   ],
   "skill": "Sums from pairwise averages",
-  "num": 192
+  "num": 190
  },
  {
   "id": "q400_500_44",
@@ -7869,7 +7781,7 @@
    ]
   ],
   "skill": "Overlapping group totals",
-  "num": 193
+  "num": 191
  },
  {
   "id": "q400_500_45",
@@ -7910,7 +7822,7 @@
    ]
   ],
   "skill": "Mean and median constraints",
-  "num": 194
+  "num": 192
  },
  {
   "id": "inequalities_46",
@@ -7950,7 +7862,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 195
+  "num": 193
  },
  {
   "id": "inequalities_47",
@@ -7990,7 +7902,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 196
+  "num": 194
  },
  {
   "id": "inequalities_48",
@@ -8032,7 +7944,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 197
+  "num": 195
  },
  {
   "id": "inequalities_49",
@@ -8072,7 +7984,7 @@
    ]
   ],
   "skill": "Sum after members change",
-  "num": 198
+  "num": 196
  },
  {
   "id": "inequalities_50",
@@ -8112,7 +8024,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 199
+  "num": 197
  },
  {
   "id": "inequalities_51",
@@ -8152,7 +8064,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 200
+  "num": 198
  },
  {
   "id": "inequalities_52",
@@ -8192,7 +8104,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 201
+  "num": 199
  },
  {
   "id": "inequalities_53",
@@ -8232,7 +8144,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 202
+  "num": 200
  },
  {
   "id": "inequalities_54",
@@ -8272,7 +8184,7 @@
    ]
   ],
   "skill": "Reaching a target average",
-  "num": 203
+  "num": 201
  },
  {
   "id": "inequalities_55",
@@ -8312,7 +8224,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 204
+  "num": 202
  },
  {
   "id": "inequalities_58",
@@ -8352,7 +8264,7 @@
    ]
   ],
   "skill": "Missing values from an average",
-  "num": 205
+  "num": 203
  },
  {
   "id": "inequalities_59",
@@ -8392,7 +8304,7 @@
    ]
   ],
   "skill": "Values from running averages",
-  "num": 206
+  "num": 204
  },
  {
   "id": "inequalities_60",
@@ -8432,7 +8344,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 207
+  "num": 205
  },
  {
   "id": "inequalities_63",
@@ -8472,7 +8384,7 @@
    ]
   ],
   "skill": "Combined average from totals",
-  "num": 208
+  "num": 206
  },
  {
   "id": "inequalities_64",
@@ -8512,7 +8424,7 @@
    ]
   ],
   "skill": "Missing values from an average",
-  "num": 209
+  "num": 207
  },
  {
   "id": "inequalities_65",
@@ -8552,7 +8464,7 @@
    ]
   ],
   "skill": "Group sizes from averages",
-  "num": 210
+  "num": 208
  },
  {
   "id": "inequalities_66",
@@ -8592,7 +8504,7 @@
    ]
   ],
   "skill": "Group sizes from averages",
-  "num": 211
+  "num": 209
  },
  {
   "id": "inequalities_67",
@@ -8632,7 +8544,7 @@
    ]
   ],
   "skill": "Averages of evenly spaced sets",
-  "num": 212
+  "num": 210
  },
  {
   "id": "inequalities_68",
@@ -8672,7 +8584,7 @@
    ]
   ],
   "skill": "Consecutive odd and even integers",
-  "num": 213
+  "num": 211
  },
  {
   "id": "inequalities_69",
@@ -8712,7 +8624,7 @@
    ]
   ],
   "skill": "Sums of evenly spaced sets",
-  "num": 214
+  "num": 212
  },
  {
   "id": "inequalities_70",
@@ -8752,7 +8664,7 @@
    ]
   ],
   "skill": "Averages of evenly spaced sets",
-  "num": 215
+  "num": 213
  },
  {
   "id": "inequalities_71",
@@ -8792,7 +8704,7 @@
    ]
   ],
   "skill": "Sums of evenly spaced sets",
-  "num": 216
+  "num": 214
  },
  {
   "id": "inequalities_72",
@@ -8832,7 +8744,7 @@
    ]
   ],
   "skill": "Consecutive integers algebra",
-  "num": 217
+  "num": 215
  },
  {
   "id": "inequalities_74",
@@ -8872,7 +8784,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 218
+  "num": 216
  },
  {
   "id": "inequalities_75",
@@ -8908,7 +8820,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 219
+  "num": 217
  },
  {
   "id": "inequalities_76",
@@ -8950,7 +8862,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 220
+  "num": 218
  },
  {
   "id": "inequalities_78",
@@ -8990,7 +8902,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 221
+  "num": 219
  },
  {
   "id": "inequalities_79",
@@ -9030,7 +8942,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 222
+  "num": 220
  },
  {
   "id": "inequalities_80",
@@ -9070,7 +8982,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 223
+  "num": 221
  },
  {
   "id": "inequalities_81",
@@ -9110,7 +9022,7 @@
    ]
   ],
   "skill": "Effect of changes on an average",
-  "num": 224
+  "num": 222
  },
  {
   "id": "inequalities_84",
@@ -9150,7 +9062,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 225
+  "num": 223
  },
  {
   "id": "inequalities_85",
@@ -9190,7 +9102,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 226
+  "num": 224
  },
  {
   "id": "inequalities_86",
@@ -9232,7 +9144,7 @@
    ]
   ],
   "skill": "Effect of changes on an average",
-  "num": 227
+  "num": 225
  },
  {
   "id": "inequalities_87",
@@ -9272,7 +9184,7 @@
    ]
   ],
   "skill": "Transforming every value",
-  "num": 228
+  "num": 226
  },
  {
   "id": "inequalities_88",
@@ -9316,7 +9228,7 @@
    ]
   ],
   "skill": "Transforming every value",
-  "num": 229
+  "num": 227
  },
  {
   "id": "tundra_boss_1",
@@ -9360,7 +9272,7 @@
    ]
   ],
   "skill": "Conditional probability",
-  "num": 230
+  "num": 228
  },
  {
   "id": "tundra_boss_2",
@@ -9400,7 +9312,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 231
+  "num": 229
  },
  {
   "id": "geometry_2",
@@ -9440,7 +9352,7 @@
    ]
   ],
   "skill": "Complements and supplements",
-  "num": 232
+  "num": 230
  },
  {
   "id": "geometry_5",
@@ -9480,7 +9392,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 233
+  "num": 231
  },
  {
   "id": "geometry_6",
@@ -9527,7 +9439,7 @@
    ]
   ],
   "skill": "Isosceles triangle angles",
-  "num": 234
+  "num": 232
  },
  {
   "id": "geometry_8",
@@ -9567,7 +9479,7 @@
    ]
   ],
   "skill": "Exterior angles of triangles",
-  "num": 235
+  "num": 233
  },
  {
   "id": "geometry_10",
@@ -9607,7 +9519,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 236
+  "num": 234
  },
  {
   "id": "geometry_13",
@@ -9647,7 +9559,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 237
+  "num": 235
  },
  {
   "id": "geometry_16",
@@ -9691,7 +9603,7 @@
    ]
   ],
   "skill": "Triangle angle inequalities",
-  "num": 238
+  "num": 236
  },
  {
   "id": "geometry_18",
@@ -9731,7 +9643,7 @@
    ]
   ],
   "skill": "Intercepts of a line",
-  "num": 239
+  "num": 237
  },
  {
   "id": "geometry_19",
@@ -9771,7 +9683,7 @@
    ]
   ],
   "skill": "Slope and collinear points",
-  "num": 240
+  "num": 238
  },
  {
   "id": "geometry_20",
@@ -9811,7 +9723,7 @@
    ]
   ],
   "skill": "Intercepts of a line",
-  "num": 241
+  "num": 239
  },
  {
   "id": "geometry_21",
@@ -9851,7 +9763,7 @@
    ]
   ],
   "skill": "Area bounded by lines",
-  "num": 242
+  "num": 240
  },
  {
   "id": "geometry_23",
@@ -9891,7 +9803,7 @@
    ]
   ],
   "skill": "Pythagorean theorem in shapes",
-  "num": 243
+  "num": 241
  },
  {
   "id": "geometry_24",
@@ -9931,7 +9843,7 @@
    ]
   ],
   "skill": "Equal area or perimeter shapes",
-  "num": 244
+  "num": 242
  },
  {
   "id": "geometry_25",
@@ -9971,7 +9883,7 @@
    ]
   ],
   "skill": "Perimeters of split rectangles",
-  "num": 245
+  "num": 243
  },
  {
   "id": "geometry_26",
@@ -10011,7 +9923,7 @@
    ]
   ],
   "skill": "Equal area or perimeter shapes",
-  "num": 246
+  "num": 244
  },
  {
   "id": "geometry_27",
@@ -10051,7 +9963,7 @@
    ]
   ],
   "skill": "Triangle area with heights",
-  "num": 247
+  "num": 245
  },
  {
   "id": "geometry_28",
@@ -10091,7 +10003,7 @@
    ]
   ],
   "skill": "Rectangle diagonal and perimeter",
-  "num": 248
+  "num": 246
  },
  {
   "id": "geometry_29",
@@ -10135,7 +10047,7 @@
    ]
   ],
   "skill": "Maximum and minimum area",
-  "num": 249
+  "num": 247
  },
  {
   "id": "geometry_31",
@@ -10175,7 +10087,7 @@
    ]
   ],
   "skill": "Maximum and minimum area",
-  "num": 250
+  "num": 248
  },
  {
   "id": "geometry_32",
@@ -10215,7 +10127,7 @@
    ]
   ],
   "skill": "Square diagonal and side",
-  "num": 251
+  "num": 249
  },
  {
   "id": "geometry_33",
@@ -10255,7 +10167,7 @@
    ]
   ],
   "skill": "Area change algebra",
-  "num": 252
+  "num": 250
  },
  {
   "id": "geometry_34",
@@ -10295,7 +10207,7 @@
    ]
   ],
   "skill": "Area ratios with a shared height",
-  "num": 253
+  "num": 251
  },
  {
   "id": "geometry_36",
@@ -10342,7 +10254,7 @@
    ]
   ],
   "skill": "Testing for right triangles",
-  "num": 254
+  "num": 252
  },
  {
   "id": "geometry_37",
@@ -10382,7 +10294,7 @@
    ]
   ],
   "skill": "30-60-90 triangles",
-  "num": 255
+  "num": 253
  },
  {
   "id": "geometry_38",
@@ -10422,7 +10334,7 @@
    ]
   ],
   "skill": "Triangle inequality",
-  "num": 256
+  "num": 254
  },
  {
   "id": "geometry_39",
@@ -10462,7 +10374,7 @@
    ]
   ],
   "skill": "Pythagorean theorem algebra",
-  "num": 257
+  "num": 255
  },
  {
   "id": "geometry_40",
@@ -10502,7 +10414,7 @@
    ]
   ],
   "skill": "Pythagorean word problems",
-  "num": 258
+  "num": 256
  },
  {
   "id": "geometry_41",
@@ -10542,7 +10454,7 @@
    ]
   ],
   "skill": "Altitude to the hypotenuse",
-  "num": 259
+  "num": 257
  },
  {
   "id": "geometry_42",
@@ -10582,7 +10494,7 @@
    ]
   ],
   "skill": "Pythagorean theorem algebra",
-  "num": 260
+  "num": 258
  },
  {
   "id": "geometry_43",
@@ -10626,7 +10538,7 @@
    ]
   ],
   "skill": "Isosceles triangle side lengths",
-  "num": 261
+  "num": 259
  },
  {
   "id": "geometry_45",
@@ -10666,7 +10578,7 @@
    ]
   ],
   "skill": "Related circle areas",
-  "num": 262
+  "num": 260
  },
  {
   "id": "geometry_46",
@@ -10710,7 +10622,7 @@
    ]
   ],
   "skill": "Chords and radii",
-  "num": 263
+  "num": 261
  },
  {
   "id": "geometry_47",
@@ -10754,7 +10666,7 @@
    ]
   ],
   "skill": "Tangent lines and radii",
-  "num": 264
+  "num": 262
  },
  {
   "id": "geometry_48",
@@ -10794,7 +10706,7 @@
    ]
   ],
   "skill": "Circumference and wheel turns",
-  "num": 265
+  "num": 263
  },
  {
   "id": "geometry_49",
@@ -10838,7 +10750,7 @@
    ]
   ],
   "skill": "Arc length and clock hands",
-  "num": 266
+  "num": 264
  },
  {
   "id": "geometry_51",
@@ -10882,7 +10794,7 @@
    ]
   ],
   "skill": "Area ratios and radii",
-  "num": 267
+  "num": 265
  },
  {
   "id": "geometry_52",
@@ -10922,7 +10834,7 @@
    ]
   ],
   "skill": "Trapezoid area",
-  "num": 268
+  "num": 266
  },
  {
   "id": "geometry_53",
@@ -10962,7 +10874,7 @@
    ]
   ],
   "skill": "Regular hexagon area",
-  "num": 269
+  "num": 267
  },
  {
   "id": "geometry_55",
@@ -11006,7 +10918,7 @@
    ]
   ],
   "skill": "Uniform border area",
-  "num": 270
+  "num": 268
  },
  {
   "id": "geometry_56",
@@ -11042,7 +10954,7 @@
    ]
   ],
   "skill": "Inscribed and central angles",
-  "num": 271
+  "num": 269
  },
  {
   "id": "geometry_57",
@@ -11086,7 +10998,7 @@
    ]
   ],
   "skill": "Sectors and arc length",
-  "num": 272
+  "num": 270
  },
  {
   "id": "geometry_60",
@@ -11126,7 +11038,7 @@
    ]
   ],
   "skill": "Triangle inequality",
-  "num": 273
+  "num": 271
  },
  {
   "id": "geometry_62",
@@ -11172,7 +11084,7 @@
    ]
   ],
   "skill": "Angles and side lengths",
-  "num": 274
+  "num": 272
  },
  {
   "id": "geometry_63",
@@ -11212,7 +11124,7 @@
    ]
   ],
   "skill": "30-60-90 triangles",
-  "num": 275
+  "num": 273
  },
  {
   "id": "geometry_64",
@@ -11252,7 +11164,7 @@
    ]
   ],
   "skill": "Pythagorean triples",
-  "num": 276
+  "num": 274
  },
  {
   "id": "geometry_65",
@@ -11292,7 +11204,7 @@
    ]
   ],
   "skill": "Similar right triangles",
-  "num": 277
+  "num": 275
  },
  {
   "id": "geometry_66",
@@ -11328,7 +11240,7 @@
    ]
   ],
   "skill": "Polygon diagonals",
-  "num": 278
+  "num": 276
  },
  {
   "id": "geometry_67",
@@ -11368,7 +11280,7 @@
    ]
   ],
   "skill": "Polygon angle sums",
-  "num": 279
+  "num": 277
  },
  {
   "id": "geometry_68",
@@ -11404,7 +11316,7 @@
    ]
   ],
   "skill": "Interior and exterior angles",
-  "num": 280
+  "num": 278
  },
  {
   "id": "geometry_115",
@@ -11444,7 +11356,7 @@
    ]
   ],
   "skill": "Interior and exterior angles",
-  "num": 281
+  "num": 279
  },
  {
   "id": "geometry_70",
@@ -11484,7 +11396,7 @@
    ]
   ],
   "skill": "Perpendicular slopes",
-  "num": 282
+  "num": 280
  },
  {
   "id": "geometry_71",
@@ -11524,7 +11436,7 @@
    ]
   ],
   "skill": "Lines and intercepts",
-  "num": 283
+  "num": 281
  },
  {
   "id": "geometry_72",
@@ -11564,7 +11476,7 @@
    ]
   ],
   "skill": "Perpendicular slopes",
-  "num": 284
+  "num": 282
  },
  {
   "id": "geometry_73",
@@ -11604,7 +11516,7 @@
    ]
   ],
   "skill": "Lines and intercepts",
-  "num": 285
+  "num": 283
  },
  {
   "id": "geometry_74",
@@ -11644,7 +11556,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 286
+  "num": 284
  },
  {
   "id": "geometry_75",
@@ -11684,7 +11596,7 @@
    ]
   ],
   "skill": "Area in the coordinate plane",
-  "num": 287
+  "num": 285
  },
  {
   "id": "geometry_76",
@@ -11724,7 +11636,7 @@
    ]
   ],
   "skill": "Parallelogram coordinates",
-  "num": 288
+  "num": 286
  },
  {
   "id": "geometry_77",
@@ -11764,7 +11676,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 289
+  "num": 287
  },
  {
   "id": "geometry_76",
@@ -11808,7 +11720,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 290
+  "num": 288
  },
  {
   "id": "geometry_78",
@@ -11848,7 +11760,7 @@
    ]
   ],
   "skill": "Cylinder surface area",
-  "num": 291
+  "num": 289
  },
  {
   "id": "geometry_79",
@@ -11888,7 +11800,7 @@
    ]
   ],
   "skill": "Cube diagonals",
-  "num": 292
+  "num": 290
  },
  {
   "id": "geometry_80",
@@ -11928,7 +11840,7 @@
    ]
   ],
   "skill": "Surface area of solids",
-  "num": 293
+  "num": 291
  },
  {
   "id": "geometry_81",
@@ -11964,7 +11876,7 @@
    ]
   ],
   "skill": "Cylinder volume",
-  "num": 294
+  "num": 292
  },
  {
   "id": "geometry_83",
@@ -12004,7 +11916,7 @@
    ]
   ],
   "skill": "Box volume from faces",
-  "num": 295
+  "num": 293
  },
  {
   "id": "geometry_84",
@@ -12044,7 +11956,7 @@
    ]
   ],
   "skill": "Surface area after cutting",
-  "num": 296
+  "num": 294
  },
  {
   "id": "geometry_85",
@@ -12084,7 +11996,7 @@
    ]
   ],
   "skill": "Box dimensions from a ratio",
-  "num": 297
+  "num": 295
  },
  {
   "id": "geometry_86",
@@ -12120,7 +12032,7 @@
    ]
   ],
   "skill": "Similar solids",
-  "num": 298
+  "num": 296
  },
  {
   "id": "standard-deviation_91",
@@ -12156,7 +12068,7 @@
    ]
   ],
   "skill": "Shifting graphs",
-  "num": 299
+  "num": 297
  },
  {
   "id": "standard-deviation_94",
@@ -12196,7 +12108,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 300
+  "num": 298
  },
  {
   "id": "standard-deviation_95",
@@ -12232,7 +12144,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 301
+  "num": 299
  },
  {
   "id": "standard-deviation_96",
@@ -12272,7 +12184,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 302
+  "num": 300
  },
  {
   "id": "standard-deviation_97",
@@ -12316,7 +12228,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 303
+  "num": 301
  },
  {
   "id": "plains_boss_1",
@@ -12360,7 +12272,7 @@
    ]
   ],
   "skill": "Surface area of solids",
-  "num": 304
+  "num": 302
  },
  {
   "id": "percent_1",
@@ -12400,7 +12312,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 305
+  "num": 303
  },
  {
   "id": "percent_2",
@@ -12440,7 +12352,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 306
+  "num": 304
  },
  {
   "id": "percent_3",
@@ -12480,7 +12392,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 307
+  "num": 305
  },
  {
   "id": "percent_4",
@@ -12520,7 +12432,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 308
+  "num": 306
  },
  {
   "id": "percent_5",
@@ -12560,7 +12472,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 309
+  "num": 307
  },
  {
   "id": "percent_6",
@@ -12600,7 +12512,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 310
+  "num": 308
  },
  {
   "id": "percent_7",
@@ -12640,7 +12552,7 @@
    ]
   ],
   "skill": "Moving items between groups",
-  "num": 311
+  "num": 309
  },
  {
   "id": "percent_8",
@@ -12680,7 +12592,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 312
+  "num": 310
  },
  {
   "id": "percent_9",
@@ -12720,7 +12632,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 313
+  "num": 311
  },
  {
   "id": "percent_12",
@@ -12756,7 +12668,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 314
+  "num": 312
  },
  {
   "id": "percent_10",
@@ -12792,7 +12704,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 315
+  "num": 313
  },
  {
   "id": "percent_11",
@@ -12832,7 +12744,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 316
+  "num": 314
  },
  {
   "id": "percent_13",
@@ -12868,7 +12780,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 317
+  "num": 315
  },
  {
   "id": "percent_14",
@@ -12904,7 +12816,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 318
+  "num": 316
  },
  {
   "id": "percent_15",
@@ -12948,7 +12860,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 319
+  "num": 317
  },
  {
   "id": "percent_16",
@@ -12988,7 +12900,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 320
+  "num": 318
  },
  {
   "id": "percent_17",
@@ -13024,7 +12936,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 321
+  "num": 319
  },
  {
   "id": "percent_18",
@@ -13064,7 +12976,7 @@
    ]
   ],
   "skill": "Percents and ratios",
-  "num": 322
+  "num": 320
  },
  {
   "id": "percent_19",
@@ -13104,7 +13016,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 323
+  "num": 321
  },
  {
   "id": "percent_20",
@@ -13144,7 +13056,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 324
+  "num": 322
  },
  {
   "id": "percent_21",
@@ -13184,7 +13096,7 @@
    ]
   ],
   "skill": "Percents and averages",
-  "num": 325
+  "num": 323
  },
  {
   "id": "percent_22",
@@ -13224,7 +13136,7 @@
    ]
   ],
   "skill": "Percents and counting",
-  "num": 326
+  "num": 324
  },
  {
   "id": "percent_23",
@@ -13264,7 +13176,7 @@
    ]
   ],
   "skill": "Moving items between groups",
-  "num": 327
+  "num": 325
  },
  {
   "id": "percent_24",
@@ -13304,7 +13216,7 @@
    ]
   ],
   "skill": "Finding the percent",
-  "num": 328
+  "num": 326
  },
  {
   "id": "percent_25",
@@ -13344,7 +13256,7 @@
    ]
   ],
   "skill": "Percents and counting",
-  "num": 329
+  "num": 327
  },
  {
   "id": "percent_26",
@@ -13385,7 +13297,7 @@
    ]
   ],
   "skill": "Percents and exponents",
-  "num": 330
+  "num": 328
  },
  {
   "id": "percent_27",
@@ -13421,7 +13333,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 331
+  "num": 329
  },
  {
   "id": "percent_28",
@@ -13461,7 +13373,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 332
+  "num": 330
  },
  {
   "id": "percent_29",
@@ -13501,7 +13413,7 @@
    ]
   ],
   "skill": "Unit price percents",
-  "num": 333
+  "num": 331
  },
  {
   "id": "percent_30",
@@ -13541,7 +13453,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 334
+  "num": 332
  },
  {
   "id": "percent_31",
@@ -13581,7 +13493,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 335
+  "num": 333
  },
  {
   "id": "percent_32",
@@ -13617,7 +13529,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 336
+  "num": 334
  },
  {
   "id": "percent_33",
@@ -13657,7 +13569,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 337
+  "num": 335
  },
  {
   "id": "percent_34",
@@ -13697,7 +13609,7 @@
    ]
   ],
   "skill": "Finding the whole",
-  "num": 338
+  "num": 336
  },
  {
   "id": "percent_35",
@@ -13737,7 +13649,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 339
+  "num": 337
  },
  {
   "id": "percent_36",
@@ -13777,7 +13689,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 340
+  "num": 338
  },
  {
   "id": "percent_37",
@@ -13817,7 +13729,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 341
+  "num": 339
  },
  {
   "id": "percent_38",
@@ -13857,7 +13769,7 @@
    ]
   ],
   "skill": "Percents and integers",
-  "num": 342
+  "num": 340
  },
  {
   "id": "percent_39",
@@ -13897,7 +13809,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 343
+  "num": 341
  },
  {
   "id": "percent_40",
@@ -13937,7 +13849,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 344
+  "num": 342
  },
  {
   "id": "percent_41",
@@ -13977,7 +13889,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 345
+  "num": 343
  },
  {
   "id": "percent_42",
@@ -14017,7 +13929,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 346
+  "num": 344
  },
  {
   "id": "percent_43",
@@ -14057,7 +13969,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 347
+  "num": 345
  },
  {
   "id": "percent_44",
@@ -14097,7 +14009,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 348
+  "num": 346
  },
  {
   "id": "percent_45",
@@ -14137,7 +14049,7 @@
    ]
   ],
   "skill": "Percents and averages",
-  "num": 349
+  "num": 347
  },
  {
   "id": "percent_46",
@@ -14177,7 +14089,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 350
+  "num": 348
  },
  {
   "id": "percent_47",
@@ -14217,7 +14129,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 351
+  "num": 349
  },
  {
   "id": "percent_48",
@@ -14257,7 +14169,7 @@
    ]
   ],
   "skill": "Tiered percents",
-  "num": 352
+  "num": 350
  },
  {
   "id": "percent_69",
@@ -14297,7 +14209,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 353
+  "num": 351
  },
  {
   "id": "percent_70",
@@ -14337,7 +14249,7 @@
    ]
   ],
   "skill": "Markup and discount",
-  "num": 354
+  "num": 352
  },
  {
   "id": "percent_71",
@@ -14377,7 +14289,7 @@
    ]
   ],
   "skill": "Simple and compound interest",
-  "num": 355
+  "num": 353
  },
  {
   "id": "percent_72",
@@ -14413,7 +14325,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 356
+  "num": 354
  },
  {
   "id": "percent_73",
@@ -14449,7 +14361,7 @@
    ]
   ],
   "skill": "Repeated percent growth",
-  "num": 357
+  "num": 355
  },
  {
   "id": "percent_74",
@@ -14489,7 +14401,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 358
+  "num": 356
  },
  {
   "id": "percent_75",
@@ -14529,7 +14441,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 359
+  "num": 357
  },
  {
   "id": "percent_76",
@@ -14569,7 +14481,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 360
+  "num": 358
  },
  {
   "id": "percent_77",
@@ -14609,7 +14521,7 @@
    ]
   ],
   "skill": "Percent of a changing total",
-  "num": 361
+  "num": 359
  },
  {
   "id": "percent_78",
@@ -14653,7 +14565,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 362
+  "num": 360
  },
  {
   "id": "percent_79",
@@ -14693,7 +14605,7 @@
    ]
   ],
   "skill": "Repeated percent growth",
-  "num": 363
+  "num": 361
  },
  {
   "id": "percent_80",
@@ -14729,7 +14641,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 364
+  "num": 362
  },
  {
   "id": "percent_81",
@@ -14769,7 +14681,7 @@
    ]
   ],
   "skill": "Percent of a changing total",
-  "num": 365
+  "num": 363
  },
  {
   "id": "percent_82",
@@ -14809,7 +14721,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 366
+  "num": 364
  },
  {
   "id": "percent_83",
@@ -14849,7 +14761,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 367
+  "num": 365
  },
  {
   "id": "percent_84",
@@ -14889,7 +14801,7 @@
    ]
   ],
   "skill": "Order of percent changes",
-  "num": 368
+  "num": 366
  },
  {
   "id": "percent_85",
@@ -14929,7 +14841,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 369
+  "num": 367
  },
  {
   "id": "percent_87",
@@ -14965,7 +14877,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 370
+  "num": 368
  },
  {
   "id": "percent_88",
@@ -15009,7 +14921,7 @@
    ]
   ],
   "skill": "Percent of a subgroup",
-  "num": 371
+  "num": 369
  },
  {
   "id": "percent_89",
@@ -15049,7 +14961,7 @@
    ]
   ],
   "skill": "Percent change of a difference",
-  "num": 372
+  "num": 370
  },
  {
   "id": "percent_90",
@@ -15085,7 +14997,7 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 373
+  "num": 371
  },
  {
   "id": "percent_91",
@@ -15129,7 +15041,7 @@
    ]
   ],
   "skill": "Percent change of an increase",
-  "num": 374
+  "num": 372
  },
  {
   "id": "percent_92",
@@ -15169,7 +15081,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 375
+  "num": 373
  },
  {
   "id": "percent_93",
@@ -15209,7 +15121,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 376
+  "num": 374
  },
  {
   "id": "percent_94",
@@ -15249,7 +15161,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 377
+  "num": 375
  },
  {
   "id": "percent_95",
@@ -15285,7 +15197,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 378
+  "num": 376
  },
  {
   "id": "percent_96",
@@ -15325,7 +15237,7 @@
    ]
   ],
   "skill": "Base pay plus commission",
-  "num": 379
+  "num": 377
  },
  {
   "id": "percent_97",
@@ -15361,7 +15273,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 380
+  "num": 378
  },
  {
   "id": "percent_98",
@@ -15401,7 +15313,7 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 381
+  "num": 379
  },
  {
   "id": "percent_99",
@@ -15445,7 +15357,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 382
+  "num": 380
  },
  {
   "id": "standard-deviation_87",
@@ -15487,7 +15399,7 @@
    ]
   ],
   "skill": "Signs of powers",
-  "num": 383
+  "num": 381
  },
  {
   "id": "standard-deviation_88",
@@ -15527,7 +15439,7 @@
    ]
   ],
   "skill": "Repeating patterns",
-  "num": 384
+  "num": 382
  },
  {
   "id": "standard-deviation_89",
@@ -15567,7 +15479,7 @@
    ]
   ],
   "skill": "Repeating decimal digits",
-  "num": 385
+  "num": 383
  },
  {
   "id": "standard-deviation_99",
@@ -15608,7 +15520,7 @@
    ]
   ],
   "skill": "Units digit cycles",
-  "num": 386
+  "num": 384
  },
  {
   "id": "swamp_boss_1",
@@ -15652,7 +15564,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 387
+  "num": 385
  },
  {
   "id": "swamp_boss_3",
@@ -15692,7 +15604,7 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 388
+  "num": 386
  },
  {
   "id": "word_1-v1",
@@ -15732,7 +15644,7 @@
    ]
   ],
   "skill": "Linear models from two points",
-  "num": 389
+  "num": 387
  },
  {
   "id": "word_2-v1",
@@ -15772,7 +15684,7 @@
    ]
   ],
   "skill": "Comparing linear growth",
-  "num": 390
+  "num": 388
  },
  {
   "id": "word_3-v1",
@@ -15812,7 +15724,7 @@
    ]
   ],
   "skill": "Comparing linear plans",
-  "num": 391
+  "num": 389
  },
  {
   "id": "word_4-v1",
@@ -15852,7 +15764,7 @@
    ]
   ],
   "skill": "Linear rates with unit changes",
-  "num": 392
+  "num": 390
  },
  {
   "id": "word_5-v1",
@@ -15896,7 +15808,7 @@
    ]
   ],
   "skill": "Converting between linear scales",
-  "num": 393
+  "num": 391
  },
  {
   "id": "word_6-v1",
@@ -15940,7 +15852,7 @@
    ]
   ],
   "skill": "Fixed and variable costs",
-  "num": 394
+  "num": 392
  },
  {
   "id": "word_7-v1",
@@ -15984,7 +15896,7 @@
    ]
   ],
   "skill": "Linear models from two points",
-  "num": 395
+  "num": 393
  },
  {
   "id": "word_8-v1",
@@ -16024,7 +15936,7 @@
    ]
   ],
   "skill": "Writing expressions with units",
-  "num": 396
+  "num": 394
  },
  {
   "id": "word_9-v1",
@@ -16064,7 +15976,7 @@
    ]
   ],
   "skill": "Translating words to equations",
-  "num": 397
+  "num": 395
  },
  {
   "id": "word_10-v1",
@@ -16104,7 +16016,7 @@
    ]
   ],
   "skill": "Undoing a chain of operations",
-  "num": 398
+  "num": 396
  },
  {
   "id": "word_11-v1",
@@ -16144,7 +16056,7 @@
    ]
   ],
   "skill": "Translating words to equations",
-  "num": 399
+  "num": 397
  },
  {
   "id": "word_13-v1",
@@ -16184,7 +16096,7 @@
    ]
   ],
   "skill": "Fractions of a remaining amount",
-  "num": 400
+  "num": 398
  },
  {
   "id": "word_14-v1",
@@ -16224,7 +16136,7 @@
    ]
   ],
   "skill": "Sum and product of two numbers",
-  "num": 401
+  "num": 399
  },
  {
   "id": "word_15-v1",
@@ -16264,7 +16176,7 @@
    ]
   ],
   "skill": "Writing expressions from words",
-  "num": 402
+  "num": 400
  },
  {
   "id": "word_16-v1",
@@ -16304,7 +16216,7 @@
    ]
   ],
   "skill": "Squaring a binomial",
-  "num": 403
+  "num": 401
  },
  {
   "id": "word_17-v1",
@@ -16348,7 +16260,7 @@
    ]
   ],
   "skill": "Quadratics from words",
-  "num": 404
+  "num": 402
  },
  {
   "id": "word_18-v1",
@@ -16392,7 +16304,7 @@
    ]
   ],
   "skill": "Fractions of fractions",
-  "num": 405
+  "num": 403
  },
  {
   "id": "word_19-v1",
@@ -16436,7 +16348,7 @@
    ]
   ],
   "skill": "Fractions of a remaining amount",
-  "num": 406
+  "num": 404
  },
  {
   "id": "word_20-v1",
@@ -16480,7 +16392,7 @@
    ]
   ],
   "skill": "Transfer problems",
-  "num": 407
+  "num": 405
  },
  {
   "id": "word_21-v1",
@@ -16520,7 +16432,7 @@
    ]
   ],
   "skill": "Inequalities from words",
-  "num": 408
+  "num": 406
  },
  {
   "id": "word_23-v1",
@@ -16560,7 +16472,7 @@
    ]
   ],
   "skill": "Integers in a range",
-  "num": 409
+  "num": 407
  },
  {
   "id": "word_24-v1",
@@ -16600,7 +16512,7 @@
    ]
   ],
   "skill": "Age problems",
-  "num": 410
+  "num": 408
  },
  {
   "id": "word_25-v1",
@@ -16644,7 +16556,7 @@
    ]
   ],
   "skill": "Translating comparisons",
-  "num": 411
+  "num": 409
  },
  {
   "id": "word_26-v1",
@@ -16684,7 +16596,7 @@
    ]
   ],
   "skill": "Writing expressions from words",
-  "num": 412
+  "num": 410
  },
  {
   "id": "word_27-v1",
@@ -16724,7 +16636,7 @@
    ]
   ],
   "skill": "Greatest and least values",
-  "num": 413
+  "num": 411
  },
  {
   "id": "word_28-v1",
@@ -16764,7 +16676,7 @@
    ]
   ],
   "skill": "Inequalities from words",
-  "num": 414
+  "num": 412
  },
  {
   "id": "word_29-v1",
@@ -16804,7 +16716,7 @@
    ]
   ],
   "skill": "Chained ratios",
-  "num": 415
+  "num": 413
  },
  {
   "id": "word_30-v1",
@@ -16844,7 +16756,7 @@
    ]
   ],
   "skill": "Chained ratios",
-  "num": 416
+  "num": 414
  },
  {
   "id": "standard-deviation_63-v1",
@@ -16884,7 +16796,7 @@
    ]
   ],
   "skill": "Ratios after a change",
-  "num": 417
+  "num": 415
  },
  {
   "id": "word_31-v1",
@@ -16928,7 +16840,7 @@
    ]
   ],
   "skill": "Ratios after a change",
-  "num": 418
+  "num": 416
  },
  {
   "id": "word_35-v1",
@@ -16972,7 +16884,7 @@
    ]
   ],
   "skill": "Combining ratios",
-  "num": 419
+  "num": 417
  },
  {
   "id": "word_77-v1",
@@ -17008,7 +16920,7 @@
    ]
   ],
   "skill": "Ratios of sequence terms",
-  "num": 420
+  "num": 418
  },
  {
   "id": "word_78-v1",
@@ -17048,7 +16960,7 @@
    ]
   ],
   "skill": "Ratio shares after a transfer",
-  "num": 421
+  "num": 419
  },
  {
   "id": "word_37-v1",
@@ -17088,7 +17000,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 422
+  "num": 420
  },
  {
   "id": "word_38-v1",
@@ -17128,7 +17040,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 423
+  "num": 421
  },
  {
   "id": "word_39-v1",
@@ -17168,7 +17080,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 424
+  "num": 422
  },
  {
   "id": "word_40-v1",
@@ -17208,7 +17120,7 @@
    ]
   ],
   "skill": "Fixed and variable costs",
-  "num": 425
+  "num": 423
  },
  {
   "id": "word_41-v1",
@@ -17248,7 +17160,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 426
+  "num": 424
  },
  {
   "id": "word_42-v1",
@@ -17288,7 +17200,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 427
+  "num": 425
  },
  {
   "id": "word_43-v1",
@@ -17328,7 +17240,7 @@
    ]
   ],
   "skill": "Systems from word problems",
-  "num": 428
+  "num": 426
  },
  {
   "id": "word_45-v1",
@@ -17364,7 +17276,7 @@
    ]
   ],
   "skill": "Scaling in power formulas",
-  "num": 429
+  "num": 427
  },
  {
   "id": "word_46-v1",
@@ -17404,7 +17316,7 @@
    ]
   ],
   "skill": "Scaling in power formulas",
-  "num": 430
+  "num": 428
  },
  {
   "id": "word_47-v1",
@@ -17440,7 +17352,7 @@
    ]
   ],
   "skill": "Scaling in power formulas",
-  "num": 431
+  "num": 429
  },
  {
   "id": "word_48-v1",
@@ -17480,7 +17392,7 @@
    ]
   ],
   "skill": "Scaling in power formulas",
-  "num": 432
+  "num": 430
  },
  {
   "id": "word_49-v1",
@@ -17516,7 +17428,7 @@
    ]
   ],
   "skill": "Scaling in power formulas",
-  "num": 433
+  "num": 431
  },
  {
   "id": "word_51-v1",
@@ -17556,7 +17468,7 @@
    ]
   ],
   "skill": "Digit problems",
-  "num": 434
+  "num": 432
  },
  {
   "id": "word_52-v1",
@@ -17596,7 +17508,7 @@
    ]
   ],
   "skill": "Equations from shared costs",
-  "num": 435
+  "num": 433
  },
  {
   "id": "word_53-v1",
@@ -17632,7 +17544,7 @@
    ]
   ],
   "skill": "Working backward from a remainder",
-  "num": 436
+  "num": 434
  },
  {
   "id": "word_55-v1",
@@ -17672,7 +17584,7 @@
    ]
   ],
   "skill": "Scientific notation",
-  "num": 437
+  "num": 435
  },
  {
   "id": "word_56-v1",
@@ -17713,7 +17625,7 @@
    ]
   ],
   "skill": "Rewriting with a common base",
-  "num": 438
+  "num": 436
  },
  {
   "id": "word_57-v1",
@@ -17754,7 +17666,7 @@
    ]
   ],
   "skill": "Sums of equal powers",
-  "num": 439
+  "num": 437
  },
  {
   "id": "word_58-v1",
@@ -17794,7 +17706,7 @@
    ]
   ],
   "skill": "Exponent substitution",
-  "num": 440
+  "num": 438
  },
  {
   "id": "word_59-v1",
@@ -17835,7 +17747,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 441
+  "num": 439
  },
  {
   "id": "word_60-v1",
@@ -17872,7 +17784,7 @@
    ]
   ],
   "skill": "Scaling with exponents",
-  "num": 442
+  "num": 440
  },
  {
   "id": "word_61-v1",
@@ -17913,7 +17825,7 @@
    ]
   ],
   "skill": "Prime factorization exponents",
-  "num": 443
+  "num": 441
  },
  {
   "id": "word_62-v1",
@@ -17954,7 +17866,7 @@
    ]
   ],
   "skill": "Exponential growth and decay",
-  "num": 444
+  "num": 442
  },
  {
   "id": "word_63-v1",
@@ -17991,7 +17903,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 445
+  "num": 443
  },
  {
   "id": "word_65-v1",
@@ -18033,7 +17945,7 @@
    ]
   ],
   "skill": "Factoring sums of powers",
-  "num": 446
+  "num": 444
  },
  {
   "id": "word_66-v1",
@@ -18074,7 +17986,7 @@
    ]
   ],
   "skill": "Counting digits of powers",
-  "num": 447
+  "num": 445
  },
  {
   "id": "word_67-v1",
@@ -18115,7 +18027,7 @@
    ]
   ],
   "skill": "Geometric sequences",
-  "num": 448
+  "num": 446
  },
  {
   "id": "word_68-v1",
@@ -18156,7 +18068,7 @@
    ]
   ],
   "skill": "Combining exponent rules",
-  "num": 449
+  "num": 447
  },
  {
   "id": "word_69-v1",
@@ -18192,7 +18104,7 @@
    ]
   ],
   "skill": "Combining exponent rules",
-  "num": 450
+  "num": 448
  },
  {
   "id": "word_70-v1",
@@ -18233,7 +18145,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 451
+  "num": 449
  },
  {
   "id": "word_71-v1",
@@ -18274,7 +18186,7 @@
    ]
   ],
   "skill": "Prime factorization exponents",
-  "num": 452
+  "num": 450
  },
  {
   "id": "word_73-v1",
@@ -18314,7 +18226,7 @@
    ]
   ],
   "skill": "Factoring sums of powers",
-  "num": 453
+  "num": 451
  },
  {
   "id": "word_74-v1",
@@ -18355,7 +18267,7 @@
    ]
   ],
   "skill": "Prime factorization exponents",
-  "num": 454
+  "num": 452
  },
  {
   "id": "word_75-v1",
@@ -18392,7 +18304,7 @@
    ]
   ],
   "skill": "Factoring sums of powers",
-  "num": 455
+  "num": 453
  },
  {
   "id": "word_77-v1",
@@ -18434,7 +18346,7 @@
    ]
   ],
   "skill": "Exponential systems",
-  "num": 456
+  "num": 454
  },
  {
   "id": "word_78-v1",
@@ -18478,7 +18390,7 @@
    ]
   ],
   "skill": "Comparing powers",
-  "num": 457
+  "num": 455
  },
  {
   "id": "word_79-v1",
@@ -18519,7 +18431,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 458
+  "num": 456
  },
  {
   "id": "word_80-v1",
@@ -18560,7 +18472,7 @@
    ]
   ],
   "skill": "Even and odd roots",
-  "num": 459
+  "num": 457
  },
  {
   "id": "word_81-v1",
@@ -18596,7 +18508,7 @@
    ]
   ],
   "skill": "Fractional exponents",
-  "num": 460
+  "num": 458
  },
  {
   "id": "word_82-v1",
@@ -18633,7 +18545,7 @@
    ]
   ],
   "skill": "Roots of powers",
-  "num": 461
+  "num": 459
  },
  {
   "id": "word_83-v1",
@@ -18670,7 +18582,7 @@
    ]
   ],
   "skill": "Fractional exponents",
-  "num": 462
+  "num": 460
  },
  {
   "id": "word_84-v1",
@@ -18707,7 +18619,7 @@
    ]
   ],
   "skill": "Power of a power",
-  "num": 463
+  "num": 461
  },
  {
   "id": "word_85-v1",
@@ -18744,51 +18656,7 @@
    ]
   ],
   "skill": "Exponent substitution",
-  "num": 464
- },
- {
-  "id": "word_87-v1",
-  "kind": "mc",
-  "lines": [
-   "x^{4}>x^{5}",
-   "If x satisfies the inequality above, which of the following must be true?",
-   "\\text{I. }x^{2}>x",
-   "\\text{II. }x<1",
-   "\\text{III. }x\\text{ is not }0"
-  ],
-  "choices": [
-   "\\text{II only}",
-   "\\text{II and III only}",
-   "\\text{I and II only}",
-   "\\text{I and III only}",
-   "\\text{I, II, and III}"
-  ],
-  "choice_math": [
-   true,
-   true,
-   true,
-   true,
-   true
-  ],
-  "answer": 1,
-  "trap": 0,
-  "trap_note": "Divided by x^4 to get x < 1 but missed that x = 0 fails.",
-  "sol": [
-   [
-    "latex",
-    "x^{4}-x^{5}=x^{4}(1-x)>0"
-   ],
-   [
-    "text",
-    "So x is not 0 and x < 1. Both II and III must be true."
-   ],
-   [
-    "text",
-    "For x = 1/2, x^2 = 1/4 is less than x, so I need not be true."
-   ]
-  ],
-  "skill": "Powers of fractions and negatives",
-  "num": 465
+  "num": 462
  },
  {
   "id": "word_88-v1",
@@ -18829,7 +18697,7 @@
    ]
   ],
   "skill": "Exponential equations",
-  "num": 466
+  "num": 463
  },
  {
   "id": "word_89-v1",
@@ -18871,7 +18739,7 @@
    ]
   ],
   "skill": "Squared-sum identities",
-  "num": 467
+  "num": 464
  },
  {
   "id": "word_90-v1",
@@ -18912,7 +18780,7 @@
    ]
   ],
   "skill": "Powers of ten",
-  "num": 468
+  "num": 465
  },
  {
   "id": "word_91-v1",
@@ -18948,7 +18816,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 469
+  "num": 466
  },
  {
   "id": "word_93-v1",
@@ -18985,7 +18853,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 470
+  "num": 467
  },
  {
   "id": "word_94-v1",
@@ -19021,7 +18889,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 471
+  "num": 468
  },
  {
   "id": "word_95-v1",
@@ -19058,7 +18926,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 472
+  "num": 469
  },
  {
   "id": "word_96-v1",
@@ -19094,7 +18962,7 @@
    ]
   ],
   "skill": "Negative exponents",
-  "num": 473
+  "num": 470
  },
  {
   "id": "word_97-v1",
@@ -19132,7 +19000,7 @@
    ]
   ],
   "skill": "Exponential growth and decay",
-  "num": 474
+  "num": 471
  },
  {
   "id": "word_98-v1",
@@ -19173,7 +19041,7 @@
    ]
   ],
   "skill": "Adding fractions with powers",
-  "num": 475
+  "num": 472
  },
  {
   "id": "word_99-v1",
@@ -19211,7 +19079,7 @@
    ]
   ],
   "skill": "Factoring sums of powers",
-  "num": 476
+  "num": 473
  },
  {
   "id": "word_100-v1",
@@ -19248,7 +19116,7 @@
    ]
   ],
   "skill": "Powers of fractions and negatives",
-  "num": 477
+  "num": 474
  },
  {
   "id": "word_78-v1",
@@ -19285,7 +19153,7 @@
    ]
   ],
   "skill": "Exponent substitution",
-  "num": 478
+  "num": 475
  },
  {
   "id": "standard-deviation_10-v1",
@@ -19322,7 +19190,7 @@
    ]
   ],
   "skill": "Order of operations with negatives",
-  "num": 479
+  "num": 476
  },
  {
   "id": "standard-deviation_11-v1",
@@ -19359,7 +19227,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 480
+  "num": 477
  },
  {
   "id": "standard-deviation_12-v1",
@@ -19396,7 +19264,7 @@
    ]
   ],
   "skill": "Expressions from a given equation",
-  "num": 481
+  "num": 478
  },
  {
   "id": "standard-deviation_13-v1",
@@ -19437,7 +19305,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 482
+  "num": 479
  },
  {
   "id": "standard-deviation_14-v1",
@@ -19482,7 +19350,7 @@
    ]
   ],
   "skill": "Squared-sum identities",
-  "num": 483
+  "num": 480
  },
  {
   "id": "standard-deviation_15-v1",
@@ -19523,7 +19391,7 @@
    ]
   ],
   "skill": "Special products",
-  "num": 484
+  "num": 481
  },
  {
   "id": "standard-deviation_16-v1",
@@ -19560,7 +19428,7 @@
    ]
   ],
   "skill": "Matching coefficients",
-  "num": 485
+  "num": 482
  },
  {
   "id": "standard-deviation_17-v1",
@@ -19601,7 +19469,7 @@
    ]
   ],
   "skill": "Solving by factoring",
-  "num": 486
+  "num": 483
  },
  {
   "id": "standard-deviation_18-v1",
@@ -19639,7 +19507,7 @@
    ]
   ],
   "skill": "Sums and products of roots",
-  "num": 487
+  "num": 484
  },
  {
   "id": "standard-deviation_19-v1",
@@ -19680,7 +19548,7 @@
    ]
   ],
   "skill": "Order of operations with negatives",
-  "num": 488
+  "num": 485
  },
  {
   "id": "standard-deviation_20-v1",
@@ -19721,7 +19589,7 @@
    ]
   ],
   "skill": "Equations with fractions",
-  "num": 489
+  "num": 486
  },
  {
   "id": "standard-deviation_21-v1",
@@ -19762,7 +19630,7 @@
    ]
   ],
   "skill": "Difference of squares",
-  "num": 490
+  "num": 487
  },
  {
   "id": "standard-deviation_22-v1",
@@ -19807,7 +19675,7 @@
    ]
   ],
   "skill": "Sum and product identities",
-  "num": 491
+  "num": 488
  },
  {
   "id": "standard-deviation_23-v1",
@@ -19845,7 +19713,7 @@
    ]
   ],
   "skill": "Ratios in expressions",
-  "num": 492
+  "num": 489
  },
  {
   "id": "standard-deviation_24-v1",
@@ -19882,7 +19750,7 @@
    ]
   ],
   "skill": "Simplifying rational expressions",
-  "num": 493
+  "num": 490
  },
  {
   "id": "standard-deviation_25-v1",
@@ -19919,7 +19787,7 @@
    ]
   ],
   "skill": "Adding rational expressions",
-  "num": 494
+  "num": 491
  },
  {
   "id": "standard-deviation_26-v1",
@@ -19956,7 +19824,7 @@
    ]
   ],
   "skill": "Solving for a variable",
-  "num": 495
+  "num": 492
  },
  {
   "id": "standard-deviation_27-v1",
@@ -19993,7 +19861,7 @@
    ]
   ],
   "skill": "Simplifying rational expressions",
-  "num": 496
+  "num": 493
  },
  {
   "id": "standard-deviation_28-v1",
@@ -20034,7 +19902,7 @@
    ]
   ],
   "skill": "Opposite binomial factors",
-  "num": 497
+  "num": 494
  },
  {
   "id": "standard-deviation_29-v1",
@@ -20075,51 +19943,7 @@
    ]
   ],
   "skill": "Difference of squares",
-  "num": 498
- },
- {
-  "id": "standard-deviation_31-v1",
-  "kind": "mc",
-  "lines": [
-   "Which of the following are equal to the expression below for all nonzero a and b?",
-   "\\frac{a-b}{3ab}",
-   "\\text{I. }\\frac{1-b}{3b}",
-   "\\text{II. }\\frac{b^{-1}-a^{-1}}{3}",
-   "\\text{III. }\\frac{1}{3b}-\\frac{1}{3a}"
-  ],
-  "choices": [
-   "\\text{II only}",
-   "\\text{II and III only}",
-   "\\text{III only}",
-   "\\text{I and III only}",
-   "\\text{I, II, and III}"
-  ],
-  "choice_math": [
-   true,
-   true,
-   true,
-   true,
-   true
-  ],
-  "answer": 1,
-  "trap": 0,
-  "trap_note": "Subtracted III's fractions by subtracting tops and bottoms separately.",
-  "sol": [
-   [
-    "latex",
-    "\\frac{a-b}{3ab}=\\frac{a}{3ab}-\\frac{b}{3ab}=\\frac{1}{3b}-\\frac{1}{3a}"
-   ],
-   [
-    "text",
-    "So III is equal. II is the same as one third of 1/b - 1/a, so II is equal too."
-   ],
-   [
-    "text",
-    "I cancels a from only one term of the top, so it is not equal (try a = 2, b = 1)."
-   ]
-  ],
-  "skill": "Splitting fractions",
-  "num": 499
+  "num": 495
  },
  {
   "id": "standard-deviation_32-v1",
@@ -20160,7 +19984,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 500
+  "num": 496
  },
  {
   "id": "standard-deviation_34-v1",
@@ -20201,7 +20025,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 501
+  "num": 497
  },
  {
   "id": "standard-deviation_35-v1",
@@ -20242,7 +20066,7 @@
    ]
   ],
   "skill": "Radical equations",
-  "num": 502
+  "num": 498
  },
  {
   "id": "standard-deviation_40-v1",
@@ -20283,7 +20107,7 @@
    ]
   ],
   "skill": "Distinct prime factors",
-  "num": 503
+  "num": 499
  },
  {
   "id": "standard-deviation_41-v1",
@@ -20327,7 +20151,7 @@
    ]
   ],
   "skill": "Perfect powers from primes",
-  "num": 504
+  "num": 500
  },
  {
   "id": "standard-deviation_42-v1",
@@ -20367,7 +20191,7 @@
    ]
   ],
   "skill": "Counting divisors",
-  "num": 505
+  "num": 501
  },
  {
   "id": "standard-deviation_44-v1",
@@ -20408,7 +20232,7 @@
    ]
   ],
   "skill": "Prime powers in factorials",
-  "num": 506
+  "num": 502
  },
  {
   "id": "standard-deviation_45-v1",
@@ -20453,7 +20277,7 @@
    ]
   ],
   "skill": "Must-divide reasoning",
-  "num": 507
+  "num": 503
  },
  {
   "id": "standard-deviation_48-v1",
@@ -20498,7 +20322,7 @@
    ]
   ],
   "skill": "GCF from prime powers",
-  "num": 508
+  "num": 504
  },
  {
   "id": "standard-deviation_49-v1",
@@ -20539,7 +20363,7 @@
    ]
   ],
   "skill": "Counting with GCF conditions",
-  "num": 509
+  "num": 505
  },
  {
   "id": "standard-deviation_51-v1",
@@ -20584,7 +20408,7 @@
    ]
   ],
   "skill": "GCF from prime powers",
-  "num": 510
+  "num": 506
  },
  {
   "id": "standard-deviation_52-v1",
@@ -20625,7 +20449,7 @@
    ]
   ],
   "skill": "GCF times LCM",
-  "num": 511
+  "num": 507
  },
  {
   "id": "standard-deviation_56-v1",
@@ -20670,7 +20494,7 @@
    ]
   ],
   "skill": "LCM of expressions",
-  "num": 512
+  "num": 508
  },
  {
   "id": "standard-deviation_58-v1",
@@ -20711,7 +20535,7 @@
    ]
   ],
   "skill": "Remainders and LCM",
-  "num": 513
+  "num": 509
  },
  {
   "id": "standard-deviation_60-v1",
@@ -20755,7 +20579,7 @@
    ]
   ],
   "skill": "Counting common multiples",
-  "num": 514
+  "num": 510
  },
  {
   "id": "standard-deviation_61-v1",
@@ -20796,7 +20620,7 @@
    ]
   ],
   "skill": "Proportional work rates",
-  "num": 515
+  "num": 511
  },
  {
   "id": "standard-deviation_62-v1",
@@ -20837,7 +20661,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 516
+  "num": 512
  },
  {
   "id": "standard-deviation_64-v1",
@@ -20878,7 +20702,7 @@
    ]
   ],
   "skill": "Fill and drain rates",
-  "num": 517
+  "num": 513
  },
  {
   "id": "standard-deviation_65-v1",
@@ -20923,7 +20747,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 518
+  "num": 514
  },
  {
   "id": "standard-deviation_66-v1",
@@ -20964,7 +20788,7 @@
    ]
   ],
   "skill": "Relative speed",
-  "num": 519
+  "num": 515
  },
  {
   "id": "standard-deviation_67-v1",
@@ -21005,7 +20829,7 @@
    ]
   ],
   "skill": "Relative speed",
-  "num": 520
+  "num": 516
  },
  {
   "id": "standard-deviation_76-v1",
@@ -21041,7 +20865,7 @@
    ]
   ],
   "skill": "Combining equations",
-  "num": 521
+  "num": 517
  },
  {
   "id": "standard-deviation_77-v1",
@@ -21082,7 +20906,7 @@
    ]
   ],
   "skill": "Two-variable word problems",
-  "num": 522
+  "num": 518
  },
  {
   "id": "standard-deviation_80-v1",
@@ -21123,7 +20947,7 @@
    ]
   ],
   "skill": "Age problems",
-  "num": 523
+  "num": 519
  },
  {
   "id": "standard-deviation_83-v1",
@@ -21168,7 +20992,7 @@
    ]
   ],
   "skill": "Solving for a ratio",
-  "num": 524
+  "num": 520
  },
  {
   "id": "q400_500_1-v1",
@@ -21209,7 +21033,7 @@
    ]
   ],
   "skill": "Powers of negative numbers",
-  "num": 525
+  "num": 521
  },
  {
   "id": "q400_500_2-v1",
@@ -21250,7 +21074,7 @@
    ]
   ],
   "skill": "Sign analysis",
-  "num": 526
+  "num": 522
  },
  {
   "id": "q400_500_3-v1",
@@ -21291,7 +21115,7 @@
    ]
   ],
   "skill": "Powers of negative one",
-  "num": 527
+  "num": 523
  },
  {
   "id": "q400_500_4-v1",
@@ -21332,7 +21156,7 @@
    ]
   ],
   "skill": "Testing cases",
-  "num": 528
+  "num": 524
  },
  {
   "id": "q400_500_5-v1",
@@ -21373,7 +21197,7 @@
    ]
   ],
   "skill": "Zero as a solution",
-  "num": 529
+  "num": 525
  },
  {
   "id": "q400_500_6-v1",
@@ -21415,7 +21239,7 @@
    ]
   ],
   "skill": "Absolute value inequalities",
-  "num": 530
+  "num": 526
  },
  {
   "id": "q400_500_7-v1",
@@ -21450,7 +21274,7 @@
    ]
   ],
   "skill": "Factoring powers",
-  "num": 531
+  "num": 527
  },
  {
   "id": "q400_500_8-v1",
@@ -21491,7 +21315,7 @@
    ]
   ],
   "skill": "Comparing by subtraction",
-  "num": 532
+  "num": 528
  },
  {
   "id": "q400_500_9-v1",
@@ -21532,7 +21356,7 @@
    ]
   ],
   "skill": "Combining inequalities",
-  "num": 533
+  "num": 529
  },
  {
   "id": "q400_500_10-v1",
@@ -21573,7 +21397,7 @@
    ]
   ],
   "skill": "Squaring expressions",
-  "num": 534
+  "num": 530
  },
  {
   "id": "q400_500_13-v1",
@@ -21615,7 +21439,7 @@
    ]
   ],
   "skill": "Square factors of an integer",
-  "num": 535
+  "num": 531
  },
  {
   "id": "q400_500_14-v1",
@@ -21656,7 +21480,7 @@
    ]
   ],
   "skill": "Sign analysis",
-  "num": 536
+  "num": 532
  },
  {
   "id": "q400_500_15-v1",
@@ -21698,7 +21522,7 @@
    ]
   ],
   "skill": "Distinct prime factors",
-  "num": 537
+  "num": 533
  },
  {
   "id": "q400_500_16-v1",
@@ -21745,7 +21569,7 @@
    ]
   ],
   "skill": "Combined work rates",
-  "num": 538
+  "num": 534
  },
  {
   "id": "q400_500_17-v1",
@@ -21786,7 +21610,7 @@
    ]
   ],
   "skill": "GCF and LCM pairs",
-  "num": 539
+  "num": 535
  },
  {
   "id": "q400_500_18-v1",
@@ -21827,7 +21651,7 @@
    ]
   ],
   "skill": "Powers and roots of fractions",
-  "num": 540
+  "num": 536
  },
  {
   "id": "q400_500_19-v1",
@@ -21872,7 +21696,7 @@
    ]
   ],
   "skill": "Comparing fractions",
-  "num": 541
+  "num": 537
  },
  {
   "id": "q400_500_20-v1",
@@ -21914,7 +21738,7 @@
    ]
   ],
   "skill": "Dependent systems",
-  "num": 542
+  "num": 538
  },
  {
   "id": "q400_500_21-v1",
@@ -21960,7 +21784,7 @@
    ]
   ],
   "skill": "Counting divisors",
-  "num": 543
+  "num": 539
  },
  {
   "id": "q400_500_22-v1",
@@ -22001,7 +21825,7 @@
    ]
   ],
   "skill": "Powers and roots of fractions",
-  "num": 544
+  "num": 540
  },
  {
   "id": "q400_500_23-v1",
@@ -22043,7 +21867,7 @@
    ]
   ],
   "skill": "Remainders of squares",
-  "num": 545
+  "num": 541
  },
  {
   "id": "q400_500_24-v1",
@@ -22084,7 +21908,7 @@
    ]
   ],
   "skill": "Number plus its reciprocal",
-  "num": 546
+  "num": 542
  },
  {
   "id": "q400_500_25-v1",
@@ -22126,7 +21950,7 @@
    ]
   ],
   "skill": "Units digit cycles",
-  "num": 547
+  "num": 543
  },
  {
   "id": "desert_boss_1-v1",
@@ -22171,7 +21995,7 @@
    ]
   ],
   "skill": "Round trips with rest time",
-  "num": 548
+  "num": 544
  },
  {
   "id": "desert_boss_2-v1",
@@ -22214,7 +22038,7 @@
    ]
   ],
   "skill": "Comparing exponential growth",
-  "num": 549
+  "num": 545
  },
  {
   "id": "geometry_87-v1",
@@ -22254,7 +22078,7 @@
    ]
   ],
   "skill": "Two-set overlap with neither",
-  "num": 550
+  "num": 546
  },
  {
   "id": "geometry_88-v1",
@@ -22294,7 +22118,7 @@
    ]
   ],
   "skill": "Two-set overlap equations",
-  "num": 551
+  "num": 547
  },
  {
   "id": "geometry_89-v1",
@@ -22334,7 +22158,7 @@
    ]
   ],
   "skill": "Three-set overlap",
-  "num": 552
+  "num": 548
  },
  {
   "id": "geometry_90-v1",
@@ -22374,7 +22198,7 @@
    ]
   ],
   "skill": "Overlap minimum and maximum",
-  "num": 553
+  "num": 549
  },
  {
   "id": "geometry_199-v1",
@@ -22414,7 +22238,7 @@
    ]
   ],
   "skill": "Probability from overlapping sets",
-  "num": 554
+  "num": 550
  },
  {
   "id": "geometry_93-v1",
@@ -22454,7 +22278,7 @@
    ]
   ],
   "skill": "Probability without replacement",
-  "num": 555
+  "num": 551
  },
  {
   "id": "geometry_96-v1",
@@ -22490,7 +22314,7 @@
    ]
   ],
   "skill": "Range of combined data",
-  "num": 556
+  "num": 552
  },
  {
   "id": "geometry_97-v1",
@@ -22530,7 +22354,7 @@
    ]
   ],
   "skill": "Range with an unknown value",
-  "num": 557
+  "num": 553
  },
  {
   "id": "geometry_99-v1",
@@ -22574,7 +22398,7 @@
    ]
   ],
   "skill": "Median and mean constraints",
-  "num": 558
+  "num": 554
  },
  {
   "id": "geometry_100-v1",
@@ -22616,7 +22440,7 @@
    ]
   ],
   "skill": "Mean versus median",
-  "num": 559
+  "num": 555
  },
  {
   "id": "geometry_101-v1",
@@ -22660,7 +22484,7 @@
    ]
   ],
   "skill": "Maximizing with mean and median",
-  "num": 560
+  "num": 556
  },
  {
   "id": "geometry_103-v1",
@@ -22700,7 +22524,7 @@
    ]
   ],
   "skill": "Counting with restrictions",
-  "num": 561
+  "num": 557
  },
  {
   "id": "geometry_104-v1",
@@ -22740,7 +22564,7 @@
    ]
   ],
   "skill": "Counting with a forbidden pair",
-  "num": 562
+  "num": 558
  },
  {
   "id": "geometry_105-v1",
@@ -22780,7 +22604,7 @@
    ]
   ],
   "skill": "Counting pairings",
-  "num": 563
+  "num": 559
  },
  {
   "id": "geometry_106-v1",
@@ -22820,7 +22644,7 @@
    ]
   ],
   "skill": "Counting with at least one",
-  "num": 564
+  "num": 560
  },
  {
   "id": "geometry_108-v1",
@@ -22861,7 +22685,7 @@
    ]
   ],
   "skill": "Comparing combinations",
-  "num": 565
+  "num": 561
  },
  {
   "id": "geometry_111-v1",
@@ -22901,7 +22725,7 @@
    ]
   ],
   "skill": "Arrangements with repeats",
-  "num": 566
+  "num": 562
  },
  {
   "id": "geometry_112-v1",
@@ -22941,7 +22765,7 @@
    ]
   ],
   "skill": "Arrangements with identical items",
-  "num": 567
+  "num": 563
  },
  {
   "id": "geometry_113-v1",
@@ -22981,7 +22805,7 @@
    ]
   ],
   "skill": "Arrangements with a restriction",
-  "num": 568
+  "num": 564
  },
  {
   "id": "geometry_114-v1",
@@ -23021,7 +22845,7 @@
    ]
   ],
   "skill": "Mixed order and choice",
-  "num": 569
+  "num": 565
  },
  {
   "id": "standard-deviation_2-v1",
@@ -23061,7 +22885,7 @@
    ]
   ],
   "skill": "Transforming data and SD",
-  "num": 570
+  "num": 566
  },
  {
   "id": "standard-deviation_4-v1",
@@ -23107,7 +22931,7 @@
    ]
   ],
   "skill": "Effect of new values on SD",
-  "num": 571
+  "num": 567
  },
  {
   "id": "standard-deviation_7-v1",
@@ -23150,7 +22974,7 @@
    ]
   ],
   "skill": "Transforming data and SD",
-  "num": 572
+  "num": 568
  },
  {
   "id": "standard-deviation_69-v1",
@@ -23186,7 +23010,7 @@
    ]
   ],
   "skill": "At least one via complement",
-  "num": 573
+  "num": 569
  },
  {
   "id": "standard-deviation_70-v1",
@@ -23226,7 +23050,7 @@
    ]
   ],
   "skill": "Conditional probability",
-  "num": 574
+  "num": 570
  },
  {
   "id": "standard-deviation_71-v1",
@@ -23272,7 +23096,7 @@
    ]
   ],
   "skill": "Independent events with a variable",
-  "num": 575
+  "num": 571
  },
  {
   "id": "standard-deviation_73-v1",
@@ -23312,7 +23136,7 @@
    ]
   ],
   "skill": "Probability with combinations",
-  "num": 576
+  "num": 572
  },
  {
   "id": "standard-deviation_74-v1",
@@ -23352,7 +23176,7 @@
    ]
   ],
   "skill": "Sequential independent trials",
-  "num": 577
+  "num": 573
  },
  {
   "id": "standard-deviation_75-v1",
@@ -23392,7 +23216,7 @@
    ]
   ],
   "skill": "Binomial probability",
-  "num": 578
+  "num": 574
  },
  {
   "id": "q400_500_42-v1",
@@ -23432,7 +23256,7 @@
    ]
   ],
   "skill": "Sums from pairwise averages",
-  "num": 579
+  "num": 575
  },
  {
   "id": "q400_500_43-v1",
@@ -23479,7 +23303,7 @@
    ]
   ],
   "skill": "Sums from pairwise averages",
-  "num": 580
+  "num": 576
  },
  {
   "id": "q400_500_44-v1",
@@ -23519,7 +23343,7 @@
    ]
   ],
   "skill": "Overlapping group totals",
-  "num": 581
+  "num": 577
  },
  {
   "id": "q400_500_45-v1",
@@ -23560,7 +23384,7 @@
    ]
   ],
   "skill": "Mean and median constraints",
-  "num": 582
+  "num": 578
  },
  {
   "id": "inequalities_46-v1",
@@ -23600,7 +23424,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 583
+  "num": 579
  },
  {
   "id": "inequalities_47-v1",
@@ -23640,7 +23464,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 584
+  "num": 580
  },
  {
   "id": "inequalities_48-v1",
@@ -23682,7 +23506,7 @@
    ]
   ],
   "skill": "Sum from an average",
-  "num": 585
+  "num": 581
  },
  {
   "id": "inequalities_49-v1",
@@ -23722,7 +23546,7 @@
    ]
   ],
   "skill": "Sum after members change",
-  "num": 586
+  "num": 582
  },
  {
   "id": "inequalities_50-v1",
@@ -23762,7 +23586,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 587
+  "num": 583
  },
  {
   "id": "inequalities_51-v1",
@@ -23802,7 +23626,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 588
+  "num": 584
  },
  {
   "id": "inequalities_52-v1",
@@ -23842,7 +23666,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 589
+  "num": 585
  },
  {
   "id": "inequalities_53-v1",
@@ -23882,7 +23706,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 590
+  "num": 586
  },
  {
   "id": "inequalities_54-v1",
@@ -23922,7 +23746,7 @@
    ]
   ],
   "skill": "Reaching a target average",
-  "num": 591
+  "num": 587
  },
  {
   "id": "inequalities_55-v1",
@@ -23962,7 +23786,7 @@
    ]
   ],
   "skill": "Unknown count from averages",
-  "num": 592
+  "num": 588
  },
  {
   "id": "inequalities_58-v1",
@@ -24002,7 +23826,7 @@
    ]
   ],
   "skill": "Missing values from an average",
-  "num": 593
+  "num": 589
  },
  {
   "id": "inequalities_59-v1",
@@ -24042,7 +23866,7 @@
    ]
   ],
   "skill": "Values from running averages",
-  "num": 594
+  "num": 590
  },
  {
   "id": "inequalities_60-v1",
@@ -24082,7 +23906,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 595
+  "num": 591
  },
  {
   "id": "inequalities_63-v1",
@@ -24122,7 +23946,7 @@
    ]
   ],
   "skill": "Combined average from totals",
-  "num": 596
+  "num": 592
  },
  {
   "id": "inequalities_64-v1",
@@ -24162,7 +23986,7 @@
    ]
   ],
   "skill": "Missing values from an average",
-  "num": 597
+  "num": 593
  },
  {
   "id": "inequalities_65-v1",
@@ -24202,7 +24026,7 @@
    ]
   ],
   "skill": "Group sizes from averages",
-  "num": 598
+  "num": 594
  },
  {
   "id": "inequalities_66-v1",
@@ -24242,7 +24066,7 @@
    ]
   ],
   "skill": "Group sizes from averages",
-  "num": 599
+  "num": 595
  },
  {
   "id": "inequalities_67-v1",
@@ -24282,7 +24106,7 @@
    ]
   ],
   "skill": "Averages of evenly spaced sets",
-  "num": 600
+  "num": 596
  },
  {
   "id": "inequalities_68-v1",
@@ -24322,7 +24146,7 @@
    ]
   ],
   "skill": "Consecutive odd and even integers",
-  "num": 601
+  "num": 597
  },
  {
   "id": "inequalities_69-v1",
@@ -24362,7 +24186,7 @@
    ]
   ],
   "skill": "Sums of evenly spaced sets",
-  "num": 602
+  "num": 598
  },
  {
   "id": "inequalities_70-v1",
@@ -24402,7 +24226,7 @@
    ]
   ],
   "skill": "Averages of evenly spaced sets",
-  "num": 603
+  "num": 599
  },
  {
   "id": "inequalities_71-v1",
@@ -24442,7 +24266,7 @@
    ]
   ],
   "skill": "Sums of evenly spaced sets",
-  "num": 604
+  "num": 600
  },
  {
   "id": "inequalities_72-v1",
@@ -24482,7 +24306,7 @@
    ]
   ],
   "skill": "Consecutive integers algebra",
-  "num": 605
+  "num": 601
  },
  {
   "id": "inequalities_74-v1",
@@ -24522,7 +24346,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 606
+  "num": 602
  },
  {
   "id": "inequalities_75-v1",
@@ -24558,7 +24382,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 607
+  "num": 603
  },
  {
   "id": "inequalities_76-v1",
@@ -24600,7 +24424,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 608
+  "num": 604
  },
  {
   "id": "inequalities_78-v1",
@@ -24640,7 +24464,7 @@
    ]
   ],
   "skill": "Weighted averages",
-  "num": 609
+  "num": 605
  },
  {
   "id": "inequalities_79-v1",
@@ -24680,7 +24504,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 610
+  "num": 606
  },
  {
   "id": "inequalities_80-v1",
@@ -24720,7 +24544,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 611
+  "num": 607
  },
  {
   "id": "inequalities_81-v1",
@@ -24760,7 +24584,7 @@
    ]
   ],
   "skill": "Effect of changes on an average",
-  "num": 612
+  "num": 608
  },
  {
   "id": "inequalities_84-v1",
@@ -24800,7 +24624,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 613
+  "num": 609
  },
  {
   "id": "inequalities_85-v1",
@@ -24840,7 +24664,7 @@
    ]
   ],
   "skill": "Changes in averages",
-  "num": 614
+  "num": 610
  },
  {
   "id": "inequalities_86-v1",
@@ -24882,7 +24706,7 @@
    ]
   ],
   "skill": "Effect of changes on an average",
-  "num": 615
+  "num": 611
  },
  {
   "id": "inequalities_87-v1",
@@ -24922,7 +24746,7 @@
    ]
   ],
   "skill": "Transforming every value",
-  "num": 616
+  "num": 612
  },
  {
   "id": "inequalities_88-v1",
@@ -24966,7 +24790,7 @@
    ]
   ],
   "skill": "Transforming every value",
-  "num": 617
+  "num": 613
  },
  {
   "id": "tundra_boss_2-v1",
@@ -25006,7 +24830,7 @@
    ]
   ],
   "skill": "Extreme values from an average",
-  "num": 618
+  "num": 614
  },
  {
   "id": "geometry_2-v1",
@@ -25046,7 +24870,7 @@
    ]
   ],
   "skill": "Complements and supplements",
-  "num": 619
+  "num": 615
  },
  {
   "id": "geometry_5-v1",
@@ -25086,7 +24910,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 620
+  "num": 616
  },
  {
   "id": "geometry_6-v1",
@@ -25133,7 +24957,7 @@
    ]
   ],
   "skill": "Isosceles triangle angles",
-  "num": 621
+  "num": 617
  },
  {
   "id": "geometry_8-v1",
@@ -25173,7 +24997,7 @@
    ]
   ],
   "skill": "Exterior angles of triangles",
-  "num": 622
+  "num": 618
  },
  {
   "id": "geometry_10-v1",
@@ -25213,7 +25037,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 623
+  "num": 619
  },
  {
   "id": "geometry_13-v1",
@@ -25253,7 +25077,7 @@
    ]
   ],
   "skill": "Angle bisectors in triangles",
-  "num": 624
+  "num": 620
  },
  {
   "id": "geometry_16-v1",
@@ -25297,7 +25121,7 @@
    ]
   ],
   "skill": "Triangle angle inequalities",
-  "num": 625
+  "num": 621
  },
  {
   "id": "geometry_18-v1",
@@ -25337,7 +25161,7 @@
    ]
   ],
   "skill": "Intercepts of a line",
-  "num": 626
+  "num": 622
  },
  {
   "id": "geometry_19-v1",
@@ -25377,7 +25201,7 @@
    ]
   ],
   "skill": "Slope and collinear points",
-  "num": 627
+  "num": 623
  },
  {
   "id": "geometry_20-v1",
@@ -25417,7 +25241,7 @@
    ]
   ],
   "skill": "Intercepts of a line",
-  "num": 628
+  "num": 624
  },
  {
   "id": "geometry_21-v1",
@@ -25457,7 +25281,7 @@
    ]
   ],
   "skill": "Area bounded by lines",
-  "num": 629
+  "num": 625
  },
  {
   "id": "geometry_23-v1",
@@ -25497,7 +25321,7 @@
    ]
   ],
   "skill": "Pythagorean theorem in shapes",
-  "num": 630
+  "num": 626
  },
  {
   "id": "geometry_24-v1",
@@ -25537,7 +25361,7 @@
    ]
   ],
   "skill": "Equal area or perimeter shapes",
-  "num": 631
+  "num": 627
  },
  {
   "id": "geometry_25-v1",
@@ -25577,7 +25401,7 @@
    ]
   ],
   "skill": "Perimeters of split rectangles",
-  "num": 632
+  "num": 628
  },
  {
   "id": "geometry_26-v1",
@@ -25617,7 +25441,7 @@
    ]
   ],
   "skill": "Equal area or perimeter shapes",
-  "num": 633
+  "num": 629
  },
  {
   "id": "geometry_27-v1",
@@ -25657,7 +25481,7 @@
    ]
   ],
   "skill": "Triangle area with heights",
-  "num": 634
+  "num": 630
  },
  {
   "id": "geometry_28-v1",
@@ -25697,7 +25521,7 @@
    ]
   ],
   "skill": "Rectangle diagonal and perimeter",
-  "num": 635
+  "num": 631
  },
  {
   "id": "geometry_29-v1",
@@ -25741,7 +25565,7 @@
    ]
   ],
   "skill": "Maximum and minimum area",
-  "num": 636
+  "num": 632
  },
  {
   "id": "geometry_31-v1",
@@ -25781,7 +25605,7 @@
    ]
   ],
   "skill": "Maximum and minimum area",
-  "num": 637
+  "num": 633
  },
  {
   "id": "geometry_32-v1",
@@ -25821,7 +25645,7 @@
    ]
   ],
   "skill": "Square diagonal and side",
-  "num": 638
+  "num": 634
  },
  {
   "id": "geometry_33-v1",
@@ -25861,7 +25685,7 @@
    ]
   ],
   "skill": "Area change algebra",
-  "num": 639
+  "num": 635
  },
  {
   "id": "geometry_34-v1",
@@ -25901,7 +25725,7 @@
    ]
   ],
   "skill": "Area ratios with a shared height",
-  "num": 640
+  "num": 636
  },
  {
   "id": "geometry_36-v1",
@@ -25948,7 +25772,7 @@
    ]
   ],
   "skill": "Testing for right triangles",
-  "num": 641
+  "num": 637
  },
  {
   "id": "geometry_37-v1",
@@ -25988,7 +25812,7 @@
    ]
   ],
   "skill": "30-60-90 triangles",
-  "num": 642
+  "num": 638
  },
  {
   "id": "geometry_38-v1",
@@ -26028,7 +25852,7 @@
    ]
   ],
   "skill": "Triangle inequality",
-  "num": 643
+  "num": 639
  },
  {
   "id": "geometry_39-v1",
@@ -26068,7 +25892,7 @@
    ]
   ],
   "skill": "Pythagorean theorem algebra",
-  "num": 644
+  "num": 640
  },
  {
   "id": "geometry_40-v1",
@@ -26108,7 +25932,7 @@
    ]
   ],
   "skill": "Pythagorean word problems",
-  "num": 645
+  "num": 641
  },
  {
   "id": "geometry_41-v1",
@@ -26148,7 +25972,7 @@
    ]
   ],
   "skill": "Altitude to the hypotenuse",
-  "num": 646
+  "num": 642
  },
  {
   "id": "geometry_42-v1",
@@ -26188,7 +26012,7 @@
    ]
   ],
   "skill": "Pythagorean theorem algebra",
-  "num": 647
+  "num": 643
  },
  {
   "id": "geometry_43-v1",
@@ -26232,7 +26056,7 @@
    ]
   ],
   "skill": "Isosceles triangle side lengths",
-  "num": 648
+  "num": 644
  },
  {
   "id": "geometry_45-v1",
@@ -26272,7 +26096,7 @@
    ]
   ],
   "skill": "Related circle areas",
-  "num": 649
+  "num": 645
  },
  {
   "id": "geometry_46-v1",
@@ -26316,7 +26140,7 @@
    ]
   ],
   "skill": "Chords and radii",
-  "num": 650
+  "num": 646
  },
  {
   "id": "geometry_47-v1",
@@ -26360,7 +26184,7 @@
    ]
   ],
   "skill": "Tangent lines and radii",
-  "num": 651
+  "num": 647
  },
  {
   "id": "geometry_48-v1",
@@ -26400,7 +26224,7 @@
    ]
   ],
   "skill": "Circumference and wheel turns",
-  "num": 652
+  "num": 648
  },
  {
   "id": "geometry_49-v1",
@@ -26444,7 +26268,7 @@
    ]
   ],
   "skill": "Arc length and clock hands",
-  "num": 653
+  "num": 649
  },
  {
   "id": "geometry_51-v1",
@@ -26488,7 +26312,7 @@
    ]
   ],
   "skill": "Area ratios and radii",
-  "num": 654
+  "num": 650
  },
  {
   "id": "geometry_52-v1",
@@ -26528,7 +26352,7 @@
    ]
   ],
   "skill": "Trapezoid area",
-  "num": 655
+  "num": 651
  },
  {
   "id": "geometry_53-v1",
@@ -26568,7 +26392,7 @@
    ]
   ],
   "skill": "Regular hexagon area",
-  "num": 656
+  "num": 652
  },
  {
   "id": "geometry_55-v1",
@@ -26612,7 +26436,7 @@
    ]
   ],
   "skill": "Uniform border area",
-  "num": 657
+  "num": 653
  },
  {
   "id": "geometry_56-v1",
@@ -26648,7 +26472,7 @@
    ]
   ],
   "skill": "Inscribed and central angles",
-  "num": 658
+  "num": 654
  },
  {
   "id": "geometry_57-v1",
@@ -26692,7 +26516,7 @@
    ]
   ],
   "skill": "Sectors and arc length",
-  "num": 659
+  "num": 655
  },
  {
   "id": "geometry_60-v1",
@@ -26732,7 +26556,7 @@
    ]
   ],
   "skill": "Triangle inequality",
-  "num": 660
+  "num": 656
  },
  {
   "id": "geometry_62-v1",
@@ -26778,7 +26602,7 @@
    ]
   ],
   "skill": "Angles and side lengths",
-  "num": 661
+  "num": 657
  },
  {
   "id": "geometry_63-v1",
@@ -26818,7 +26642,7 @@
    ]
   ],
   "skill": "30-60-90 triangles",
-  "num": 662
+  "num": 658
  },
  {
   "id": "geometry_64-v1",
@@ -26858,7 +26682,7 @@
    ]
   ],
   "skill": "Pythagorean triples",
-  "num": 663
+  "num": 659
  },
  {
   "id": "geometry_65-v1",
@@ -26898,7 +26722,7 @@
    ]
   ],
   "skill": "Similar right triangles",
-  "num": 664
+  "num": 660
  },
  {
   "id": "geometry_66-v1",
@@ -26934,7 +26758,7 @@
    ]
   ],
   "skill": "Polygon diagonals",
-  "num": 665
+  "num": 661
  },
  {
   "id": "geometry_67-v1",
@@ -26974,7 +26798,7 @@
    ]
   ],
   "skill": "Polygon angle sums",
-  "num": 666
+  "num": 662
  },
  {
   "id": "geometry_68-v1",
@@ -27010,7 +26834,7 @@
    ]
   ],
   "skill": "Interior and exterior angles",
-  "num": 667
+  "num": 663
  },
  {
   "id": "geometry_115-v1",
@@ -27050,7 +26874,7 @@
    ]
   ],
   "skill": "Interior and exterior angles",
-  "num": 668
+  "num": 664
  },
  {
   "id": "geometry_70-v1",
@@ -27090,7 +26914,7 @@
    ]
   ],
   "skill": "Perpendicular slopes",
-  "num": 669
+  "num": 665
  },
  {
   "id": "geometry_71-v1",
@@ -27130,7 +26954,7 @@
    ]
   ],
   "skill": "Lines and intercepts",
-  "num": 670
+  "num": 666
  },
  {
   "id": "geometry_72-v1",
@@ -27170,7 +26994,7 @@
    ]
   ],
   "skill": "Perpendicular slopes",
-  "num": 671
+  "num": 667
  },
  {
   "id": "geometry_73-v1",
@@ -27210,7 +27034,7 @@
    ]
   ],
   "skill": "Lines and intercepts",
-  "num": 672
+  "num": 668
  },
  {
   "id": "geometry_74-v1",
@@ -27250,7 +27074,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 673
+  "num": 669
  },
  {
   "id": "geometry_75-v1",
@@ -27290,7 +27114,7 @@
    ]
   ],
   "skill": "Area in the coordinate plane",
-  "num": 674
+  "num": 670
  },
  {
   "id": "geometry_76-v1",
@@ -27330,7 +27154,7 @@
    ]
   ],
   "skill": "Parallelogram coordinates",
-  "num": 675
+  "num": 671
  },
  {
   "id": "geometry_77-v1",
@@ -27370,7 +27194,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 676
+  "num": 672
  },
  {
   "id": "geometry_76-v1",
@@ -27414,7 +27238,7 @@
    ]
   ],
   "skill": "Distance formula",
-  "num": 677
+  "num": 673
  },
  {
   "id": "geometry_78-v1",
@@ -27454,7 +27278,7 @@
    ]
   ],
   "skill": "Cylinder surface area",
-  "num": 678
+  "num": 674
  },
  {
   "id": "geometry_79-v1",
@@ -27494,7 +27318,7 @@
    ]
   ],
   "skill": "Cube diagonals",
-  "num": 679
+  "num": 675
  },
  {
   "id": "geometry_80-v1",
@@ -27534,7 +27358,7 @@
    ]
   ],
   "skill": "Surface area of solids",
-  "num": 680
+  "num": 676
  },
  {
   "id": "geometry_81-v1",
@@ -27570,7 +27394,7 @@
    ]
   ],
   "skill": "Cylinder volume",
-  "num": 681
+  "num": 677
  },
  {
   "id": "geometry_83-v1",
@@ -27610,7 +27434,7 @@
    ]
   ],
   "skill": "Box volume from faces",
-  "num": 682
+  "num": 678
  },
  {
   "id": "geometry_84-v1",
@@ -27650,7 +27474,7 @@
    ]
   ],
   "skill": "Surface area after cutting",
-  "num": 683
+  "num": 679
  },
  {
   "id": "geometry_85-v1",
@@ -27690,7 +27514,7 @@
    ]
   ],
   "skill": "Box dimensions from a ratio",
-  "num": 684
+  "num": 680
  },
  {
   "id": "geometry_86-v1",
@@ -27726,7 +27550,7 @@
    ]
   ],
   "skill": "Similar solids",
-  "num": 685
+  "num": 681
  },
  {
   "id": "standard-deviation_91-v1",
@@ -27762,7 +27586,7 @@
    ]
   ],
   "skill": "Shifting graphs",
-  "num": 686
+  "num": 682
  },
  {
   "id": "standard-deviation_94-v1",
@@ -27802,7 +27626,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 687
+  "num": 683
  },
  {
   "id": "standard-deviation_95-v1",
@@ -27838,7 +27662,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 688
+  "num": 684
  },
  {
   "id": "standard-deviation_96-v1",
@@ -27878,7 +27702,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 689
+  "num": 685
  },
  {
   "id": "standard-deviation_97-v1",
@@ -27922,7 +27746,7 @@
    ]
   ],
   "skill": "Transforming functions",
-  "num": 690
+  "num": 686
  },
  {
   "id": "plains_boss_1-v1",
@@ -27966,7 +27790,7 @@
    ]
   ],
   "skill": "Surface area of solids",
-  "num": 691
+  "num": 687
  },
  {
   "id": "percent_1-v1",
@@ -28006,7 +27830,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 692
+  "num": 688
  },
  {
   "id": "percent_2-v1",
@@ -28046,7 +27870,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 693
+  "num": 689
  },
  {
   "id": "percent_3-v1",
@@ -28086,7 +27910,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 694
+  "num": 690
  },
  {
   "id": "percent_4-v1",
@@ -28126,7 +27950,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 695
+  "num": 691
  },
  {
   "id": "percent_5-v1",
@@ -28166,7 +27990,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 696
+  "num": 692
  },
  {
   "id": "percent_6-v1",
@@ -28206,7 +28030,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 697
+  "num": 693
  },
  {
   "id": "percent_7-v1",
@@ -28246,7 +28070,7 @@
    ]
   ],
   "skill": "Moving items between groups",
-  "num": 698
+  "num": 694
  },
  {
   "id": "percent_8-v1",
@@ -28286,7 +28110,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 699
+  "num": 695
  },
  {
   "id": "percent_9-v1",
@@ -28326,7 +28150,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 700
+  "num": 696
  },
  {
   "id": "percent_12-v1",
@@ -28362,7 +28186,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 701
+  "num": 697
  },
  {
   "id": "percent_10-v1",
@@ -28398,7 +28222,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 702
+  "num": 698
  },
  {
   "id": "percent_11-v1",
@@ -28438,7 +28262,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 703
+  "num": 699
  },
  {
   "id": "percent_13-v1",
@@ -28474,7 +28298,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 704
+  "num": 700
  },
  {
   "id": "percent_14-v1",
@@ -28510,7 +28334,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 705
+  "num": 701
  },
  {
   "id": "percent_15-v1",
@@ -28554,7 +28378,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 706
+  "num": 702
  },
  {
   "id": "percent_16-v1",
@@ -28594,7 +28418,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 707
+  "num": 703
  },
  {
   "id": "percent_17-v1",
@@ -28630,7 +28454,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 708
+  "num": 704
  },
  {
   "id": "percent_18-v1",
@@ -28670,7 +28494,7 @@
    ]
   ],
   "skill": "Percents and ratios",
-  "num": 709
+  "num": 705
  },
  {
   "id": "percent_19-v1",
@@ -28710,7 +28534,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 710
+  "num": 706
  },
  {
   "id": "percent_20-v1",
@@ -28750,7 +28574,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 711
+  "num": 707
  },
  {
   "id": "percent_21-v1",
@@ -28790,7 +28614,7 @@
    ]
   ],
   "skill": "Percents and averages",
-  "num": 712
+  "num": 708
  },
  {
   "id": "percent_22-v1",
@@ -28830,7 +28654,7 @@
    ]
   ],
   "skill": "Percents and counting",
-  "num": 713
+  "num": 709
  },
  {
   "id": "percent_23-v1",
@@ -28870,7 +28694,7 @@
    ]
   ],
   "skill": "Moving items between groups",
-  "num": 714
+  "num": 710
  },
  {
   "id": "percent_24-v1",
@@ -28910,7 +28734,7 @@
    ]
   ],
   "skill": "Finding the percent",
-  "num": 715
+  "num": 711
  },
  {
   "id": "percent_25-v1",
@@ -28950,7 +28774,7 @@
    ]
   ],
   "skill": "Percents and counting",
-  "num": 716
+  "num": 712
  },
  {
   "id": "percent_26-v1",
@@ -28991,7 +28815,7 @@
    ]
   ],
   "skill": "Percents and exponents",
-  "num": 717
+  "num": 713
  },
  {
   "id": "percent_27-v1",
@@ -29027,7 +28851,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 718
+  "num": 714
  },
  {
   "id": "percent_28-v1",
@@ -29067,7 +28891,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 719
+  "num": 715
  },
  {
   "id": "percent_29-v1",
@@ -29107,7 +28931,7 @@
    ]
   ],
   "skill": "Unit price percents",
-  "num": 720
+  "num": 716
  },
  {
   "id": "percent_30-v1",
@@ -29147,7 +28971,7 @@
    ]
   ],
   "skill": "Weighted percents of groups",
-  "num": 721
+  "num": 717
  },
  {
   "id": "percent_31-v1",
@@ -29187,7 +29011,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 722
+  "num": 718
  },
  {
   "id": "percent_32-v1",
@@ -29223,7 +29047,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 723
+  "num": 719
  },
  {
   "id": "percent_33-v1",
@@ -29263,7 +29087,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 724
+  "num": 720
  },
  {
   "id": "percent_34-v1",
@@ -29303,7 +29127,7 @@
    ]
   ],
   "skill": "Finding the whole",
-  "num": 725
+  "num": 721
  },
  {
   "id": "percent_35-v1",
@@ -29343,7 +29167,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 726
+  "num": 722
  },
  {
   "id": "percent_36-v1",
@@ -29383,7 +29207,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 727
+  "num": 723
  },
  {
   "id": "percent_37-v1",
@@ -29423,7 +29247,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 728
+  "num": 724
  },
  {
   "id": "percent_38-v1",
@@ -29463,7 +29287,7 @@
    ]
   ],
   "skill": "Percents and integers",
-  "num": 729
+  "num": 725
  },
  {
   "id": "percent_39-v1",
@@ -29503,7 +29327,7 @@
    ]
   ],
   "skill": "Percent of the remainder",
-  "num": 730
+  "num": 726
  },
  {
   "id": "percent_40-v1",
@@ -29543,7 +29367,7 @@
    ]
   ],
   "skill": "Changing the whole",
-  "num": 731
+  "num": 727
  },
  {
   "id": "percent_41-v1",
@@ -29583,7 +29407,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 732
+  "num": 728
  },
  {
   "id": "percent_42-v1",
@@ -29623,7 +29447,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 733
+  "num": 729
  },
  {
   "id": "percent_43-v1",
@@ -29663,7 +29487,7 @@
    ]
   ],
   "skill": "Reverse percents",
-  "num": 734
+  "num": 730
  },
  {
   "id": "percent_44-v1",
@@ -29703,7 +29527,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 735
+  "num": 731
  },
  {
   "id": "percent_45-v1",
@@ -29743,7 +29567,7 @@
    ]
   ],
   "skill": "Percents and averages",
-  "num": 736
+  "num": 732
  },
  {
   "id": "percent_46-v1",
@@ -29783,7 +29607,7 @@
    ]
   ],
   "skill": "Percent equations",
-  "num": 737
+  "num": 733
  },
  {
   "id": "percent_47-v1",
@@ -29823,7 +29647,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 738
+  "num": 734
  },
  {
   "id": "percent_48-v1",
@@ -29863,7 +29687,7 @@
    ]
   ],
   "skill": "Tiered percents",
-  "num": 739
+  "num": 735
  },
  {
   "id": "percent_69-v1",
@@ -29903,7 +29727,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 740
+  "num": 736
  },
  {
   "id": "percent_70-v1",
@@ -29943,7 +29767,7 @@
    ]
   ],
   "skill": "Markup and discount",
-  "num": 741
+  "num": 737
  },
  {
   "id": "percent_71-v1",
@@ -29983,7 +29807,7 @@
    ]
   ],
   "skill": "Simple and compound interest",
-  "num": 742
+  "num": 738
  },
  {
   "id": "percent_72-v1",
@@ -30019,7 +29843,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 743
+  "num": 739
  },
  {
   "id": "percent_73-v1",
@@ -30055,7 +29879,7 @@
    ]
   ],
   "skill": "Repeated percent growth",
-  "num": 744
+  "num": 740
  },
  {
   "id": "percent_74-v1",
@@ -30095,7 +29919,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 745
+  "num": 741
  },
  {
   "id": "percent_75-v1",
@@ -30135,7 +29959,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 746
+  "num": 742
  },
  {
   "id": "percent_76-v1",
@@ -30175,7 +29999,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 747
+  "num": 743
  },
  {
   "id": "percent_77-v1",
@@ -30215,7 +30039,7 @@
    ]
   ],
   "skill": "Percent of a changing total",
-  "num": 748
+  "num": 744
  },
  {
   "id": "percent_78-v1",
@@ -30259,7 +30083,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 749
+  "num": 745
  },
  {
   "id": "percent_79-v1",
@@ -30299,7 +30123,7 @@
    ]
   ],
   "skill": "Repeated percent growth",
-  "num": 750
+  "num": 746
  },
  {
   "id": "percent_80-v1",
@@ -30335,7 +30159,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 751
+  "num": 747
  },
  {
   "id": "percent_81-v1",
@@ -30375,7 +30199,7 @@
    ]
   ],
   "skill": "Percent of a changing total",
-  "num": 752
+  "num": 748
  },
  {
   "id": "percent_82-v1",
@@ -30415,7 +30239,7 @@
    ]
   ],
   "skill": "Percent change in a product",
-  "num": 753
+  "num": 749
  },
  {
   "id": "percent_83-v1",
@@ -30455,7 +30279,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 754
+  "num": 750
  },
  {
   "id": "percent_84-v1",
@@ -30495,7 +30319,7 @@
    ]
   ],
   "skill": "Order of percent changes",
-  "num": 755
+  "num": 751
  },
  {
   "id": "percent_85-v1",
@@ -30535,7 +30359,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 756
+  "num": 752
  },
  {
   "id": "percent_87-v1",
@@ -30571,7 +30395,7 @@
    ]
   ],
   "skill": "Percents with variables",
-  "num": 757
+  "num": 753
  },
  {
   "id": "percent_88-v1",
@@ -30615,7 +30439,7 @@
    ]
   ],
   "skill": "Percent of a subgroup",
-  "num": 758
+  "num": 754
  },
  {
   "id": "percent_89-v1",
@@ -30655,7 +30479,7 @@
    ]
   ],
   "skill": "Percent change of a difference",
-  "num": 759
+  "num": 755
  },
  {
   "id": "percent_90-v1",
@@ -30691,7 +30515,7 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 760
+  "num": 756
  },
  {
   "id": "percent_91-v1",
@@ -30735,7 +30559,7 @@
    ]
   ],
   "skill": "Percent change of an increase",
-  "num": 761
+  "num": 757
  },
  {
   "id": "percent_92-v1",
@@ -30775,7 +30599,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 762
+  "num": 758
  },
  {
   "id": "percent_93-v1",
@@ -30815,7 +30639,7 @@
    ]
   ],
   "skill": "Percent of a percent",
-  "num": 763
+  "num": 759
  },
  {
   "id": "percent_94-v1",
@@ -30855,7 +30679,7 @@
    ]
   ],
   "skill": "Mixtures and concentration",
-  "num": 764
+  "num": 760
  },
  {
   "id": "percent_95-v1",
@@ -30891,7 +30715,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 765
+  "num": 761
  },
  {
   "id": "percent_96-v1",
@@ -30931,7 +30755,7 @@
    ]
   ],
   "skill": "Base pay plus commission",
-  "num": 766
+  "num": 762
  },
  {
   "id": "percent_97-v1",
@@ -30967,7 +30791,7 @@
    ]
   ],
   "skill": "Reverse percent change",
-  "num": 767
+  "num": 763
  },
  {
   "id": "percent_98-v1",
@@ -31007,7 +30831,7 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 768
+  "num": 764
  },
  {
   "id": "percent_99-v1",
@@ -31051,7 +30875,7 @@
    ]
   ],
   "skill": "Profit and loss percents",
-  "num": 769
+  "num": 765
  },
  {
   "id": "standard-deviation_87-v1",
@@ -31093,7 +30917,7 @@
    ]
   ],
   "skill": "Signs of powers",
-  "num": 770
+  "num": 766
  },
  {
   "id": "standard-deviation_88-v1",
@@ -31133,7 +30957,7 @@
    ]
   ],
   "skill": "Repeating patterns",
-  "num": 771
+  "num": 767
  },
  {
   "id": "standard-deviation_89-v1",
@@ -31173,7 +30997,7 @@
    ]
   ],
   "skill": "Repeating decimal digits",
-  "num": 772
+  "num": 768
  },
  {
   "id": "standard-deviation_99-v1",
@@ -31214,7 +31038,7 @@
    ]
   ],
   "skill": "Units digit cycles",
-  "num": 773
+  "num": 769
  },
  {
   "id": "swamp_boss_1-v1",
@@ -31258,7 +31082,7 @@
    ]
   ],
   "skill": "Percent greater or less than",
-  "num": 774
+  "num": 770
  },
  {
   "id": "swamp_boss_3-v1",
@@ -31298,6 +31122,6 @@
    ]
   ],
   "skill": "Successive percent changes",
-  "num": 775
+  "num": 771
  }
 ]
